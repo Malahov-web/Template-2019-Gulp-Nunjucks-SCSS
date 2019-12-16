@@ -1,0 +1,122 @@
+@font-face {
+    font-family: "themify";
+    src: url('../fonts/themify/themify.eot');
+    src: url('../fonts/themify/themify.eot?#iefix') format('eot'),
+        url('../fonts/themify/themify.woff2') format('woff2'),
+        url('../fonts/themify/themify.woff') format('woff'),
+        url('../fonts/themify/themify.ttf') format('truetype'),
+        url('../fonts/themify/themify.svg#themify') format('svg');
+}
+
+.themify:before {
+    font-family: "themify";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+    text-decoration: none;
+    text-transform: none;
+}
+
+
+.themify-angle-right:before {
+    content: "\EA01";
+}
+
+.themify-bar-chart:before {
+    content: "\EA02";
+}
+
+.themify-close:before {
+    content: "\EA03";
+}
+
+.themify-comment-alt:before {
+    content: "\EA04";
+}
+
+.themify-comments-smiley:before {
+    content: "\EA05";
+}
+
+.themify-comments:before {
+    content: "\EA06";
+}
+
+.themify-credit-card:before {
+    content: "\EA07";
+}
+
+.themify-email:before {
+    content: "\EA08";
+}
+
+.themify-gift:before {
+    content: "\EA09";
+}
+
+.themify-headphone-alt:before {
+    content: "\EA0A";
+}
+
+.themify-heart:before {
+    content: "\EA0B";
+}
+
+.themify-layout-column3-alt:before {
+    content: "\EA0C";
+}
+
+.themify-layout-grid2:before {
+    content: "\EA0D";
+}
+
+.themify-layout-grid3-alt:before {
+    content: "\EA0E";
+}
+
+.themify-menu:before {
+    content: "\EA0F";
+}
+
+.themify-minus:before {
+    content: "\EA10";
+}
+
+.themify-plus:before {
+    content: "\EA11";
+}
+
+.themify-search:before {
+    content: "\EA12";
+}
+
+.themify-shopping-cart-full:before {
+    content: "\EA13";
+}
+
+.themify-shopping-cart:before {
+    content: "\EA14";
+}
+
+.themify-split-v:before {
+    content: "\EA15";
+}
+
+.themify-star:before {
+    content: "\EA16";
+}
+
+.themify-truck:before {
+    content: "\EA17";
+}
+
+.themify-user:before {
+    content: "\EA18";
+}
+
+.themify-view-list:before {
+    content: "\EA19";
+}

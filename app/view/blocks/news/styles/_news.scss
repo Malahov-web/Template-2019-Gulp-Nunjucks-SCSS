@@ -1,0 +1,66 @@
+/* . news
+ * **********************************************************************
+ *
+*/
+
+.news-outer{
+
+}
+.news{
+
+    &__item{
+        // @include height_leveling('fullheight');
+        // @extend %shadow_card;
+
+        &-image{
+            // margin-bottom:  1/2*$l_h_base;
+            // position: relative; 
+            // padding-bottom: 56%;
+            // overflow: hidden;
+            img{
+                // @include image_center_cover();
+            }
+        }
+
+        // &-content {
+        //     @include h_rhytm('card', $fb);
+        //     padding-top: 1/2*$l_h_base;
+        //     padding-bottom: 1/2*$l_h_base;
+        }
+
+        &-title{
+            // @include font_size_pro('h4');
+            // @include height_leveling('heading');
+            // letter-spacing: $l_s;
+
+            a {
+                // color: $text;
+                &:hover {
+                    // color: $accent;
+                }
+            }
+        }
+        &-text{
+            // @include font_size_pro('base');
+            // @include height_leveling('text');
+            // @include v_rhytm('text', $l_h);
+        }
+        &-date{
+            // display: block; 
+            // @include font_size('small');
+            // @include font_size_pro('base');
+            // @include height_leveling('base');
+            // @include typo('date');
+            // color: $grey;
+        }
+    }
+}
+
+
+@media (min-width: #{map-get($devices, 'ds_')}px) {
+
+.news{
+
+}
+    
+} // media end

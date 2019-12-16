@@ -1,0 +1,39 @@
+/* . actions
+ * **********************************************************************
+ *
+*/
+
+.actions-outer{
+
+}
+.actions{
+    &__item{
+
+        &-title{
+
+        }
+        &-text{
+
+        }
+        &-image{
+            img{
+
+            }
+        }
+        &-link{
+
+        }
+        &-date{
+
+        }
+    }
+}
+
+
+@media (min-width: #{map-get($devices, 'ds_')}px) {
+
+.actions{
+
+}
+    
+} // media end

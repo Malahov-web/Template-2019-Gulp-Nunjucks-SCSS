@@ -1,0 +1,33 @@
+/* . features
+ * **********************************************************************
+ *
+*/
+
+.features{
+
+    &__item{
+
+        &-title{
+
+        }
+        &-text{
+
+        }
+        &-icon{
+            img{
+
+            }
+        }
+
+    }    
+
+}
+
+
+@media (min-width: #{map-get($devices, 'ds_')}px) {
+
+.features{
+
+}
+    
+} // media end

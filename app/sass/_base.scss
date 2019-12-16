@@ -1,0 +1,91 @@
+/*
+ * .Base
+ *
+*/
+
+@import 'vars';
+@import 'mixins';
+// @import 'components';
+
+/*
+ * Base
+*/
+
+html{
+    font-size : 14px;
+    height: 100%;
+}
+body{
+    font-size : inherit;
+    // line-height : $l_h;
+    font-family : $font_family;
+    height: 100%;   
+    margin: 0;
+    font-weight: 300;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration : none;
+    &:hover{
+        // color: $accent_dark; // Иконки в кнопках <a> задевает
+    }
+}
+ul, ol{
+    margin: 0 ; padding: 0;
+    list-style: none;
+}
+h1, h2, h3, h4,
+.h1, .h2, .h3, .h4{
+    margin: 0;
+    line-height: $l_h_head;
+    font-family: $font_family_head;
+    // font-weight: bold;
+    // letter-spacing: $l_s_big;
+    font-weight: 400;
+    color: $text;
+}
+h1, .h1{
+    font-size: $font_h1;
+    letter-spacing: $l_s_big;
+}
+h2, .h2{
+    font-size: $font_h2;
+}
+h3, .h3{
+    font-size: $font_h3;
+}
+h4, .h4{
+    font-size: $font_h4;
+}
+
+p{
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: $fb;
+    line-height: $l_h;
+    font-weight: 300;
+
+}
+img{
+    display: block;
+    max-width: 100%; width: 100%; height: auto;
+}
+
+.themify:before,
+.themify:after{
+    vertical-align: middle;
+    display: block;
+}
+
+
+
+
+
+
+.section-component {
+    margin: 2 * $l_h 0;
+}

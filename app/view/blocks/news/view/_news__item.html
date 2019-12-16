@@ -1,0 +1,26 @@
+                        <div class="mv_12 tb_6 hd_4 news__item-outer">
+                    
+                            <article class="news__item">
+                                <div class="news__item-image">
+                                    <picture>
+                                        <source media="(min-width: 0)" srcset="uploads/news/{{ item['item-image'] }}">
+                                            <img alt="{{ item['item-title'] }}" src="uploads/news/{{ item['item-image'] }}">
+                                            </img>
+                                        </source>
+                                    </picture>
+                                </div>
+                                <div class="news__item-content">
+                                    <h3 class="news__item-title">
+                                        <a href="#">
+                                            {{ item['item-title'] }}
+                                        </a>
+                                    </h3>
+                                    <div class="news__item-text">{{ item['item-text'] }}
+                                    </div>
+                                    <time class="news__item-date" datetime="{{ item['item-datetime'] }}">
+                                        {{ item['item-date'] }}
+                                    </time>                                
+                                </div>
+                            </article>
+                    
+                        </div>

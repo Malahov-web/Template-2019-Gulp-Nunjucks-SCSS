@@ -1,0 +1,41 @@
+/* . menu-main
+ * **********************************************************************
+ *
+*/  
+
+.menu-main-outer{
+    background-color: $;
+}
+.menu-control{
+    display: none;
+}
+.menu-main{
+}
+    .menu-main li{
+        // display: inline-block;
+        // float: left;
+        
+        &:last-child{
+            margin-right: 0;
+        }
+        a{
+            display: block;
+            font-size: ;
+            color: ;
+
+            &:hover{
+                color: ;
+            }
+        }
+    }
+
+
+@media (min-width: #{map-get($devices, 'ds_')}px) {
+
+.menu-main{
+}
+    .menu-main li{
+
+    }
+    
+} // media end

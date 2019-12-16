@@ -1,0 +1,113 @@
+/* 2. menu-mobile
+ * **********************************************************************
+ *
+*/
+
+.menu-main-outer {}
+
+.menu-main-trigger {
+    display: none;    
+}
+
+.menu-main {
+    // @extend %shadow;
+    @media (min-width: #{map-get($devices, 'tb_')}px) {
+       box-shadow: none;
+    }    
+}
+.menu-main ul {
+    @include flex(space-between, center);    
+    padding: 1.5*$l_h 0;
+    flex-direction: column;
+
+    @media (min-width: #{map-get($devices, 'tb_')}px) {
+       flex-direction: row;
+    }
+
+ 
+    li {
+        // display: inline-block;
+        // margin: 0 1*$l_h;  
+
+        a {
+            font-size: $f_nav;
+            line-height: $l_h;
+            letter-spacing: $l_s_big;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $text;
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
+}
+
+
+@media (max-width: #{map-get($devices, 'tb_')-1}px) {  
+
+
+// .menu-main-outer {
+//     padding: 0.75*$l_h 0;
+// }
+
+.menu-main-trigger {
+    display: block;
+    float: right;
+    // padding: 0 1em;
+    background-color: $accent_alt;
+    width: 30px;
+    height: 24px;
+    i {
+
+    }
+    color: $white;
+}
+.menu-main {
+    
+    display: none;
+    z-index: $zindex_nav;
+    position: absolute;
+    top: 100%; margin-top: 0.5*$l_h;
+    right: 0;
+    width: 100vw;
+    padding-top: $l_h;
+    padding: 0;
+    background-color: $white;
+    border-top: 1px solid $border_color;
+
+    ul li {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: $fb;
+        text-align: left;
+
+        a {
+            display: block;
+            padding: 0.5*$l_h 1em 0.5*$l_h 1em;
+            text-align: center;
+        }
+        a:hover,
+        a:active {
+            background-color: $accent;
+            color: $white;
+        }        
+
+        i {
+            margin-right: 1em;
+        }
+    }
+    // для переопределения:
+    ul li:hover,
+    ul li:active {
+        // background-color: $pink;
+        // color: $white;
+    }
+ 
+
+}
+
+    
+} // media end

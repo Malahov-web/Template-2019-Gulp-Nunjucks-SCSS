@@ -1,0 +1,96 @@
+
+/* B. Plugins
+ * **********************************************************************
+ *  
+*/
+
+// B.1 owl-carousel
+
+body .owl-carousel {
+    .owl-stage-outer {
+        width: 100%;
+        width: calc(100% - 1px);
+    }
+}
+
+body .owl-carousel .owl-item img {
+    width: auto;
+}
+
+// Slider standart
+body .owl-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    button.owl-prev, button.owl-next {
+        position: absolute;
+        top: 50%;
+        font-size: 0;
+        span {
+            @extend .themify; // font-size: 0;
+            color: transparent;
+        }
+        &.owl-prev {
+            left: 0;
+            @media (min-width: #{map-get($devices, 'ds_')}px) {
+                transform: translateX(-100%);
+            }
+            span:before {
+                @extend .themify-angle-right;
+                transform: rotate(180deg);
+                font-size: 3 * $fb;
+                color: $grey;
+            }
+        }
+        &.owl-next {
+            right: 0;
+            @media (min-width: #{map-get($devices, 'ds_')}px) {
+                transform: translateX(100%);
+            }
+            span:before {
+                @extend .themify-angle-right;
+                font-size: 3 * $fb;
+                color: $grey;
+            }
+        }
+        &:hover span:before {
+            color: $accent_dark;
+        }
+    }
+}
+
+// Slider small
+body .gallery .owl-carousel .owl-nav {
+
+    button.owl-prev, button.owl-next {
+
+        span {
+           // transform: translateY(-50%); 
+        }
+        &.owl-prev {
+            left: 0;
+            @media (min-width: #{map-get($devices, 'ds_')}px) {
+                transform: translate(-100%, -50%);
+            }
+            span:before {
+                @extend .themify-angle-right;
+                transform: rotate(180deg);
+                font-size: 1 * $fb;
+
+            }
+        }
+        &.owl-next {
+            right: 0;
+            @media (min-width: #{map-get($devices, 'ds_')}px) {
+                transform: translate(100%, -50%);
+            }
+            span:before {
+                @extend .themify-angle-right;
+                font-size: 1 * $fb;
+
+            }
+        }
+
+    }
+}

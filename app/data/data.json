@@ -1,0 +1,1201 @@
+{
+    "mytitle": "uk result demo",
+    
+    "site": {
+        "title": "UK Result demo",
+        "name": "ЮК Результат",
+        "address": "12, Lorem Ipsum Amet, Australiya 395",
+        "copyrights": "© ”CAR Audio 2” 2019. All Rights Reserved. Some information place here.",
+        "buttons-texts": {
+
+            "button-buy": "Add To Cart",
+            "button-send": "Send It"
+        },
+        "contacts": {
+            "phones": [
+                "(+12) 345 7800 20",
+                "(+7) 123 5566 789"
+            ],
+            "emails": [
+                "caraudio2.information@company.com"
+            ]
+        },
+        "buttons": {
+            "button-buy": { 
+                "normal": {
+                    "text": "Add To Cart",
+                    "icon": "add_shopping_cart"
+                   },
+                "hover": {
+                    "text": "Add To Cart",
+                    "icon": "add_shopping_cart"
+                   },
+                "active": {
+                    "text": "Remove",
+                    "icon": "remove_shopping_cart"
+                   },
+                "disabled": {
+                    "text": "Add To Cart",
+                    "icon": "shopping_cart"
+                   }                     
+            },
+            "button-slider-arrow": {
+                "prev": {
+                    "text": "",
+                    "icon": "chevron_left"
+                   },
+                "next": {
+                    "text": "",
+                    "icon": "chevron_right"
+                   }
+            }
+        }
+    },
+
+    "menu-class": "menu-main--mv menu-main--ds",
+    "items": [
+      {"name": "red", "first": true, "url": "#Red"},
+      {"name": "green", "link": true, "url": "#Green"},
+      {"name": "YelloW", "link": true, "url": "#YelloW"}
+    ],
+    "empty": false,
+
+    "menu-items": [
+        { 
+            "menu-items-name": "Об агентстве",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Кейсы" },
+                { "sub-menu-item-name": "Вакансии" }
+            ]
+        },
+        {
+            "menu-items-name": "Представительство в судах",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Досудебное урегулирование споров" },
+                { "sub-menu-item-name": "Представительство интересов в арбитражном суде (арбитраж)" },
+                { "sub-menu-item-name": "Банкротство физических лиц" },
+                { "sub-menu-item-name": "Взыскание долгов" },
+                { "sub-menu-item-name": "Жилищные споры" },
+                { "sub-menu-item-name": "Семейные споры" },
+                { "sub-menu-item-name": "Земельные споры" },
+                { "sub-menu-item-name": "Оспаривание корректировок таможенной стоимости" },
+                { "sub-menu-item-name": "Наследственное право" },
+                { "sub-menu-item-name": "Консультации и подготовка документов" }
+            ]
+        },
+
+        {
+            "menu-items-name": "Допуски СРО",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "СРО в строительстве" },
+                { "sub-menu-item-name": "СРО в проектировании" },
+                { "sub-menu-item-name": "СРО в изысканиях" }
+            ]
+        },
+        {
+            "menu-items-name": "Лицензирование",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Лицензии МЧС" },
+                { "sub-menu-item-name": "Лицензии на гостайну ФСБ" },
+                { "sub-menu-item-name": "Медицинские лицензии" },
+                { "sub-menu-item-name": "Фармацевтические лицензии" },
+                { "sub-menu-item-name": "Лицензирование управляющих компаний" },
+                { "sub-menu-item-name": "Лицензия для автошколы" },
+                { "sub-menu-item-name": "Реставрационные лицензии Минкультуры" },
+                { "sub-menu-item-name": "Лицензии на розничную реализацию алкоголя" },
+                { "sub-menu-item-name": "Заключения СЭС, УГПН" },
+                { "sub-menu-item-name": "Лицензия на геодезию и картографию" },
+                { "sub-menu-item-name": "Сертификация услуг авторемонтных мастерских" },
+                { "sub-menu-item-name": "Туристические сертификаты" },
+                { "sub-menu-item-name": "Сертификация предприятий общественного питания" },
+                { "sub-menu-item-name": "Разрешения на торговлю (регистрационные удостоверения)" },
+                { "sub-menu-item-name": "Лицензии на трудоустройство за рубежом" },
+                { "sub-menu-item-name": "Лицензии на охранную и детективную деятельность" },
+                { "sub-menu-item-name": "Лицензии на переработку лома черных и цветных металлов" }
+            ]
+        },
+        {
+            "menu-items-name": "Регистрация и ликвидация",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Регистрация ИП" },
+                { "sub-menu-item-name": "Регистрация ООО" },
+                { "sub-menu-item-name": "Регистрация некоммерческих организаций" },
+                { "sub-menu-item-name": "Внесение изменений" },
+                { "sub-menu-item-name": "Ликвидация ООО" }
+            ]
+        },
+        {
+            "menu-items-name": "Услуги ",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Услуги бухгалтера" },
+                { "sub-menu-item-name": "Уголовный юрист" },
+                { "sub-menu-item-name": "Автоадвокат" },
+                { "sub-menu-item-name": "Операции с недвижимостю" },
+                { "sub-menu-item-name": "Наследственные споры" }
+            ]
+        }
+    ],
+
+    "mainmenu": [
+        {
+            "menu-item-name": "Acoustic",
+            "menu-item-link": "#",
+            "submenu" : [
+                {
+                    "item-name" : "Frontal",
+                    "item-link": "#"
+                },
+                {
+                    "item-name" : "Stereo",
+                    "item-link": "#"
+                },
+                {
+                    "item-name" : "Back",
+                    "item-link": "#"
+                },
+                {
+                    "item-name" : "Sabwoofers",
+                    "item-link": "#"
+                },
+                {
+                    "item-name" : "5.1",
+                    "item-link": "#"
+                }
+            ]
+        },
+        {
+            "menu-item-name": "Amplifiers",
+            "menu-item-link": "#",
+            "menu-item-is-active": 1
+        },
+        {
+            "menu-item-name": "Stereos&Radios",
+            "menu-item-link": "#"
+        },
+        {
+            "menu-item-name": "Speakers",
+            "menu-item-link": "#"
+        },
+        {
+            "menu-item-name": "Sound Packages",
+            "menu-item-link": "#"
+        },
+        {
+            "menu-item-name": "Accessories",
+            "menu-item-link": "#"
+        },
+        {
+            "menu-item-name": "Processors",
+            "menu-item-link": "#"
+        },
+        {
+            "menu-item-name": "Computers",
+            "menu-item-link": "#"
+        },        
+        {
+            "menu-item-name": "GPS",
+            "menu-item-link": "#"
+        }
+
+    ],
+
+    "topmenu": [
+        {
+            "top-menu-item-name": "About",
+            "top-menu-item-link": "#",
+            "submenu" : [
+                {
+                    "submenu-item-name" : "Customers"
+                },
+                {
+                    "submenu-item-name" : "Company History"
+                },
+                {
+                    "submenu-item-name" : "Our projects"
+                },
+                {
+                    "submenu-item-name" : "Item 4"
+                },
+                {
+                    "submenu-item-name" : "Item 5"
+                }
+            ]
+        },
+        {
+            "top-menu-item-name": "Payment",
+            "top-menu-item-link": "#"
+        },
+        {
+            "top-menu-item-name": "Delivery",
+            "top-menu-item-link": "#"
+        },
+        {
+            "top-menu-item-name": "Blog",
+            "top-menu-item-link": "#"
+        },
+        {
+            "top-menu-item-name": "Contacts",
+            "top-menu-item-link": "#"
+        }
+    ],
+
+    "footer_menu_1": [
+        {
+            "item-name": "About",
+            "item-link": "#",
+            "submenu" : [
+                {
+                    "submenu-item-name" : "Customers"
+                },
+                {
+                    "submenu-item-name" : "Company History"
+                },
+                {
+                    "submenu-item-name" : "Our projects"
+                },
+                {
+                    "submenu-item-name" : "Item 4"
+                },
+                {
+                    "submenu-item-name" : "Item 5"
+                }
+            ]
+        },
+        {
+            "item-name": "Payment",
+            "item-link": "#"
+        },
+        {
+            "item-name": "Delivery",
+            "item-link": "#"
+        },
+        {
+            "item-name": "Blog",
+            "item-link": "#"
+        },
+        {
+            "item-name": "Contacts",
+            "item-link": "#"
+        }
+    ],
+
+    "footer_menu_1": [
+        {
+            "item-name": "About",
+            "item-link": "#"
+        },
+        {
+            "item-name": "Payment",
+            "item-link": "#"
+        },
+        {
+            "item-name": "Delivery",
+            "item-link": "#"
+        },
+        {
+            "item-name": "Point of issue",
+            "item-link": "#"
+        },        
+        {
+            "item-name": "Blog",
+            "item-link": "#"
+        },
+        {
+            "item-name": "Loyality programm",
+            "item-link": "#"
+        }
+    ],
+
+    "slides": [
+        { 
+            "item-title": "Professional Audio in Your Car", 
+            "item-text": "Guaranteed even if you bouth your product somewhere else", 
+            "item-button-text": "Discover more", 
+            "item-image": "slides-item-img-1.jpg"
+        },
+        { 
+            "item-title": "Find anything you want" , 
+            "item-text": "We have everything your car needs", 
+            "item-button-text": "Discover more", 
+            "item-image": "slides-item-img-2.jpg"
+        }
+    ],
+
+    "services": [
+        { 
+            "item-title": "Допуски СРО", 
+            "item-image": "services-item-img-1.png"
+        },
+        { 
+            "item-title": "Лицензии МЧС" , 
+            "item-image": "services-item-img-2.png"
+        },
+        { 
+            "item-title": "Регистрация ООО", 
+            "item-image": "services-item-img-3.png" 
+        },
+        { 
+            "item-title": "Услуги бухгалтера", 
+            "item-image": "services-item-img-4.png" }
+            ,
+        { 
+            "item-title": "Услуги адвоката", 
+            "item-image": "services-item-img-5.png" 
+        },
+        { 
+            "item-title": "Налоговый адвокат", 
+            "item-image": "services-item-img-6.png" 
+        }
+    ],
+
+    "services_sro": [
+        { "item-title": "СРО в строительстве", "item-image": "agreement.svg"},
+        { "item-title": "СРО в проектировании" , "item-image": "agreement.svg"},
+        { "item-title": "СРО в изысканиях", "item-image": "agreement.svg" }
+    ],
+
+    "offers": [
+        { 
+            "item-title": "Уголовное право",
+            "item-image": "court.png",
+            "id": 1,
+            "even": false,
+            "list": [
+                {
+                    "list-item-title": "Досудебное урегулирование споров",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Представительство интересов в арбитражном суде (арбитраж)",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Суды общей юрисдикции",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Адвокат по уголовным делам",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Банкротство физических лиц",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Взыскание долгов",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Семейные споры",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Жилищные споры",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Земельные споры",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Оспаривание корректировок таможенной стоимости",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Консультации и подготовка документов",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Наследственное право",
+                    "list-item-image": "briefcase.png"
+                }               
+            ]
+        },
+
+
+        { 
+            "item-title": "Гражданское право",
+            "item-image": "book-2.png",
+            "id": 2,
+            "even": true,
+            "list": [
+                {
+                    "list-item-title": "Досудебное урегулирование споров",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Представительство интересов в арбитражном суде (арбитраж)",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Суды общей юрисдикции",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Адвокат по уголовным делам",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Банкротство физических лиц",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Взыскание долгов",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Семейные споры",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Жилищные споры",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Земельные споры",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Оспаривание корректировок таможенной стоимости",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Консультации и подготовка документов",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Наследственное право",
+                    "list-item-image": "briefcase.png"
+                }               
+            ]
+        },
+
+
+        { 
+            "item-title": "Услуги юриста",
+            "item-image": "avatar-2.png",
+            "id": 3,
+            "even": false,
+            "list": [
+                {
+                    "list-item-title": "Досудебное урегулирование споров",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Представительство интересов в арбитражном суде (арбитраж)",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Суды общей юрисдикции",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Адвокат по уголовным делам",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Банкротство физических лиц",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Взыскание долгов",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Семейные споры",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Жилищные споры",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Земельные споры",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Оспаривание корректировок таможенной стоимости",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Консультации и подготовка документов",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Наследственное право",
+                    "list-item-image": "briefcase.png"
+                }               
+            ]
+        },
+
+        { 
+            "item-title": "Бизнесу",
+            "item-image": "team.png",
+            "id": 4,
+            "even": true,
+            "list": [
+                {
+                    "list-item-title": "Досудебное урегулирование споров",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Представительство интересов в арбитражном суде (арбитраж)",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Суды общей юрисдикции",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Адвокат по уголовным делам",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Банкротство физических лиц",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Взыскание долгов",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Семейные споры",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Жилищные споры",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Земельные споры",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Оспаривание корректировок таможенной стоимости",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Консультации и подготовка документов",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Наследственное право",
+                    "list-item-image": "briefcase.png"
+                }               
+            ]
+        }
+
+    ],
+
+
+    "difference-we": [
+        { 
+            "item-title": "Оформление договора", 
+            "item-text": "Нам важно, чтобы наши клиенты доверяли нам, поэтому мы всегда заключаем договора и предоставляем документы о приеме денег"
+
+        },
+        { 
+            "item-title": "Фиксированная стоимость", 
+            "item-text": "Мы гарантируем, что озвученная изначально стоимость услуг останется неизменной до конца сотрудничества"
+        },
+        { 
+            "item-title": "Оперативность", 
+            "item-text": "Мы ценим Ваше время, поэтому не затягиваем сроки и начинаем работу в день обращения"
+        },
+        { 
+            "item-title": "Большой опыт", 
+            "item-text": "В нашей компании работают только высококвалифицированные специалисты с опытом работы по своей специализации не менее 5 лет. За плечами наших сотрудников тысячи составленных документов и сотни судебных заседаний"
+        },
+        { 
+            "item-title": "Выгодные условия и цены", 
+            "item-text": "Мы всегда готовы предложить Вам самые выгодные условия, например, предоставить услуги в рассрочку"
+        }                   
+
+    ],
+
+    "difference-competitor": [
+        { 
+            "item-title": "Работа без договора", 
+            "item-text": "Многие частные юристы не дают клиентам никаких гарантий, отказываясь заключать договор о сотрудничестве"
+
+        },
+        { 
+            "item-title": "Дополнительные затраты", 
+            "item-text": "Различные дополнительные расходы могут привести к тому, что озвученная изначально стоимость услуг в итоге увеличивается в несколько раз"
+
+        },
+        { 
+            "item-title": "Затягивание сроков", 
+            "item-text": "Недобросовестные компании затягивают сроки решения проблем, заставляя своих клиентов нервничать"
+
+        },
+        { 
+            "item-title": "Отсутстсвие квалифицированных специалистов", 
+            "item-text": "Сейчас много различных юридических учебных заведений с сомнительной репутацией, выпускники которых активно продают свои услуги, не имея ни знаний, ни опыта работы"
+
+        },
+        { 
+            "item-title": "Высокая цена", 
+            "item-text": "Зачастую стоимость юридических услуг гораздо выше, чем их качество. В результате клиент теряет деньги, а его проблемы по-прежнему остаются с ним"
+
+        }
+
+    ], 
+
+    "reviews": [
+
+        { 
+            "item-name": "John Doe", 
+            "item-title": "Item Title", 
+            "item-image": "testimonials-item-img-1.jpg",
+            "item-image-large": "reviews-item-img-1-large.jpg",
+            "item-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "item-occupation": "Designer", 
+            "item-link": "#"
+        },
+        { 
+            "item-name": "Jessica Willson", 
+            "item-title": "Jessica Willson", 
+            "item-image": "testimonials-item-img-2.png",
+            "item-image-large": "reviews-item-img-1-large.jpg",
+            "item-text": "Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudiumqui sequitur mutationem consuetudium .Claritas est etiam processus dynamicus, qui sequitur mutationem mutationem.",
+            "item-occupation": "Rock Star",
+            "item-link": "#"
+        },
+        { 
+            "item-name": "Radamel Falkao", 
+            "item-title": "Radamel Falkao", 
+            "item-image": "testimonials-item-img-3.jpg",
+            "item-image-large": "reviews-item-img-3-large.jpg",
+            "item-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "item-occupation": "Developer", 
+            "item-link": "#"
+        }
+
+
+    ],
+
+    "sertificates": [
+        { 
+            "item-title": "Отзыв от MyCompany", 
+            "item-text": "С нашей помощью Вы можете напрямую вступить в СРО без посредников, так как мы официальные, аккредитованные представители самых надежных СРО в России", 
+            "item-image": "reviews-item-img-1.jpg",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Отзыв от TransNeftGazAlmaz", 
+            "item-text": "Вы можете напрямую вступить в СРО без посредников, так как мы официальные, аккредитованные представители самых надежных СРО в России", 
+            "item-image": "reviews-item-img-2.jpg",
+            "item-link": "#"
+        }                        
+
+    ],    
+
+    "categories": [
+
+        { 
+            "item-title": "Acoustic ABC", 
+            "item-subtitle": "Speakers and Subs", 
+            "item-text": "text", 
+            "item-image": "category-image-1.jpg",
+            "item-link": "#"
+        },        
+        { 
+            "item-title": "Amplifiers", 
+            "item-subtitle": "Rock It, Baby!", 
+            "item-text": "text", 
+            "item-image": "category-image-2.jpg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Stereos&Radios", 
+            "item-subtitle": "Keep it simple", 
+            "item-text": "text", 
+            "item-image": "category-image-3.jpg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Speakers", 
+            "item-subtitle": "Speakers and Subs", 
+            "item-text": "text", 
+            "item-image": "category-image-4.jpg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Sound Packages", 
+            "item-subtitle": "All in one", 
+            "item-text": "text", 
+            "item-image": "category-image-5.jpg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Accessories", 
+            "item-subtitle": "Speakers and Subs", 
+            "item-text": "text", 
+            "item-image": "category-image-6.jpg",
+            "item-link": "#"
+        }
+
+    ],
+
+    "news": [
+        { 
+            "item-title": "123 Going Green Is So Much Simpler Than Most People", 
+            "item-image": "news-item-img-1.jpg",
+            "item-date": "29.10.2019",
+            "item-datetime": "2019-10-29",
+            "item-text": "Esse habemus usu, te nec eligendi deserunt vituperata. Natum consulatu vel ea",
+            "item-text-long": "Esse habemus usu, te nec eligendi deserunt vituperata. Natum consulatu vel ea, duo cetero repudiare efficiendi cu. Has at quas nonumy facilisis, enim percipitur mei ad. Mazim possim adipisci sea ei, omnium aeterno platonem mei no. ",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Duis aute irure dolor in reprehenderit in voluptate", 
+            "item-image": "news-item-img-2.jpg",
+            "item-date": "29.10.2019",
+            "item-datetime": "2019-10-29",
+            "item-text": "St. Louis Blues Audio shortcode: “Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+            "item-text-long": "St. Louis Blues Audio shortcode: “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in rep.,  ",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "occaecat cupidatat non proident, sunt in", 
+            "item-image": "news-item-img-3.jpg",
+            "item-date": "29.10.2019",
+            "item-datetime": "2019-10-29",
+            "item-text": "Pri quas audiam virtute ut, case utamur fuisset eam ut, iisque accommodare an eam. ",
+            "item-text-long": "Pri quas audiam virtute ut, case utamur fuisset eam ut, iisque accommodare an eam. ",
+            "item-link": "#"
+        }                        
+
+    ],
+
+    "actions": [
+        { 
+            "item-title": "Latest Mi LED TV", 
+            "item-image": "actions-item-img-1.jpg",
+            "item-date": "25.10.2019",
+            "item-datetime": "2019-10-25",
+            "item-text": "on stock",
+            "item-text-long": "Esse habemus usu, te nec eligendi deserunt vituperata. Natum consulatu vel ea, duo cetero repudiare efficiendi cu. Has at quas nonumy facilisis, enim percipitur mei ad. Mazim possim adipisci sea ei, omnium aeterno platonem mei no. ",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Big Great Offer", 
+            "item-image": "actions-item-img-2.jpg",
+            "item-date": "06.11.2019",
+            "item-datetime": "2019-11-06",
+            "item-text": "St. Louis Blues Audio shortcode: “Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+            "item-text-long": "St. Louis Blues Audio shortcode: “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in rep.,  ",
+            "item-link": "#"
+        }                     
+
+    ],    
+
+    "products": [
+
+        { 
+            "item-title": "Boss AP1100R Amplifier 2 rows heading", 
+            "item-code": "1100R", 
+            "item-brand": "Boss", 
+            "item-image": "product-t-1.png",
+            "item-gallery": [
+                { "gallery-item-image": "product-img-1-gallery-1.jpg"  },
+                { "gallery-item-image": "product-img-1-gallery-2.jpg"  },
+                { "gallery-item-image": "product-img-1-gallery-3.jpg"  }
+            ],
+            "item-availability": "in stock",
+            "item-rating": "5",
+            "item-price": "2500",
+            "item-price-old": "2500",
+            "item-date": "25.10.2019",
+            "item-datetime": "2019-10-25",
+            "item-description": "Small description of this product",
+            "item-text-long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-link": "#",
+            "item-reviews": [
+                { "reviews-item-id": "1"  },
+                { "reviews-item-id": "2"  },
+                { "reviews-item-id": "3"  }
+            ],
+            "item-specifications": [
+                { 
+                    "specifications-item-title": "Processor",  
+                    "specifications-item-value": "Rizyn 3"
+                },
+                { 
+                    "specifications-item-title": "Brand",  
+                    "specifications-item-value": "AMD"
+                },
+                { 
+                    "specifications-item-title": "OS",  
+                    "specifications-item-value": "Linux"
+                },
+                { 
+                    "specifications-item-title": "RAM-memory",  
+                    "specifications-item-value": "16 GB"
+                },
+                { 
+                    "specifications-item-title": "Video memory",  
+                    "specifications-item-value": "4 GB"
+                },
+                { 
+                    "specifications-item-title": "Dimension",  
+                    "specifications-item-value": "1920x1080"
+                },
+                { 
+                    "specifications-item-title": "Weight",  
+                    "specifications-item-value": "3 KG"
+                }
+            ]
+        },
+
+        { 
+            "item-title": "Butterflies Hand-held Bag (Beige)", 
+            "item-code": "181350", 
+            "item-brand": "Butterflies", 
+            "item-image": "product-t-2.png",
+            "item-gallery": [
+                { "gallery-item-image": "product-img-1-gallery-1.jpg"  },
+                { "gallery-item-image": "product-img-1-gallery-2.jpg"  },
+                { "gallery-item-image": "product-img-1-gallery-3.jpg"  }
+            ],
+            "item-availability": "in stock",
+            "item-rating": "4",
+            "item-price": "1200",
+            "item-price-old": "1500",
+            "item-date": "25.06.2019",
+            "item-datetime": "2019-06-25",
+            "item-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-text-long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-link": "#",
+            "item-reviews": [
+                { "reviews-item-id": "1"  },
+                { "reviews-item-id": "2"  },
+                { "reviews-item-id": "3"  }
+            ],
+            "item-specifications": [
+                { 
+                    "specifications-item-title": "Processor",  
+                    "specifications-item-value": "Rizyn 3"
+                },
+                { 
+                    "specifications-item-title": "Brand",  
+                    "specifications-item-value": "AMD"
+                },
+                { 
+                    "specifications-item-title": "OS",  
+                    "specifications-item-value": "Linux"
+                },
+                { 
+                    "specifications-item-title": "RAM-memory",  
+                    "specifications-item-value": "16 GB"
+                },
+                { 
+                    "specifications-item-title": "Video memory",  
+                    "specifications-item-value": "4 GB"
+                },
+                { 
+                    "specifications-item-title": "Dimension",  
+                    "specifications-item-value": "1920x1080"
+                },
+                { 
+                    "specifications-item-title": "Weight",  
+                    "specifications-item-value": "3 KG"
+                }
+            ]
+        },
+
+        { 
+            "item-title": "Samsung Galaxy", 
+            "item-code": "281350", 
+            "item-brand": "Samsung", 
+            "item-image": "product-t-3.png",
+            "item-gallery": [
+                { "gallery-item-image": "product-img-2-gallery-1.jpg"  },
+                { "gallery-item-image": "product-img-2-gallery-2.jpg"  },
+                { "gallery-item-image": "product-img-2-gallery-3.jpg"  }
+            ],
+            "item-availability": "in stock",
+            "item-rating": "5",
+            "item-price": "1200",
+            "item-price-old": "1500",
+            "item-date": "25.06.2019",
+            "item-datetime": "2019-06-25",
+            "item-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-text-long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-link": "#",
+            "item-reviews": [
+                { "reviews-item-id": "1"  },
+                { "reviews-item-id": "2"  },
+                { "reviews-item-id": "3"  }
+            ],
+            "item-specifications": [
+                { 
+                    "specifications-item-title": "Processor",  
+                    "specifications-item-value": "Rizyn 3"
+                },
+                { 
+                    "specifications-item-title": "Brand",  
+                    "specifications-item-value": "AMD"
+                },
+                { 
+                    "specifications-item-title": "OS",  
+                    "specifications-item-value": "Linux"
+                },
+                { 
+                    "specifications-item-title": "RAM-memory",  
+                    "specifications-item-value": "16 GB"
+                },
+                { 
+                    "specifications-item-title": "Video memory",  
+                    "specifications-item-value": "4 GB"
+                },
+                { 
+                    "specifications-item-title": "Dimension",  
+                    "specifications-item-value": "1920x1080"
+                },
+                { 
+                    "specifications-item-title": "Weight",  
+                    "specifications-item-value": "3 KG"
+                }
+            ]
+        },
+
+        { 
+            "item-title": "ASUS 12345", 
+            "item-code": "381350", 
+            "item-brand": "ASUS", 
+            "item-image": "product-t-4.jpg",
+            "item-gallery": [
+                { "gallery-item-image": "product-img-3-gallery-1.jpg"  },
+                { "gallery-item-image": "product-img-3-gallery-2.jpg"  },
+                { "gallery-item-image": "product-img-3-gallery-3.jpg"  }
+            ],
+            "item-availability": "in stock",
+            "item-rating": "5",
+            "item-price": "1200",
+            "item-price-old": "1500",
+            "item-date": "25.06.2019",
+            "item-datetime": "2019-06-25",
+            "item-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-text-long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-link": "#",
+            "item-reviews": [
+                { "reviews-item-id": "1"  },
+                { "reviews-item-id": "2"  },
+                { "reviews-item-id": "3"  }
+            ],
+            "item-specifications": [
+                { 
+                    "specifications-item-title": "Processor",  
+                    "specifications-item-value": "Rizyn 3"
+                },
+                { 
+                    "specifications-item-title": "Brand",  
+                    "specifications-item-value": "AMD"
+                },
+                { 
+                    "specifications-item-title": "OS",  
+                    "specifications-item-value": "Linux"
+                },
+                { 
+                    "specifications-item-title": "RAM-memory",  
+                    "specifications-item-value": "16 GB"
+                },
+                { 
+                    "specifications-item-title": "Video memory",  
+                    "specifications-item-value": "4 GB"
+                },
+                { 
+                    "specifications-item-title": "Dimension",  
+                    "specifications-item-value": "1920x1080"
+                },
+                { 
+                    "specifications-item-title": "Weight",  
+                    "specifications-item-value": "3 KG"
+                }
+            ]
+        },
+
+        { 
+            "item-title": "Bosch WLG 20260", 
+            "item-code": "381350", 
+            "item-brand": "Bosch", 
+            "item-image": "product-t-5.jpeg",
+            "item-gallery": [
+                { "gallery-item-image": "product-img-3-gallery-1.jpg"  },
+                { "gallery-item-image": "product-img-3-gallery-2.jpg"  },
+                { "gallery-item-image": "product-img-3-gallery-3.jpg"  }
+            ],
+            "item-availability": "in stock",
+            "item-rating": "5",
+            "item-price": "",
+            "item-price-old": "",
+            "item-date": "25.06.2019",
+            "item-datetime": "2019-06-25",
+            "item-description": "Without price",
+            "item-text-long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-link": "#",
+            "item-reviews": [
+                { "reviews-item-id": "1"  },
+                { "reviews-item-id": "2"  },
+                { "reviews-item-id": "3"  }
+            ],
+            "item-specifications": [
+                { 
+                    "specifications-item-title": "Processor",  
+                    "specifications-item-value": "Rizyn 3"
+                },
+                { 
+                    "specifications-item-title": "Brand",  
+                    "specifications-item-value": "AMD"
+                },
+                { 
+                    "specifications-item-title": "OS",  
+                    "specifications-item-value": "Linux"
+                },
+                { 
+                    "specifications-item-title": "RAM-memory",  
+                    "specifications-item-value": "16 GB"
+                },
+                { 
+                    "specifications-item-title": "Video memory",  
+                    "specifications-item-value": "4 GB"
+                },
+                { 
+                    "specifications-item-title": "Dimension",  
+                    "specifications-item-value": "1920x1080"
+                },
+                { 
+                    "specifications-item-title": "Weight",  
+                    "specifications-item-value": "3 KG"
+                }
+            ]
+        }, 
+
+        { 
+            "item-title": "MotherBoard ASUS M5A78L-M LX3", 
+            "item-code": "381350", 
+            "item-brand": "ASUS", 
+            "item-image": "product-t-6.png",
+            "item-gallery": [
+                { "gallery-item-image": "product-img-5-gallery-1.jpg"  },
+                { "gallery-item-image": "product-img-5-gallery-2.jpg"  },
+                { "gallery-item-image": "product-img-5-gallery-3.jpg"  }
+            ],
+            "item-availability": "in stock",
+            "item-rating": "5",
+            "item-price": "5400",
+            "item-price-old": "",
+            "item-date": "25.06.2019",
+            "item-datetime": "2019-06-25",
+            "item-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-text-long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat commodo.",
+            "item-link": "#",
+            "item-reviews": [
+                { "reviews-item-id": "1"  },
+                { "reviews-item-id": "2"  },
+                { "reviews-item-id": "3"  }
+            ],
+            "item-specifications": [
+                { 
+                    "specifications-item-title": "Processor",  
+                    "specifications-item-value": "Rizyn 3"
+                },
+                { 
+                    "specifications-item-title": "Brand",  
+                    "specifications-item-value": "AMD"
+                },
+                { 
+                    "specifications-item-title": "OS",  
+                    "specifications-item-value": "Linux"
+                },
+                { 
+                    "specifications-item-title": "RAM-memory",  
+                    "specifications-item-value": "16 GB"
+                },
+                { 
+                    "specifications-item-title": "Video memory",  
+                    "specifications-item-value": "4 GB"
+                },
+                { 
+                    "specifications-item-title": "Dimension",  
+                    "specifications-item-value": "1920x1080"
+                },
+                { 
+                    "specifications-item-title": "Weight",  
+                    "specifications-item-value": "3 KG"
+                }
+            ]
+        } 
+
+    ],
+
+    "brands": [
+        { 
+            "item-title": "Alpine", 
+            "item-image": "brands-item-img-1.png"
+        },
+        { 
+            "item-title": "AudioBahn" , 
+            "item-image": "brands-item-img-2.png"
+        },
+        { 
+            "item-title": "Blaupunkt" , 
+            "item-image": "brands-item-img-3.png"
+        },
+        { 
+            "item-title": "Boss Audio" , 
+            "item-image": "brands-item-img-4.png"
+        },
+        { 
+            "item-title": "Cadence" , 
+            "item-image": "brands-item-img-5.png"
+        },
+        { 
+            "item-title": "Coral" , 
+            "item-image": "brands-item-img-6.png"
+        },
+        { 
+            "item-title": "DNS" , 
+            "item-image": "brands-item-img-7.png"
+        },
+        { 
+            "item-title": "Dynaudio" , 
+            "item-image": "brands-item-img-8.png"
+        },
+        { 
+            "item-title": "EarthQuake" , 
+            "item-image": "brands-item-img-9.png"
+        },
+        { 
+            "item-title": "Genesis" , 
+            "item-image": "brands-item-img-X.png"
+        },
+        { 
+            "item-title": "placeholder" , 
+            "item-image": "brands-item-img-X.png"
+        } 
+
+    ],
+    
+
+    "section": [
+        { "item": "value"},
+        { "item": "value"},
+        { "item": "value"}
+    ]
+
+}
+
+

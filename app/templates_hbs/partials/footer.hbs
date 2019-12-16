@@ -1,0 +1,81 @@
+<footer class="footer section">
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row-flex middle">
+
+                <div class="mv_24 tb_6 ds_4">
+                    <div class="logo">
+                        <div class="logo__image">
+                            <a href="#">
+                                <img src="images/logo_result.png" alt="{{site.name}}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mv_24 tb_8 ds_6 ds_offset_4">
+                    <div class="contacts contacts--footer ">
+                        <div class="contacts__title">
+                            Адрес
+                        </div>
+    
+                            <div class="address lefted">{{site.address}}</div>
+                        
+                    </div>
+                </div>
+
+                <div class="mv_24 tb_10 ds_8 ds_offset_2">
+
+
+                    <div class="contacts contacts--footer lefted">
+
+                        <div class="contacts__title">
+                            Телефон
+                        </div>
+
+                        <div class="phones">
+                            <div class="phones__item">
+                                <a href="tel:+74232458611">(423) 245-86-11</a>, 
+                                <a href="tel:+74232455794">245-57-94</a>, 
+                                <a href="tel:+74232522211">252-22-11</a>
+                                <a href="tel:+7423245-82-40">245-82-40</a>, 
+                                <a href="tel:+78005557910">8 (800) 555-79-10</a>
+                            </div>
+                        </div>
+                             
+                    </div>
+
+                </div>                
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-middle tb_visible no-padding">
+
+        <div class="container">
+            <div class="menu-footer-outer">
+                <ul class="menu-footer">
+                    {{#menu-items}}
+                        <li>
+                            <a href="#">{{menu-items-name}}</a>
+            
+                            <ul class="sub-menu">
+                                {{#sub-menu}}
+                                <li><a href="#">{{sub-menu-item-name}}</a></li>
+                                {{/sub-menu}}
+                            </ul>            
+                        </li>
+                    {{/menu-items}}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom centered">
+        <div class="copyrights">© 2000-2019 Все права защищены, ЮК “Результат”</div>
+    </div>  
+
+</footer>

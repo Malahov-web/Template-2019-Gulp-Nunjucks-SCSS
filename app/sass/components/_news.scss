@@ -1,0 +1,37 @@
+/* . news
+ * **********************************************************************
+ *
+*/
+
+.news-outer{
+
+}
+.news{
+
+    &__item{
+
+        &-title{
+
+        }
+        &-text{
+
+        }
+        &-image{
+            img{
+
+            }
+        }
+        &-date{
+
+        }
+    }
+}
+
+
+@media (min-width: #{map-get($devices, 'ds_')}px) {
+
+.news{
+
+}
+    
+} // media end

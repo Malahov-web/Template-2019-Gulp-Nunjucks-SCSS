@@ -1,0 +1,41 @@
+/* . edges
+ * **********************************************************************
+ *
+*/
+
+.edges{
+
+    &__item{
+
+        &-title{
+
+        }
+        &-text{
+
+        }
+        &-icon{
+            i{
+                
+            }
+        }
+
+    }
+}
+
+
+@media (min-width: #{map-get($devices, 'tb_')}px) {
+
+.edges{
+
+}
+    
+} // media end
+
+
+@media (min-width: #{map-get($devices, 'ds_')}px) {
+
+.edges{
+
+}
+    
+} // media end

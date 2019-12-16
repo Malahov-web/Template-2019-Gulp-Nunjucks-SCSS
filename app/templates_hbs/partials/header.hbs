@@ -1,0 +1,193 @@
+<header class="header">
+
+    <div class="header-top">
+        <div class="container">
+
+            <div class="row-flex middle">
+
+                <div class="mv_10 tb_6 ds_hidden">
+                    <div class="m_nav">
+                        <div class="btn btn-mini js-modal-open" data-target="modal-callback">
+                            Позвоните мне
+                        </div>     
+                    </div>
+                </div>
+
+                <div class="mv_2 tb_2 ds_hidden">
+                    <div class="search-trigger ">
+                        <button class="search__button btn btn-search"></button>   
+                    </div>
+                </div>
+                <div class="mv_4 mv_offset_8 tb_2 tb_offset_14 ds_hidden">
+
+                    <div class="btn menu-main-trigger js-trigger" data-target="header-middle">
+                        <i class=" ukr-menu"></i>
+                        <i class=" ukr-close"></i>
+
+                        <!-- <i class="ukresultflaticons ukresultflaticons-001-add"></i> -->
+                        <!-- <i class="ukresultflaticons ukresultflaticons-magnifying-glass"></i> -->
+                    </div> 
+
+                </div>
+                              
+
+                <div class="ds_12 ds_visible">
+                    <div class="menu-top-outer">
+                
+                        <ul class="menu-top menu-top--ds">
+                            {{#top-menu}}
+                            <li><a href="#">{{top-menu-item-name}}</a></li>
+                            {{/top-menu}}
+                        </ul>
+                
+                    </div>
+                </div>
+
+                <div class="mv_24 tb_16 ds_6 ds_visible">
+                    <div class="search search--ds search--mv">
+                        <input class="search__field field-text" type="text" placeholder="Поиск по сайту"></input>
+                        <button class="search__button btn btn-search"></button>
+                        <!-- <a class="search__button button button-search"><i class="themify  themify-search"></i></a>  -->                   
+                    </div>  
+                </div>
+
+                <div class="mv_24 ds_4 ds_visible">
+                    <a href="#" class="oldversion">Старая версия сайта</a>
+                </div>
+
+                <div class="ds_visible ds_2">
+                    <div class="language">
+                        <div class="language__current">RU<i class="fi flaticon-down-arrow"></i></div>
+                        <ul class="language__list">
+                            <li><a href="">RU</a></li>
+                            <li><a href="">EN</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>      
+    </div>
+
+    <div class="header-middle" id="header-middle">
+        <div class="container">
+            
+            <div class="row-flex middle justifyed">
+
+                <div class="mv_24 tb_6 tb_offset_2 ds_3 ds_offset_1 m_flex logo-outer">
+
+                    <div class="logo">
+                        <div class="logo__image">
+
+                            <a href="#">
+                                <img src="images/logo_result.png" alt="{{site.name}}">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mv_24 tb_16 ds_hidden " id="menu-mobile-container">
+                    <ul class="{{menu-class}} js-dropdown_list">
+                        {{#menu-items}}
+                            <li class="{{menu-items-class}} ">
+                                <a href="#">{{menu-items-name}}</a>
+
+                                <ul class="sub-menu">
+                                    {{#sub-menu}}
+                                    <li><a href="#">{{sub-menu-item-name}}</a></li>
+                                    {{/sub-menu}}
+                                </ul>                                 
+                            </li>
+                        {{/menu-items}}
+
+
+                    </ul>
+                </div>
+
+                <div class="header__v_separator">                        
+                </div>
+
+                <div class="mv_24 tb_10 tb_offset_2 ds_6 ds_offset_0"> 
+
+                    <div class="contacts lefted">
+                        <div class="address">{{address}}</div>
+                        <div class="address">{{site.address}}</div>
+                        <div class="address">{{title}}</div>
+                        <a href="#" class="btn btn-mini">Схема проезда</a>
+                    </div>
+
+                </div>
+
+                <div class="header__v_separator">                        
+                </div>
+
+                <div class="mv_24 tb_10 tb_offset_0 ds_7">
+
+                    <div class="contacts lefted">
+                        <div class="phones">
+                            <div class="phones__item">
+                                <a href="tel:+74232458611">(423) 245-86-11</a>, 
+                                <a href="tel:+74232455794">245-57-94</a>, 
+                                <a href="tel:+74232522211">252-22-11</a></div>
+                            <div class="phones__item">
+                                <a href="tel:+7423245-82-40">245-82-40</a>, 
+                                <a href="tel:+78005557910">8 (800) 555-79-10</a></div>
+                        </div>
+                        <a href="#" class="btn btn-mini js-modal-open" data-target="modal-callback">
+                            Перезвоните мне
+                        </a>                              
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="header-bottom">
+
+        <div class="container ds_visible">
+
+            <div class="menu-main-outer">
+                <ul class="menu-main {{menu-class}}">
+                    {{#menu-items}}
+                        <li>
+                            <a href="#">{{menu-items-name}}</a>
+
+                            <ul class="sub-menu">
+                                {{#sub-menu}}
+                                <li><a href="#">{{sub-menu-item-name}}</a></li>
+                                {{/sub-menu}}
+                            </ul>            
+                        </li>
+                    {{/menu-items}}
+                </ul>
+            </div>            
+
+        </div>
+
+        <div class="container tb_hidden menu-trigger">
+
+            <a href="#" class="btn btn-readmore js-trigger" data-target="m-nav-menu-bottom" data-text-default="Навигация" data-text-open="Назад">Навигация</a>                        
+        </div>
+
+        <div class="container ds_hidden">
+            <div class="menu-top-mobile-outer" id="m-nav-menu-bottom">
+                
+                <ul class="menu-top menu-top--mv menu-top--tb">
+                    {{#top-menu}}
+                    <li><a href="#">{{top-menu-item-name}}</a></li>
+                    {{/top-menu}}
+                </ul>
+                
+            </div>
+        </div>
+
+    </div>
+
+</header>
