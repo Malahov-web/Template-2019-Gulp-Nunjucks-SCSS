@@ -1,0 +1,32 @@
+    <!-- Slider main container -->
+    <div class="swiper-container slider-main">
+
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+
+            <!-- Slides -->
+
+            {% for item in slides %}
+
+                {% include "partials/blocks/slider-main/slider-main__item.html" %}
+
+            {% endfor %}
+
+        </div>
+
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev">
+
+            {{ buttons.button_slider_arrow('Prev', 'prev') }}
+        </div>
+
+        <div class="swiper-button-next">
+           {{ buttons.button_slider_arrow('Next', 'next') }}   
+        </div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>

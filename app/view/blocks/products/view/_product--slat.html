@@ -1,0 +1,72 @@
+                        <div class="mv_12 product-outer">
+                            <div class="product product--slat">
+                                <div class="product-inner">
+                                    
+                                    <div class="product__image-outer">
+                                        <a href="#" class="product__image">
+                                            <img src="../uploads/products/{{ item['item-image'] }}" alt="">
+                                        </a>
+                                    </div>
+
+                                    <div class="product__content">
+
+                                        <div class="product__title-outer">
+                                            <div class="product__title" data-title="{{ item['item-title'] }}">
+                                                <a href="#">{{ item['item-title'] }}</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="product__description">{{ item['item-description'] }}</div>
+
+                                        <div class="product__price-outer">
+                                            {% if item['item-price-old'] %}
+                                                <div class="product__price-old">{{ item['item-price-old'] }} $</div>
+                                            {% endif %}
+                                            
+                                            {% if item['item-price'] %}
+                                                <div class="product__price">{{ item['item-price'] }} $</div>
+                                            {% else %}
+                                                <div class="product__price-cap"></div>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="product__purchase">
+
+                                            {% import "partials/components/rating.html" as ratings %}
+                                            <div class="product__rating-outer">
+                                            {% if item['item-rating'] %}
+                                                {{ ratings.rating('product__rating', item['item-rating']) }}
+                                            {% endif %}
+                                            </div>
+                                            
+                                            
+                                            <!--div class="product__buttons">
+                                                <a href="#" class="button button-buy">
+                                                   <span>Add To Cart</span> <i class="material-icons">add_shopping_cart</i>
+                                                </a>
+                                                <div class="product__buttons-tools">
+                                                    <a href="#" class="button button-compare"> <i class="material-icons">equalizer</i> </a>
+                                                    <a href="#" class="button button-favorite"> <i class="material-icons">favorite</i> </a>
+                                                </div>
+                                            </div-->
+
+                                            
+                                            <div class="product__buttons">
+                                                {{ buttons.button_buy(site['buttons-texts']['button-buy']) }}
+
+                                                <div class="product__buttons-tools">
+                                                    {{ buttons.button_compare('Compare') }}
+                                                    {{ buttons.button_favorite('Favorite') }}
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>

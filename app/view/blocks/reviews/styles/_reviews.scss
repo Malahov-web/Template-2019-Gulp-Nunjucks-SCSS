@@ -1,0 +1,85 @@
+
+
+
+.reviews {
+
+// $reviews_icon_metric: 1*$l_h_base;
+
+    &__item {
+        // padding-top: 1*$l_h_base;
+        // padding-bottom: 1*$l_h_base;
+        // @include h_rhytm('card', $fb);
+        // background-color: $grey_dark;
+        // color: $grey_super_light;
+
+        &-title {
+            // position: relative;
+            // padding-left: $reviews_icon_metric;
+            // @include font_size_pro('h5');
+            // @include height_leveling('base');
+            // @include typo('heading');
+
+            i {
+                // // vertical-align: middle;
+                // @include font_size_pro('h6');
+                // line-height: 1em;
+                // // @include height_leveling('base');
+                // @include pseudoelement_left_top(0, 0);
+                // width: $reviews_icon_metric;
+                // height: $reviews_icon_metric;
+            }
+        }
+        &-name {
+            // @include font_size_pro('h6');
+            // @include height_leveling('base');
+            // @include typo('name');
+
+        }
+        &-text {
+            // @include v_rhytm('item', $l_h_base);
+            // @include font_size_pro('base');
+            // @include height_leveling('text');
+            // @include typo('text');
+
+            @media (min-width: bp('tb_')+0px ) and (max-width: bp('ds_')-1px ){
+                // padding-left: $reviews_icon_metric; 
+            }
+        }
+
+    }
+
+    &__slider-buttons {
+        // @include flex(flex-start, center);
+        // @include h_rhytm('card', $fb);
+        // padding-bottom: 1*$l_h_base;        
+        // background-color: $grey_dark;
+        a.button {
+            // margin-right: 1/2*$l_h_base;
+
+        }
+
+    }
+}
+
+
+/* Slider */
+.reviews-outer {
+    .sidebar__block-content {
+        // При добавлении слайдера фон может потеряться при коротком тексте в слайде
+        // background-color: $grey_dark;   
+    }
+}
+
+.reviews  {
+    .swiper-container {
+        .swiper-button-prev,
+        .swiper-button-next {
+            // display: none;
+        }
+        
+        .reviews__item {
+            // background: none;
+        }
+
+    }
+}

@@ -1,0 +1,15 @@
+            <div class="swiper-slide slider__slide" style="background: url(../uploads/slides/{{ item['item-image'] }});">
+                <div class="container">
+                    <div class="row-flex middle">
+                        <div class="mv_10 tb_8 ds_6 hd_4">
+                            <div class="slider__slide-inner">
+                                <div class="slider__slide-title">{{ item['item-title'] }}</div>
+                                <div class="slider__slide-text">{{ item['item-text'] }}</div>
+                                <div class="slider__slide-buttons">
+                                    {{ buttons.button_promo(item['item-button-text']) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

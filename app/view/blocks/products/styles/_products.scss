@@ -1,0 +1,213 @@
+
+.products-tabs-outer {
+    .tabs__content {
+        // margin-top: 1*$l_h_base;
+        // @include v_rhytm('item', $l_h_base);
+    }
+}
+
+.products {
+    // @include v_rhytm('block-card', $l_h);
+}
+.product-outer {
+    // @include v_rhytm('card', $l_h);
+}
+.product {
+    // background-color: $white_dark;
+    // @include h_rhytm('card', $fb);
+    // padding-top: 1/2*$l_h_base;
+    // padding-bottom: 4/5*$l_h_base;
+    // @extend %shadow_card;
+    // @extend %transition;
+
+    &-inner {
+
+    }
+    &__image {
+        // display: block;
+        // position: relative;
+        // height: 160px;
+        // padding-bottom: 67%;
+        // padding-bottom: 70%;
+        img {
+            // @include image_center_cover();
+            // @include image_center_contain();
+        }
+    }
+    &__title-outer {
+        // margin-top: 1/2*$l_h_base;
+    }
+    &__title {
+        // position: relative;
+        // @include font_size_pro('base');
+        // @include height_leveling('heading_double');
+        // @include typo('heading');
+        // font-weight: 400 !important;
+        a {
+            // color: $text;
+            &:hover {
+                // color: $accent;
+            }
+        }
+
+
+
+        // @include text_overflow;
+        // @extend %transition;
+
+        // &:before {
+        //     opacity: 0;
+        //     @include pseudoelement_left_top(0, 0);
+        //     width: 100%; height: 100%;
+        //     @include height_leveling('heading_double');
+
+        //     background: linear-gradient(to top, $accent, $accent_alt_light);
+        //     @include bg_clip_text; 
+
+        //     content: attr(data-title)  !important;
+        //     @extend %transition;
+
+        // }        
+    }
+
+    // &:hover &__title  a {
+    //     color: transparent;
+    // }
+    // &:hover &__title:before {
+    //     opacity: 1;
+    // } 
+
+    &__description {
+        // @include height_leveling('heading');
+        // @include font_size_pro('small');        
+        // @include height_leveling('heading_double');
+        // @include typo('text');
+        // color: $grey;    
+    }
+
+    &__price-outer {
+        // @include flex(flex-start, center);
+    }
+    &__price {
+        // @include font_size_pro('h5');
+        // @include height_leveling('text');
+        // @include typo('price');
+    }
+    &__price-old {
+        // margin-right: 1/2*$l_h_base;
+        // @include font_size_pro('h6');
+        // @include height_leveling('text');
+        // @include typo('price');
+        // color: $grey;
+        // text-decoration: line-through;
+    }
+    &__price-cap {
+        // display: inline-block;
+        // height: ;
+        // @include font_size_pro('h5');
+        // @include height_leveling('text');
+        &:after {
+            // content: "have no price";
+            // position: relative;
+            // height: 100%;
+            // color: transparent;
+        }
+    }
+    &__buttons {
+        // @include flex(flex-start, center);
+        // @include flex(space-between, center);
+        // margin-top: 1*$l_h;
+
+        .product__buttons-tools {
+            // @include flex(center, center);
+        }
+    }
+}
+
+.product:hover {
+    @extend %shadow_card_hover;
+    // transform: translateY(-8px);
+}
+
+.product--card {
+    @media (max-width: bp('tb_')+0px ) {
+        & .product__image {
+            // padding-bottom: 8*$l_h_base;
+        } 
+    }
+}
+
+.product--slat {
+
+    @media (min-width: bp('mh_')+0px ) {
+
+        & .product-inner {
+            // @include flex(flex-start, center);
+        }
+        & .product__image-outer {
+            // width: 1/3 * 100%;
+        }
+        & .product__content {
+            // width: 2/3 * 100%;
+            // max-width: 600px;
+        } 
+
+        & .product__title {
+            // position: relative;
+            // @include font_size_pro('h6');
+        }
+        & .product__description {
+            // @include font_size_pro('base');        
+        }
+        & .product__purchase {
+            // @include flex(flex-start, flex-start);
+            // flex-direction: column;
+        }
+        & .product__buttons {
+            // @include flex(flex-start, center);            
+            // width: 100%;
+            // margin-top: 0;
+            // order: 10;
+        }
+        & .product__rating-outer {
+            // order: 20;
+            // @include v_rhytm('item', $l_h_base);
+        }
+
+    } /* media end */
+
+}
+
+.product--mini {
+
+
+    & .product__image {
+        // padding-bottom: 8*$l_h_base;
+        img {
+            // @include image_center_contain();
+        }
+    }        
+}
+
+/*
+Прием:
+2-x строчный заголовок, текст центрирован по вертикали
+
+
+        &-title {
+            @include flex( center, center);
+            @include height_leveling('heading_double');
+            @include font_size('fb');
+            @include typo('card-title');
+            @include color_scheme('default');
+            span {
+                max-height: 2*$l_h_head;
+                display: block;
+            }
+        }
+*/
+
+
+.swiper-container .product-outer {
+    // width: 100%;
+}

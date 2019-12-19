@@ -1,0 +1,46 @@
+
+                            <div class="reviews row">
+
+                                <div class="mv_12 collapse">
+
+                                    <!-- Slider main container -->
+                                    <div class="swiper-container slider-reviews">
+
+                                        <!-- Additional required wrapper -->
+                                        <div class=" swiper-wrapper">
+
+        
+                                            <!-- Slides -->
+                                            {% for item in reviews %}
+                                            {%  if loop.index0 < reviews_items_number %}
+                                            <div class="swiper-slide">
+
+                                                {% include "blocks/reviews/view/_reviews__item.html" %}
+
+                                            </div>                                           
+                                            {% endif %}
+                                            {% endfor %}                                            
+
+                                        </div>
+
+                                        <!-- If we need navigation buttons -->
+                                        <div class="swiper-button-prev">
+                                    
+                                            {{ buttons.button_slider_arrow('Prev', 'prev') }}
+                                        </div>
+                                    
+                                        <div class="swiper-button-next">
+                                           {{ buttons.button_slider_arrow('Next', 'next') }}   
+                                        </div>
+                                    
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="reviews__slider-buttons">
+
+                                {{ buttons.button_slider_arrow('', 'prev', 'chevron_left') }}
+                                {{ buttons.button_slider_arrow('', 'next', 'chevron_right') }}
+
+                            </div>

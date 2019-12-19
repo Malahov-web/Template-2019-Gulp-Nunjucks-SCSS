@@ -3,6 +3,7 @@
  * 2. Config 
  * 3. Tasks 
  * 4. Calls 
+ * 4. Utilites 
 */
 
 // 1. Requires 
@@ -61,7 +62,11 @@ const infoData = require('./app/data/data.json');
 
 const nunjucksRender = require('gulp-nunjucks-render');  
 
-    
+const fs = require('fs');
+
+// const pngquant = require('imagemin-pngquant');
+
+// const rename = require('rename');
 
 
 // 2. Config 
@@ -376,3 +381,66 @@ gulp.task('build', ['clean'],  function () {
 
 gulp.task('default', ['watch']);
 
+
+
+
+// 5. Utilites
+
+let rename_target_folder ='./app/view/blocks/products/view';
+
+    // 5.1  Rename files in folder
+    gulp.task('rename', function(path) {
+      return  gulp.src(
+        
+            // rename_target_folder + '/**/*.html'
+            rename_target_folder + '/*.html'
+        
+        )
+        // .pipe(concat('scripts.js'))
+        // .pipe(uglify())
+        // .pipe(rename('scripts.min.js'))
+        // .pipe(gulp.dest('app/js/min/'));
+        .pipe(rename(function (path) {
+            // Updates the object in-place
+            // path.dirname += "/ciao";
+            path.basename = "_" + path.basename;
+            // path.basename = path.basename.slice(1);
+            // path.extname = ".md";
+        }))
+
+        // .pipe(
+        //     rename( rename_target_folder + '/*.html' , function() {
+        //         // return {suffix: '-debug'};
+        //         return {extname: 'md'};
+        //     })
+        // )
+        // .pipe( del.sync( rename_target_folder + '/**/*.html') ) // ++ Работает
+        // .pipe( rename( rename_target_folder + '/*.html', {suffix: '-debug'})  ) // 
+        // .pipe( rename( rename_target_folder + '/*.html', {suffix: '-debug'})  ) // 
+
+        .pipe(gulp.dest(rename_target_folder))
+        // .pipe(gulp.dest('./dist/'))
+
+        // .pipe(gulp.dest(rename_target_folder + '/updated_files/'))
+        // .pipe( del.sync( rename_target_folder + '/*.html') )
+
+    }); 
+
+
+
+// const path = './file.txt'
+
+// fs.unlink(path, (err) => {
+//   if (err) {
+//     console.error(err)
+//     return
+//   }
+
+//   //file removed
+// })
+
+
+    // 3.7  Clean - очистка директории /dist
+    // gulp.task('clean', function() {
+    //     return del.sync('dist'); // Удаляем папку dist перед сборкой
+    // });

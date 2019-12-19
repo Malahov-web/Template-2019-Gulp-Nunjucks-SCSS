@@ -1,8 +1,38 @@
+// UI Components
 
-// @import 'menu-main';     //
+// @import 'components/buttons';     //
+
+// @import 'components/accordeon';     //
+// @import 'components/buttons';     //
+// @import 'components/rating';     //
+// @import 'components/social-links';     //
+// @import 'components/forms';     //
+// @import 'components/pagination';     //
+// @import 'components/accordeon';     //
+// @import 'components/tabs';     //
+// @import 'components/brands';     //
+// @import 'components/newsletter';     //
+// @import 'components/subscribe';     //
+// @import 'components/menu-main';     //
+// @import 'components/menu-top';     //
+// @import 'components/tools';     //
+// @import 'components/search';     //
+
+
+// Blocks
+
+@import '../view/blocks/slider-main/styles/slider-main';     //
+@import '../view/blocks/news/styles/news';     //
+@import '../view/blocks/actions/styles/actions';     //
+@import '../view/blocks/categories/styles/categories';     //
+@import '../view/blocks/edges/styles/edges';     //
+@import '../view/blocks/brands/styles/brands';     //
+@import '../view/blocks/reviews/styles/reviews';     //
+
+// @import 'blocks/users';     //
+// @import 'blocks/menu-main';     //
+
 // @import 'menu-mobile';     //
-// @import 'news';     //
-// @import 'actions';     //
-// @import 'features';     //
-// @import 'edges';     //
-// @import 'slider';     //
+// @import 'blocks/slider';     //
+// @import 'blocks/products';     //
+// @import 'blocks/contacts';     //

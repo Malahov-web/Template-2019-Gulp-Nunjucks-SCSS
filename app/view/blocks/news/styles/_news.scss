@@ -22,7 +22,7 @@
             }
         }
 
-        // &-content {
+        &-content {
         //     @include h_rhytm('card', $fb);
         //     padding-top: 1/2*$l_h_base;
         //     padding-bottom: 1/2*$l_h_base;
@@ -57,10 +57,21 @@
 }
 
 
-@media (min-width: #{map-get($devices, 'ds_')}px) {
-
-.news{
-
-}
+@media (min-width: bp('tb_')-1px ) {
+    // До tb (на mv, mh)
     
-} // media end
+} /* media end */
+
+@media (min-width: bp('ds_')+0px ) {
+    // На ds 
+
+    .news{
+        width: 100%;
+    }    
+
+} /* media end */
+
+@media (min-width: bp('hd_')+0px ) {
+    // На hd 
+
+} /* media end */

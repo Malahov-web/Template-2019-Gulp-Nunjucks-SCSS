@@ -1,0 +1,115 @@
+/* . slider
+ * **********************************************************************
+ *
+*/  
+
+.slider-outer,
+.section-slider{
+
+} 
+
+.slider{
+    // width: 100%; 
+    // height: 100vh;
+
+    &__slide{
+        &-inner{
+            // padding: 1/2*(250/1400)*100+vw  0; 
+            // Прибавляем снизу и сверху так чтобы суммарная высота на ds_ (1400px) была 500 (250 контент + 250 отуступы)
+
+            @media (min-width: bp('hd_')+0px ) {
+                // padding: 0;               
+            }              
+        }
+     
+        &-title{
+            // @include height_leveling('text-compressed');
+            // @include font_size_pro('large');
+            // @include typo('price');
+            // color: $grey_super_light;
+        }
+
+        &-text{
+            // @include v_rhytm('text', $l_h);
+            // @include height_leveling('text-compressed');
+            // @include font_size_pro('h5');
+            // letter-spacing: $l_s_big;
+            // color: $grey_super_light;
+
+        }
+        &-buttons{
+
+        }        
+    }
+}
+
+
+.swiper {
+    &-container {
+        @media (min-width: bp('hd_')+0px ) {
+            // min-height: 500px;
+            // max-height: 500px;
+        }        
+
+    }
+    &-wrapper {
+
+    }
+    &-slide {
+        .container {
+            // @include height_leveling('fullheight');
+            @media (min-width: bp('hd_')+0px ) {
+                // height: 500px;
+                // max-height: 500px;
+            }              
+            .row-flex {
+                // @include height_leveling('fullheight');
+            }
+        }
+    }
+
+
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    // z-index: $zindex_icon;
+
+    .button {
+        // background-color: $accent_light;
+        &:hover {
+            // background-color: $accent_alt_light;
+        }        
+    }    
+}
+.swiper-button-prev {
+    // @include pseudoelement_left_top(0, 50%);
+    // transform: translate(0, -50%);
+
+}
+.swiper-button-next {
+    // @include pseudoelement_right_top(0, 50%);
+    // transform: translate(0, -50%);
+}
+
+.swiper-container {
+    // height: auto;  
+}
+// .section__container .swiper-container {
+[data-section-name="products-slider"] .swiper-container {
+
+    // padding-top: 2*$l_h_base;
+    // padding-bottom: 2*$l_h_base;
+    // margin-top: -2*$l_h_base;
+    // margin-bottom: -2*$l_h_base;    
+}
+
+
+// @mixin swiper_slides_align () {
+//     @include flex(flex-start, center);
+// }
+// .display: flex;
+
+.slider-brands .swiper-wrapper{
+    // @include flex(flex-start, center);
+}

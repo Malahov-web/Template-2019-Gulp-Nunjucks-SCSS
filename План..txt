@@ -1,0 +1,14 @@
+
+пн
+  init, file structure;
+  /blocks/news (2)
+вт
+  /blocks/actions
+  /components/social-links (1)
+ср
+  /blocks/categories,  /blocks/edges,  /blocks/brands (1)
+  /blocks/reviews,   /blocks/slider-main, Gulpfile - Utilites - rename (1)
+  /blocks/products, (0.5)
+
+..далее - компоненты
+чт

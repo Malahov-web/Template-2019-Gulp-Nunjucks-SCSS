@@ -1,0 +1,65 @@
+/* . edges
+ * **********************************************************************
+ *
+*/
+
+
+.edges{
+    // @include v_rhytm('block', $l_h_base);
+
+    &__item-outer {
+        // @include v_rhytm('item', $l_h_base);
+    }
+    &__item{
+        // @include v_rhytm('item', $l_h_base);
+
+        &-title{
+            // @include flex(center, center);
+
+            // height: 50px;
+            // min-height: 2 * $l_h_head;
+            // min-height: 2 * $l_h_base;
+            // padding: 7px 0;
+            // @include v_rhytm('text', $l_h);
+            // margin-top: 1/2 * $l_h_base;
+            // line-height: $l_h_head;
+            // letter-spacing: $l_s_small;
+            // font-weight: 400;
+            // @include typo_scheme('subtext');         
+            // text-align: center;
+            // color: $black_light;
+
+            span {
+                // display: block;
+                // line-height: $l_h_head;
+                // line-height: inherit;
+            }
+        }
+        &-icon{
+            // text-align: center;
+            i{
+                // @include font_size('large');
+            }
+        }
+
+    }
+}
+
+
+@media (max-width: bp('tb_')-1px ) {
+    // До tb (на mv, mh)
+    
+} /* media end */
+
+@media (min-width: bp('ds_')+0px ) {
+    // На ds 
+
+    .edges{
+    }    
+
+} /* media end */
+
+@media (min-width: bp('hd_')+0px ) {
+    // На hd 
+
+} /* media end */

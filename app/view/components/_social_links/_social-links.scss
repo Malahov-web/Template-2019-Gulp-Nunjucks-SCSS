@@ -1,0 +1,45 @@
+/* . social-links
+ * **********************************************************************
+ *  
+*/
+
+// $social_links_item_metric: 2 * $fb;
+
+.social-links-outer {
+
+}
+
+.social-links {
+    // @include flex(flex-start, center);
+    li {
+        // display: inline-block;        
+
+        a {
+            // display: block;
+            // position: relative;
+            // margin: 1/4 * $fb;
+            // font-size: $fb;
+            // line-height: $l_h;
+            // width: $social_links_item_metric;
+            // height: $social_links_item_metric;
+            // background-color: $grey;
+            // background-color: $grey_darker;
+            // background-color: $text;
+            // border-radius: 50%;
+            // color: $white_dark;
+            // transition: all 0.3s;
+            &:hover {
+                // color: $accent;
+            }
+            i {
+                // @include pseudoelement_left_top(50%, 50%);
+                // transform: translate(-50%, -50%);
+                // font-size: $fb;
+                // color: inherit;
+                &:before {
+                    // vertical-align: middle;
+                }
+            }
+        }
+    }
+}

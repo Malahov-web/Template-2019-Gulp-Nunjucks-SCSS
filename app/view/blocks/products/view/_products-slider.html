@@ -1,0 +1,35 @@
+
+                    <div class="products row">                        
+                        <div class="mv_12 collapse">
+
+                            <!-- Slider main container -->
+                            <div class="swiper-container slider-products-features">
+
+                                <!-- Additional required wrapper -->
+                                <div class=" swiper-wrapper">
+
+                                    <!-- Slides -->                        
+                                    {% for item in products %}
+                                    <div class="swiper-slide">
+
+                                        {% include "partials/blocks/products/product--card.html" %}
+
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev">
+                            
+                                    {{ buttons.button_slider_arrow('Prev', 'prev') }}
+                                </div>
+                            
+                                <div class="swiper-button-next">
+                                   {{ buttons.button_slider_arrow('Next', 'next') }}   
+                                </div>
+                            
+                            </div>
+
+                        </div>
+                    </div>

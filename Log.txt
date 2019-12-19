@@ -1,3 +1,9 @@
+18.12
+Add view/blocks/ (categories, edges, brands, reviews, slider-main, products)
+
+17.12
+Add view/blocks/ (news, actions, social-links)
+
 16.12
 Add .scss file structure
 

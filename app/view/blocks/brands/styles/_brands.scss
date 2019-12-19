@@ -1,0 +1,77 @@
+
+
+.brands {
+
+}
+
+.menu-brands{
+    @extend %shadow_sidebar;
+
+}
+    .menu-brands > li{
+        @include grad('decor');
+            border-bottom: 1px solid $border_color;
+        
+        &:last-child{
+            border-bottom: none;
+        }
+        & > a{
+            display: block;
+            padding-top: 2/5* $l_h_base;
+            padding-bottom: 2/5* $l_h_base;            
+            @include h_rhytm('grid', $fb);
+            @include height_leveling('base');
+            @include font_size_pro('h6');
+            letter-spacing: $l_s_big;
+            background-color: $white_dark;
+            color: $text;
+
+            &:hover{
+                background-color: transparent;
+                color: $white;
+            }
+        }
+        .submenu {
+            background-color: $white;
+            padding-top: 1/5* $l_h_base;
+            padding-bottom: 1/5* $l_h_base;
+            border-top: 1px solid $grey_super_light ;            
+            li {
+                
+                border-bottom: none;
+                padding-left: $columns_gap+px;
+                a {
+                    display: block;
+                    padding-top: 1/5* $l_h_base;
+                    padding-bottom: 1/5* $l_h_base;            
+                    @include h_rhytm('grid', $fb);
+                    @include height_leveling('base');
+
+                    @include font_size_pro('base');
+                    color: $text;
+
+                    &:hover {
+                        color: $accent;
+                    }
+
+                }
+            }
+        }
+    }
+
+
+/* (!) ."brands__item" conflicts with class ."ds_" */
+.brands-slider {
+
+    &__item {
+        &-image {
+            img {
+                
+            }
+        }
+    }
+}
+
+.swiper-container-initialized .brands-slider__item-outer {
+    width: auto;
+}

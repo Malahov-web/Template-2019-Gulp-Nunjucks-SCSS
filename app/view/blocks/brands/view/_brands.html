@@ -1,0 +1,17 @@
+                    <div class="brands brands-slider brands--slider row-flex middle">
+
+                        {% for item in brands %}
+                        {%  if loop.index < 6+1 %}
+                        <div class="mv_6 mh_4 tb_3 ds_2 brands-slider__item-outer">
+                            <div class="brands-slider__item">
+                                <div class="brands-slider__item-inner">
+                                    <a href="#" class="brands-slider__item-image" title="{{item['item-title']}}">
+                                        <img src="../uploads/brands/{{ item['item-image'] }}" alt="{{item['item-title']}}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>

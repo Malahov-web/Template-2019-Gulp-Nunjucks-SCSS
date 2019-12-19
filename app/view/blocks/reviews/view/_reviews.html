@@ -1,0 +1,11 @@
+                            <div class="reviews row">
+                                
+                                {% for item in reviews %}
+                                {%  if loop.index0 < reviews_items_number %}
+
+                                    {% include "blocks/reviews/view/_reviews__item.html" %}
+
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
