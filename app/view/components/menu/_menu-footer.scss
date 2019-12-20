@@ -1,0 +1,25 @@
+.menu-footer {
+   
+    @media (min-width: bp('ds_')+0px ) {
+        // @include v_rhytm('block', $l_h_base);
+    }    
+
+    &__title {
+        // @include v_rhytm('item', $l_h_base);
+    }
+    &__list {
+        // @include v_rhytm('item', $l_h_base);
+    }
+    &__item {
+        // @include font_size_pro('base');
+        // @include height_leveling('heading');
+        // @include typo('text');
+        a {
+            // @include color_scheme('dark');
+            &:hover {
+                // @include color_scheme('dark-accent');
+            }
+        }
+
+    }
+}

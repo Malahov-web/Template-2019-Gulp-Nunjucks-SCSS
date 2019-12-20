@@ -1,0 +1,115 @@
+
+/*
+ * 2. Forms elements
+*/
+
+/* Input, Textarea */
+/* Reset*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+
+#{$all-text-inputs}{
+    width: 100%;
+    // background-color: $white;
+    background-color: none;
+    background-color: transparent;
+    border: none;
+
+    margin: 0;
+    line-height: $l_h;
+    font-family: $font_family;
+    font-weight: 300; 
+    font-weight: 400; 
+
+    &::placeholder {
+        // color: $grey_semilight;
+        opacity: 1;
+    }
+}
+
+input[type="text"]{
+
+}
+input.field-text{
+
+    // @include height_leveling('forms_element');
+    @include height_leveling('button');
+    // @include h_rhytm('forms_element', $font_forms_elements);
+
+    max-width: 240px;
+
+    font-size: $font_forms_elements;
+    border-bottom: 1px solid $grey_lighter;
+    // color: $text;
+    // color: $forms_placeholder_color;
+    color: $grey_semilight;
+
+    &:focus,
+    &.focus{
+        border-color: $grey_dark;
+        color: $text;
+    }
+ 
+    &.error{
+        border-color: transparentize($error_color, 1-0.75);
+        // border-color: $error_color;
+        background-color: transparentize($error_color, 1-0.12);
+        color: $error_color;
+    }   
+
+    // :empty 
+    // :placeholder-shown
+    &:placeholder-shown {
+        // border-top: 5px solid $success_color !important;
+        // color: $grey_semilight;
+    }
+
+    &:valid {
+
+    }
+    &:invalid {
+
+    }
+
+    // &:not(:empty) { // Dont' work)
+    //     color: $success_color;
+    // }
+
+    // &:not([value]) {  // Need obviously html-attribute "value" (add inline js?)
+    //     border-top: 5px solid $warning_color !important;
+    // }
+
+    &:not(:placeholder-shown) { // Когда заполнено текстом
+        color: $text;
+    }
+
+
+}
+
+.dark input.field-text{
+    // color: $grey_semilight;
+    border-color: $grey;
+
+    &:focus,
+    &.focus{
+        border-color: $grey_semilight;
+        color: $grey_super_light;
+    }
+
+    &.error{
+        border-color: transparentize($error_color, 1-0.5);
+        background-color: transparentize($error_color, 1-0.5);
+        color: transparentize($white, 1-0.5);
+    }
+
+    &:not(:placeholder-shown) { // Когда заполнено текстом
+        color: $grey_super_light;
+    }    
+}

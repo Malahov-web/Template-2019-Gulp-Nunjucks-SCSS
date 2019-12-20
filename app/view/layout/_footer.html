@@ -1,0 +1,85 @@
+<footer class="footer section">
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <!-- <div class="mv_12 tb_4 ds_3"></div> -->
+
+                <div class="mv_12 tb_12 ds_3 footer__column footer__newsletter-outer">
+                    <div class="footer__title">Newsletter signup <i class="material-icons"></i></div>
+                </div>
+
+                <div class="mv_12 tb_4 ds_3 footer__column">
+                    <div class="footer__menu menu-footer js-accordeon-mobile">
+
+                        <div class="menu-footer__title footer__title js-accordeon__title">About 
+                            <span><i class="material-icons">add</i></span>
+                            <span><i class="material-icons">remove</i></span>
+                        </div>
+
+                        <div class="menu-footer-outer js-accordeon__content">
+                            {{ menu_footer.menu_footer( '', footer_menu_1  ) }}
+                        </div>
+
+                        <ul class="menu-footer__list js-accordeon__content">
+                            <li class="menu-footer__item"><a href="#">О нас</a></li>
+                            <li class="menu-footer__item"><a href="#">Адреса магазинов</a></li>
+                            <li class="menu-footer__item"><a href="#">Доставка</a></li>
+                            <li class="menu-footer__item"><a href="#">Способы оплаты</a></li>
+                            <li class="menu-footer__item"><a href="#">Пункты выдачи</a></li>
+                            <li class="menu-footer__item"><a href="#">Бонусная программа</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="mv_12 tb_4 ds_3 footer__column">
+                    <div class="footer__menu menu-footer js-accordeon-mobile">
+
+                        <div class="menu-footer__title footer__title js-accordeon__title">Categories 
+                            <span><i class="material-icons">add</i></span>
+                            <span><i class="material-icons">remove</i></span>
+                        </div>
+
+                        <div class="menu-footer-outer js-accordeon__content">
+                            {{ menu_footer.menu_footer( '', footer_menu_1  ) }}
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="mv_12 tb_4 ds_3 footer__column">
+
+
+                    <div class="footer__menu menu-footer js-accordeon">
+
+                        <div class="menu-footer__title footer__title js-accordeon__title">Clients 
+                            <span><i class="material-icons">add</i></span>
+                            <span><i class="material-icons">remove</i></span>
+                        </div>  
+
+                        <div class="menu-footer-outer js-accordeon__content">
+                            {{ menu_footer.menu_footer( '', footer_menu_1  ) }}
+                        </div>
+
+                    </div>
+
+                </div>                
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="mv_12 centered">
+                    <div class="copyrights">{{ site['copyrights'] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>

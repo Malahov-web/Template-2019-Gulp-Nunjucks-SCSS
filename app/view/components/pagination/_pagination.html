@@ -1,0 +1,14 @@
+
+
+    {% macro rating(block_class, value='') %}
+    <!-- <div class="pagination-outer"> -->
+        <ul class="pagination {{ block_class }} ">
+            <li class="pagination__item pagination__item--prev"><a href="#"></a></li>
+            <li class="pagination__item pagination__item--active"><span>1</span></li>
+            <li class="pagination__item"><a href="#">2</a></li>
+            <li class="pagination__item"><a href="#">3</a></li>
+            <li class="pagination__item"><a href="#">4</a></li>
+            <li class="pagination__item pagination__item--next"><a href="#"></a></li>
+        </ul>
+    <!-- </div> -->
+    {% endmacro %}

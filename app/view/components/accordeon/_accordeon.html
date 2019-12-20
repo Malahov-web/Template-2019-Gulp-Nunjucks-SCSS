@@ -1,0 +1,18 @@
+
+{% macro accordeon(css_class, title__text, title_css_class, title_obj, content_css_class, content_obj) %}
+{#   #}
+<div class="{{ css_class }}  js-accordeon">
+
+    <div class="{{ title_css_class }} js-accordeon__title">{{ title__text }} 
+        <span class="closed"><i class="material-icons">add</i></span>
+        <span class="opened"><i class="material-icons">remove</i></span>
+    </div>
+
+    <div class="{{ content_css_class }} js-accordeon__content">
+        
+        {{ content_obj }}
+    </div>
+
+</div>
+
+{% endmacro %}

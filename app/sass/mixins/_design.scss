@@ -1,36 +1,52 @@
+/*
+DOCSS - Design-orientired CSS
+ 
+Make your code like design with design terms like:
+    Color scheme
+    Typographic scheme
+    Vertical rhytm
+    Horizontal rhytm
+    Height leveling
+*/
+
 @mixin height_leveling($type){
-    $padding_leveling: (1.5em - 1.2em) / 2;
+    $padding_leveling: ($l_h - $l_h_head) / 2;
     // line-height: $l_h_head; 
 
-    @if $type == heading {
+    @if $type == heading { // +
         line-height: $l_h_head;
         padding-top: $padding_leveling;
         padding-bottom: $padding_leveling;        
-    } @if $type == heading_double {
+    } 
+    @if $type == heading_double { // +
         line-height: $l_h_head;
         padding-top: $padding_leveling;
-        padding-bottom: $padding_leveling;
-        height: 1 * $l_h_head + 2 * $padding_leveling;
-        overflow: hidden; position: relative;
-        text-overflow:  ellipsis;
-        // &:after{
-        //     content: "..";
-        //     position: absolute; right: 0; bottom : 0; line-height: $l_h_head;
-        // }  
-    } @else if $type == heading_bg {
-        line-height: $l_h_head;
-        padding-top: $padding_leveling;
-        padding-bottom: $padding_leveling;
-    } @else if $type == text {
-        line-height: $l_h;
-    } @else if $type == forms_element {
-        line-height: $l_h;
-        padding-top: 0.333334 * $l_h;
-        padding-bottom: 0.333334 * $l_h;
-    } @else {
-        
-    }
+        // padding-bottom: $padding_leveling;
+        margin-bottom: $padding_leveling;
+        // height: 2 * $l_h_head + 2 * $padding_leveling;
+        height: 2 * $l_h_head + 1 * $padding_leveling;
+        overflow: hidden;
+        text-overflow:  ellipsis;       
+    } 
 
+    @else if $type == text { // +
+        line-height: $l_h;
+    }
+    @else if $type == text-compressed { //
+        // line-height: $l_h_medium;
+        line-height: normal;
+    }    
+    @else if $type == base { // +
+        line-height: $l_h_base;
+    }
+    @else if $type == button { // ++
+        line-height: $l_h;
+        height: 1.5 * $l_h_base;
+    }    
+    
+    @else if $type == fullheight {  // +
+        @extend %fullheight;
+    }
 }
 
 
@@ -56,20 +72,21 @@
         margin-top: 2 * $l_h;
         // margin-bottom: 2 * $l_h;  
     }
-     @else if $type == block {
+     @else if $type == block { // +
         margin-top: -0.5 * $l_h;
         margin-bottom: -0.5 * $l_h;         
-    } @else if $type == item {
+    } @else if $type == item { // +
         margin-top: $lh * 0.5;
         margin-bottom: $lh * 0.5;
     }
-     @else if $type == block-card {
+     @else if $type == block-card {  // +
         margin-top: -$columns_gap+px;
         margin-bottom: -$columns_gap+px;
-    }     @else if $type == card {
+    } @else if $type == card { // +
         margin-top: $columns_gap+px;
         margin-bottom: $columns_gap+px;
-    } @else {
+    }
+     @else {
         
     }    
 }
@@ -88,23 +105,88 @@
         padding-left: $fs * 2;
         padding-right: $fs * 2;         
     }
+
+    @else if $type == column { // +
+        padding-left: $columns_gap+px;
+        padding-right: $columns_gap+px;      
+    }
+
+    @else if $type == card { // +
+        padding-left: 4/3 * $columns_gap+px;
+        padding-right: 4/3 * $columns_gap+px;       
+    }
+    @else if $type == grid { // 
+        padding-left: 2 * $columns_gap + px;
+        padding-right: 2 * $columns_gap + px;       
+    } 
 }
 
 
 @mixin typo($type) {
 
-    @if $type == heading {
-        font-family: $font_family_head;
-        font-weight: 500;
-        letter-spacing: $l_s_big;
-        text-transform: uppercase;
-        // color: $black;  
+    @if $type == wrerwewreq {
 
-    } @else if $type == text {
+    } @else if $type == title { // +
+        font-weight: 400;
+        letter-spacing: $l_s_big;
+        // text-transform: uppercase;
+        font-variant: small-caps;
+        text-transform: lowercase;
+
+    } @else if $type == heading { // ++ // action__item-t:;itle
+        font-weight: 500;
         letter-spacing: $l_s;
 
-    } @else if $type == link {
+    } @else if $type == text { // +++...
+        letter-spacing: $l_s;
+    }   
+     @else if $type == date { // +
+        font-style: italic;
         font-weight: 300;
-        letter-spacing: $l_s_big;
-    }     
-}   
+    }
+    @else if $type == price { // ++
+        font-weight: bold;
+        letter-spacing: $l_s;
+    }
+    @else if $type == button { // +
+        font-weight: 500;
+        letter-spacing: $l_s;
+        text-transform: uppercase;
+    }
+
+    // title-mini ? name
+    // font-weight: 400;
+    // letter-spacing: $l_s;
+    // x, x 
+
+    @else if $type == name { // +
+        font-weight: 400;
+        letter-spacing: $l_s;
+    }    
+}
+
+
+@mixin color_scheme($type) {
+
+    @if $type == default { // 
+        background-color: $white;
+        color: $text; 
+    }
+    @else if $type == 'default-reverse' { // 
+        background-color: $text;
+        color: $white; 
+    }
+    @else if $type == 'dark' { // +
+        background-color: $grey_dark;
+        // color: $white_dark; 
+        color: $grey_super_light; 
+    }
+    @else if $type == 'dark-accent' { // +
+        background-color: $grey_dark;
+        color: $accent_alt; 
+    }
+    @else if $type == 'accent' { // +
+        background-color: $accent;
+        color: $white; 
+    } 
+}

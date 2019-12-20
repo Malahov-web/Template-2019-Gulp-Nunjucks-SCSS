@@ -1,0 +1,24 @@
+// $search_button_width: 60px;
+
+.search-outer {
+
+}
+
+
+.search{
+    // padding-right: 60px;
+    // position: relative;
+
+    &__field{
+        // max-width: none!important;
+        // padding-right: 60px;
+        // padding-right: $search_button_width;
+    } 
+    &__button{
+
+        // width: $search_button_width;
+        // position: absolute;
+        // right : 0; top : 0;
+        // @include pseudoelement_right_top(0, 0);
+    }  
+}

@@ -1,21 +1,122 @@
-@function to_number($string) {
-  // Matrices
-  $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
-  $numbers: 0 1 2 3 4 5 6 7 8 9;
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
 
-  // Result
-  $result: 0;
-
-  // Looping through all characters
-  @for $i from 1 through str-length($string) {
-    // Do magic
-  }
-
-  @return $result;
+    @return $number;
 }
 
+// to_number($string) - converse string to number
+@function to_number($string) {
+    // Matrices
+    $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+    $numbers: 0 1 2 3 4 5 6 7 8 9;
 
+    // Result
+    $result: 0;
+
+    // Looping through all characters
+    @for $i from 1 through str-length($string) {
+        // Do magic
+    }
+
+    @return $result;
+}
+
+// em(), rem(), to_px() - unit conversion
 $browser-context: 16;
 @function em($pixels, $context: $browser-context) {
     @return #{$pixels/$context}em;
 }
+@function rem($pixels, $context: $browser-context) {
+    @return #{$pixels/$context}rem;
+}
+@function  to_px($rem, $context: $browser-context) {
+
+    @return strip-unit($rem * $context);
+}
+
+// bp($bp_name) - return breakpoint value (unitless) from $devices 
+@function bp($bp_name) {
+
+    $bp_obj: map-get($devices, $bp_name);
+    $bp_value: map-get($bp_obj, breakpoint);
+
+    @return $bp_value;  
+}
+
+// _() - decorator for map-get
+@function _($object, $field) {
+
+    $value: map-get(
+        $object, 
+        $field
+    );    
+    @return $value;
+}
+
+// __() - return value from x2 deep obj
+@function __($object, $subfield, $field) {
+
+    $value: map-get(
+        map-get($object, $subfield), 
+        $field
+    );    
+    @return $value;
+}
+
+// map-set() - add pair 'key':'value' to obj // a map-set function (not included with Sass) // oddbird.net
+@function map-set($map, $key, $value) {
+    $new: ($key: $value);
+    @return map-merge($map, $new);
+}
+
+
+
+
+// make array $fonts from $devices and $font_size_names
+// array $fonts used in mixin font_size_pro() {
+    
+
+    @each $fonts_device, $fonts_obj in $devices {
+
+        $font_size_names_for_device: ();
+        // Перебираем $font_size_names
+        @each $name in $font_size_names {
+            // $font_size_names_for_device: 
+                // map-set( $font_size_names_for_device, 'notice', 12 );
+
+            // $i: index($font_size_names, $name) - 1; // т.к. нужно начинать с 0
+            $i: index($font_size_names, $name) - $font_units_negative - 1; // т.к. нужно начинать с 0, и учитывать меньшие чем base
+            // $font_size_value: modular-scale($i, 1em, $major-seventh);
+            $font_size_value: modular-scale($i, map-get($fonts_obj, font_base), map-get($fonts_obj, ms_coeff));
+    // rem
+            // $font_size_value: rem(strip-unit($font_size_value), strip-unit(map-get($fonts_obj, font_base)));
+
+            $font_size_names_for_device: 
+                map-set( 
+                    $font_size_names_for_device, 
+                    $name, 
+                    // значение размера шрифта
+                    // map-get($fonts_obj, ms_coeff)
+                    $font_size_value
+                );           
+
+        } // each
+
+        
+        $fonts: map-set( 
+            $fonts,
+            $fonts_device,
+            $font_size_names_for_device
+        );
+
+        @debug map-get($font_size_names_for_device, large); // +
+        // @debug "Fonts array: #{$fonts}";
+        // @debug "font_size_names_for_device array: #{$font_size_names_for_device}";
+        // @debug "Fonts_old__: #{$fonts_old}";
+
+    }

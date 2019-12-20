@@ -1,0 +1,32 @@
+
+.js-accordeon {
+
+    
+}
+
+.js-accordeon-mobile {
+
+    .js-accordeon__title {
+
+        @media (max-width: bp('tb_')-1px ) {
+            cursor: pointer;
+
+            span.closed { display: block; }
+            span.opened { display: none; }
+
+            &.opened {
+                span.closed { display: none; }
+                span.opened { display: block; }
+            }     
+        }
+
+    }  
+}
+
+.js-accordeon__title {
+
+}
+
+.js-accordeon__content {
+
+}

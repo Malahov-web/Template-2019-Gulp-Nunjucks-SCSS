@@ -1,0 +1,52 @@
+
+/* . pagination
+ * **********************************************************************
+ *  
+*/
+
+.pagination-outer {
+
+}
+
+.pagination{
+    // $pagination__item_side: 1.5 * $l_h_base;
+    // @include flex(flex-start, center);
+    &__item{
+        // margin-right: $columns_gap+px;
+
+        a, span{
+            
+            // display: block;
+            // position: relative;
+            // width: $pagination__item_side;
+            // height: $pagination__item_side;
+            // @include font_size('fb');
+            // line-height: $pagination__item_side;  
+            // font-weight: 400;       
+            // text-align: center;
+            // background-color: $accent;
+            // background-color: $border_color;
+            // border-right: 1px solid $accent_alt;            
+            // color: $white;
+        }
+        &--active span{
+            // background-color: $black_light;
+        }
+        &--prev a,
+        &--next a{
+            // @include flex(center, center);
+
+            &:before{
+                // @extend [class^="icon-"]; 
+                // @extend .icon-arrow-right;
+            }
+        }
+        &--prev a:before { 
+            // transform: rotate(180deg); 
+        }
+        &:hover a{
+            // background-color: $accent_alt;
+        }
+
+    }
+}

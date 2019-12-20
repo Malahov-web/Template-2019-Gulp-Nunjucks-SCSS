@@ -1,0 +1,15 @@
+
+{% macro form__subscribe (block_class, value='', input_placeholder='') %}
+<form class="subscribe__form form--subscribe {{ block_class }}" method="post">
+    <div class="field-outer">
+
+        <!-- <a href="#" class="button button-send"><span>Subscribe</span></a> -->
+        <a href="#" class="button button-send-alt">
+            <i class="material-icons">near_me</i>
+        </a>
+        <input type="email" class="field-text" placeholder="{{ input_placeholder }}">
+
+    </div> 
+</form>
+{% endmacro %}
+

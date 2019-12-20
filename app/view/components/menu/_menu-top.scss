@@ -1,0 +1,176 @@
+
+@mixin menu_item_has_children_arrow() {
+    padding-right: 1em;
+   &:before {
+        // // @include pseudoelement_right_top(0, 50%);
+        // position: absolute; right: 0; top: 50%;
+        // transform: translateY(-50%) rotate(180deg);
+        // // @extend [class^="icon-"];
+        // // @extend .icon-ctrl;
+        // // @include font_size('small');
+        // // @include color_scheme('grey');
+   }  
+}
+
+.menu-top {
+    li {
+        position: relative;
+        i {
+            // @include pseudoelement_right_top(0 , 50%);
+            // transform: translate(0, -50%);
+            // @include font_size_pro('small');
+            // color: $grey_semilight;
+        }        
+    }
+
+}
+
+.menu-top li.menu-item-has-children {
+    @include menu_item_has_children_arrow();
+}
+
+
+@media (min-width: bp('tb_')+0px ) {
+
+.menu-top {
+    @include flex(flex-start, center);
+    float: right;
+
+    li {
+        // padding-left: 1em;
+        // @include font_size_pro('base');
+        // @include height_leveling('base');
+        // padding-top: 2/5*$l_h_base;
+        // padding-bottom: 2/5*$l_h_base;
+
+        a {
+            // @include color_scheme('dark');
+            // color: $grey_light;
+            &:hover{
+                // color: $accent;
+            }
+        }
+
+        i {
+            // @include pseudoelement_right_top(0 , 50%);
+            // transform: translate(0, -50%);
+            // @include font_size_pro('small');
+            // color: $grey_semilight;
+        }
+
+        ul.submenu-top {
+            display: none;
+
+            // z-index: $zindex_nav + 10;
+            // @include pseudoelement_left_top(0, 100%);
+            // min-width: 200px;
+            // max-width: 300px;
+            // @include h_rhytm('column', $fb);
+            // padding-top: 1/2*$l_h_base;
+            // padding-bottom: 1/2*$l_h_base;
+            // background-color: $border_dark_color;
+
+            li {
+                // padding-top: 1/5*$l_h_base;
+                // padding-bottom: 1/5*$l_h_base;
+                // @include font_size_pro('small');
+            }     
+        }
+    }
+
+}
+
+.menu-top>li:hover {
+    .submenu-top { display: block;  }
+}
+
+} /* media end */
+
+
+@media (max-width: bp('tb_')-1px ) {
+
+.menu-top-outer {
+    // position: absolute;
+    // z-index: $zindex_nav;
+    // width: 100%;
+    // margin-left:  -$columns_gap + px;
+    // margin-right: -$columns_gap + px;   
+
+}
+.menu-top-trigger {
+    // float: right;
+    // width: 100px;
+    // text-align: right;
+    // color: $grey_light;
+    // cursor: pointer;
+    span {
+        // @include flex(flex-end, center);
+        // @include font_size_pro('small');
+        i {
+            // font-size: inherit;
+            // margin-right: 1/4*$l_h_base;
+            // @include font_size_pro('h5');
+        }
+    }
+}
+.header-top__tools{
+    // width: calc(100% - 100px); 
+}
+.header-top-left{
+    // @include flex(flex-start, center);
+    // padding-top: 2/5*$l_h_base;
+    // padding-bottom: 2/5*$l_h_base;
+
+    // border-top: 1px solid $border_dark_color;
+}
+
+.menu-top {
+    @include flex(flex-start, center);
+    flex-direction: column;
+    // float: right;
+
+    li {
+        // $li_v_padding: 1/4*$l_h_base;
+        // $li_height_mv: 1*$l_h_base + 2*$li_v_padding;
+
+        // width: 100%;
+        // padding-left: 1em;
+        // padding: $li_v_padding  0;
+        // @include h_rhytm('grid', $fb);
+        // @include font_size_pro('base');
+        // @include height_leveling('base');
+         
+        // background-color: $border_dark_color;
+        a {
+            // color: $grey_light;
+            &:hover{
+                // color: $accent;
+            }
+        }
+
+        i {
+            // @include pseudoelement_right_top(0, 1/2*$li_height_mv);
+            // transform: translate(-2 * $columns_gap + px, 1/2* (1*$l_h_base + 1/4*$l_h_base));
+            // transform: translate(- 2 * $columns_gap + px, -50%);
+            // font-size: inherit;
+        }
+
+        ul.submenu-top {
+            display: none;
+
+
+            li {
+                // @include font_size_pro('small');
+            }     
+        }
+    }
+
+}
+.menu-top{
+
+     display: none;
+} 
+} /* media end */
+
+
+

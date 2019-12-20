@@ -1,0 +1,33 @@
+
+
+{% macro menu_top(id, css_class, list_obj) %}
+<ul id="{{ id }}" class="menu-top js-mobile_menu js-dropdown_list" data-animation-temp="">
+
+    
+    {% for item in list_obj %}
+    
+    {% set li_css_class = '' %}
+    {% if item['submenu']  %}
+        {% set li_css_class = 'menu-item-has-children' %}
+    {% endif %}
+
+    <li class="{{ li_css_class }}">
+        <a href="{{ item['top-menu-item-link'] }}">{{ item['top-menu-item-name'] }}</a>
+
+        {% if item['submenu']  %}
+            <i class="material-icons">keyboard_arrow_down</i>
+            <ul class="submenu-top">
+                {% for item in item['submenu'] %}
+                <li><a href="#"> {{ item['submenu-item-name'] }} </a></li>
+                {%- endfor %}
+            </ul>
+        {% endif %}
+
+    </li>
+
+    {%- endfor %}
+
+
+</ul>
+{% endmacro %}
+

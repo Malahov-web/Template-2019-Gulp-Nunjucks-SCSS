@@ -1,0 +1,22 @@
+<!-- v. actual, scalable in other projects -->
+
+
+{% macro rating(block_class, value='') %}
+<div class="{{ block_class }} rating">
+    <ul>
+        {% for i in range(1, 6) -%}
+
+            {% set rating_star_class = 'on' %}
+            {% if i > value  %}
+                {% set rating_star_class = 'off' %}
+            {% endif %}
+
+            <li class="{{ rating_star_class }}" data-star-number="{{ i }}">
+                <i class="material-icons">star</i>
+            </li>
+
+        {%- endfor %} 
+
+    </ul>                                       
+</div>
+{% endmacro %}

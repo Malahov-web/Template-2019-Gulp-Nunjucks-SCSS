@@ -1,0 +1,14 @@
+{% import "partials/components/buttons.html" as buttons %}
+
+{% macro search(block_class, search_button= buttons.button_search('search'), value='', input_placeholder='') %}
+
+<div class="search {{ block_class }} ">
+    <input class="search__field field-text" type="text" placeholder="{{ input_placeholder }}">
+
+    {{ search_button }}
+    <!-- <a class="search__button button button-search">
+        <i class="material-icons">search</i>
+    </a> -->                    
+</div>
+
+{% endmacro %}

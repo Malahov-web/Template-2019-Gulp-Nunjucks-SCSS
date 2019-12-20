@@ -1,0 +1,72 @@
+
+
+.tools {
+    @include flex(flex-start, center);
+    &__item {
+        @include flex(flex-start, center);
+        
+        &-icon {
+            // padding-right: 1/4*1em;
+            color: inherit;
+            i {
+                // @include font_size_pro('h6');
+            }
+        }
+        &-title {
+            // @include font_size_pro('base');
+            // @include typo('name');
+            color: inherit;
+
+            @media (max-width: bp('tb_')-1px ) {
+                display: none;
+            }
+
+        }     
+
+        &-button {
+
+            display: block;
+            display: flex;
+
+            // @include grad('icon_white');
+            // @include bg_clip_text();
+            i {
+                // @include font_size_pro('h4');
+                // color: transparent;
+                // color: $text;
+            }
+
+            &:hover {
+                // @include grad('button');
+                // @include bg_clip_text();
+            }
+
+        }
+
+    }
+    &__item:hover {
+        // color: $accent;
+    }
+
+}
+
+
+.header-top__tools  {
+    // color: $grey_light;
+    .tools__item {
+        // padding-right: 2*$columns_gap+0px;
+    }
+}
+
+.header-bottom__tools {
+    // @include flex(space-between, center);
+    // @include flex(space-around, center);
+
+    @media (min-width: bp('ds_')+0px ) {
+        // padding-left: 25%;
+    }
+
+    .tools__item {
+        // padding: 1*$columns_gap+0px  0;
+    }    
+}

@@ -1,20 +1,5 @@
-@mixin pallete_colors($main_color, $deg) {
-
-    $color_1: adjust-hue($main_color, $deg);
-    background-color: $color_1;    
-}
 
 
-@mixin pseudoelement_left_top($value1, $value2){
-    content : "";
-    position : absolute; left : $value1; top : $value2; 
-}
-
-
-@mixin pseudoelement_right_top($value1, $value2){
-    content : "";
-    position : absolute; right : $value1; top : $value2; 
-}
 
 @mixin border_fullwidth($type, $color) {
 
@@ -46,20 +31,6 @@
 
 
 
-// 01.06 added:
-
-/*
- * Display 'flex', and set justify and aligment
- * Call: // flex(space-between, center);
-*/
-@mixin flex($justify, $align) {
-
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
-    
-}
-
 
 /*
  * Set adaptive font-size
@@ -67,49 +38,156 @@
 */
 
 // @mixin set_font_size_adaptive ('h3') {
-@mixin font_size ($type) {
+// @mixin font_size ($type) {
 
-    @if $type == fb {
+//     @if $type == fb {
 
-        font-size: $fb;
-        @media (min-width: #{map-get($devices, 'ds_')}px) {
-            // font-size: $fb;
-        }
+//         font-size: $fb;
+//         @media (min-width: #{map-get($devices, 'ds_')}px) {
+//             // font-size: $fb;
+//         }
 
-    } @else if $type == small {
+//     } @else if $type == small {
 
-        font-size: $font_small_m;
-        @media (min-width: #{map-get($devices, 'ds_')}px) {
-            font-size: $font_small;
-        }
+//         font-size: $font_small_m;
+//         @media (min-width: #{map-get($devices, 'ds_')}px) {
+//             font-size: $font_small;
+//         }
 
-    } @else if $type == smaller {
-        font-size: $font_smaller_m;
+//     } @else if $type == smaller {
+//         font-size: $font_smaller_m;
 
-        @media (min-width: #{map-get($devices, 'ds_')}px) {
-            font-size: $font_smaller;
-        }
+//         @media (min-width: #{map-get($devices, 'ds_')}px) {
+//             font-size: $font_smaller;
+//         }
         
-    }  @else if $type == h3 {
+//     }  @else if $type == h3 {
 
-        font-size: $font_h3_m;
-        @media (min-width: #{map-get($devices, 'ds_')}px) {
-            font-size: $font_h3;
+//         font-size: $font_h3_m;
+//         @media (min-width: #{map-get($devices, 'ds_')}px) {
+//             font-size: $font_h3;
+//         }
+
+//     } @else if $type == h2 {
+//         font-size: $font_h2_m;
+
+//         @media (min-width: #{map-get($devices, 'ds_')}px) {
+//             font-size: $font_h2;
+//         }
+
+//     } @else if $type == h1 {
+//         font-size: $font_h1_m;
+
+//         @media (min-width: #{map-get($devices, 'ds_')}px) {
+//             font-size: $font_h1;
+//         }
+//     }    
+
+// }
+
+
+@mixin font_size_pro_old ($type) {
+
+    // set_font_size_pro($type);
+
+
+        // @each $fonts_device, $fonts_obj in $fonts {
+        @each $fonts_device, $fonts_obj in $fonts_old {
+            // @media (min-width: #{map-get($devices, $fonts_device)}px) {                
+            @media (min-width: #{ __( $devices, $fonts_device, breakpoint)}px) {                
+                font-size: map-get($fonts_obj, $type)+px;
+            }
         }
 
-    } @else if $type == h2 {
-        font-size: $font_h2_m;
 
-        @media (min-width: #{map-get($devices, 'ds_')}px) {
-            font-size: $font_h2;
+}
+
+@mixin font_size_pro ($type) {
+
+    // set_font_size_pro($type);
+
+
+        @each $fonts_device, $fonts_obj in $fonts {
+
+            // @media (min-width: #{map-get($devices, $fonts_device)}px) {                
+            @media (min-width: #{  bp($fonts_device) }px) {                
+                font-size: map-get($fonts_obj, $type);
+            }
         }
 
-    } @else if $type == h1 {
-        font-size: $font_h1_m;
 
-        @media (min-width: #{map-get($devices, 'ds_')}px) {
-            font-size: $font_h1;
-        }
+}
+
+/*
+
+Obj $devices 
+->
+Obj $font_size_names
+->
+function set_font_sizes()
+->
+mixin font_size_pro()
+
+*/
+
+
+.my_text {
+    // font-size: modular-scale(3, 1em, $major-seventh);
+    // font-size: modular-scale(3, 1em, 1.2);
+}
+    @debug "Fonts array: #{$fonts}";
+.my_head {
+    // @include font_size_pro('small');
+
+    // @include font_size_pro_old('base'); // +
+
+    // @include font_size_pro('small');    
+    @include font_size_pro('h6');
+}
+
+
+
+
+@mixin grad($type) {
+
+
+    @if $type == decor {
+        // background: linear-gradient(to right, transparentize($orange, 0.1), $pink);
+        background: linear-gradient(to right, $accent, $accent_alt_light);
+    }
+    @else if $type == button {
+        background-image: linear-gradient(to right, $accent, $accent_alt_light);
+    }   
+    @else if $type == section {
+        background: linear-gradient(to top, $accent, $accent_alt_light);
+    }
+
+    @else if $type == icon_white {
+        background-image: linear-gradient(to bottom, $white, transparentize($white, 1-0.9));
+
+    }
+    @else if $type == menu {
+        background: linear-gradient(180deg, $accent_light 50%, $accent 50%, $accent_light 100%), #C4C4C4;
+       
+    }
+
+
+    @else if $type == text {
+        // background: linear-gradient(to bottom, $orange, $pink);
+    }
+    @else if $type == list {
+        // background: linear-gradient(to left, $orange, $pink);
     }    
+    @else if $type == title {
+        // background: linear-gradient(to top, $orange, $pink);
+
+    }  
+
+
+
+    // background-clip: text;
+    // text-fill-color: transparent;
+    // -webkit-text-fill-color: transparent;
+    // -moz-text-fill-color: transparent;
 
 }

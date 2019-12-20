@@ -1,0 +1,81 @@
+/*. rating
+ * **********************************************************************
+ *  
+*/
+
+.rating {
+    ul {
+        // text-align: left;
+        // text-align: inherit;
+        // @include flex(flex-start, center);
+        // @include height_leveling('text');
+
+        li {
+            // display: inline-block;
+            // margin-right: 2px;
+            
+            i {
+                // @include font_size_pro('base');
+                // color: $accent_alt;
+            }
+                
+        }
+
+        li.on {
+            i {
+                // color: $accent_alt;
+            }
+        }
+        li.off {
+            i {
+                // color: $grey_light;
+                width: 100%;
+            }
+        }  
+    }
+
+}
+
+/* For custom icons
+.rating {
+    ul {
+        // text-align: left;
+        text-align: inherit;
+
+        li {
+            // display: inline-block;
+
+
+            // span {
+            //     position: relative;
+            //     font-size: inherit;
+            //     @extend .themify;
+
+            //     &:before {
+            //         display: inline-block;
+                   
+            //         @extend .themify-star;
+            //     }
+            // }
+
+
+        }
+
+        li.on {
+            span {
+                &:before {
+                    color: $accent_alt;
+                }  
+            }
+        }
+        li.off {
+            span {
+                &:before {
+                    color: $grey_lighter;
+                } 
+            }
+        }  
+    }
+
+}
+*/

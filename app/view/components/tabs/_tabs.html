@@ -1,0 +1,48 @@
+
+
+{% macro tabs_controls(button_text='', tabs_controls_obj=[] ) %}
+
+{% set products_tabs_controls_obj =  
+    [
+        {
+            "name": "new",
+            "title": "New",
+            "is_active_default": false
+        },
+        {
+            "name": "hits",
+            "title": "Hits",
+            "is_active_default": true
+        },
+        {
+            "name": "specials",
+            "title": "Specials"
+        }                
+    ]     
+%} 
+
+
+<!-- <div class="tabs js-tabs"> -->
+    <ul class="tabs__controls js-tabs__controls">
+
+        {% for item in tabs_controls_obj %}
+
+            {% set tabs__controls_item_active_class = "" %}
+            {% if item['is_active_default'] == true %}
+                {% set tabs__controls_item_active_class = "active" %}
+            {% endif  %}  
+
+            <li class="tabs__controls-button {{ tabs__controls_item_active_class }} " data-target="#{{ item['name'] }}"><a href="#">{{ item['title'] }}</a></li>
+        {% endfor %}    
+
+    </ul>
+<!-- </div> -->
+{% endmacro %}
+
+
+
+
+
+{% macro tabs_content(button_text='', tabs_controls_obj={} ) %}
+
+{% endmacro %}

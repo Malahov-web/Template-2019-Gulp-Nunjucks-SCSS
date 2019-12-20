@@ -73,3 +73,19 @@
             background-color: $grey_super_light;
         }
 }
+
+
+%transition { // +
+    transition: all $transition_duration;
+}
+%transition_fast {
+    transition: all ($transition_duration / 2);
+}
+
+%border_circle { // +
+    border-radius: 50%;
+}
+
+%image_link_hover {
+    opacity: 0.9;
+}

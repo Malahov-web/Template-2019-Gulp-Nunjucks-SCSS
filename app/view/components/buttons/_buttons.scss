@@ -1,0 +1,369 @@
+
+/*
+ * 1. Buttons
+*/
+
+$button_icon_width: 30px;
+$button_height: 1.5*$l_h_base;
+
+@mixin button_with_icon() {
+    @extend %shadow;
+}
+@mixin button_square () {
+    width: $button_height;
+    @include height_leveling('button');  
+}
+@mixin button_cicrcle () {
+    width: $button_height;
+    @include height_leveling('button'); 
+    @extend %border_circle;
+}
+
+.button {
+    
+    @extend %transition;
+    @include flex(center, center);
+    position: relative;
+    width: 100%;
+    font-family: $font_family;
+    overflow: hidden;
+    
+}
+
+.button-buy {
+    // max-width: 150px;
+    // height: $button_height;
+    // background: $accent_light;
+    // color: $grey_super_light;
+
+    // @include font_size_pro('small');
+    // @include typo('button');
+
+    // padding-right: $button_icon_width;
+
+    @include button_with_icon();
+
+    span {
+        position: relative;
+        z-index: $zindex_icon;
+    }
+
+    i {
+        // @include pseudoelement_right_top(0, 0);
+        // width: $button_icon_width;
+        // height: 100%;
+        // line-height: $button_height;
+        // @include font_size_pro('h5');
+    }
+
+    // Effect on hover - sliding bg
+    &:before {
+        // @include pseudoelement_left_top(-$button_icon_width, 0);
+        // @include pseudoelement_left_top(-110%, 0);
+        // width: 100%;
+        // height: 50%;
+
+        // background-color: $accent_alt_light;
+        // transform: skewX(15deg);
+        // @extend %transition_fast;    
+    }
+    &:after {
+        // @include pseudoelement_left_top(-$button_icon_width, 50%);
+        // @include pseudoelement_left_top(-110%, 50%);
+        // width: 100%;
+        // height: 50%;
+
+        // background-color: $accent_alt_light;
+        // transform: skewX(-15deg);
+        // @extend %transition_fast;
+    }    
+
+    &:hover,
+    &.hover {
+        &:before {
+            // left: -1.1* $button_icon_width;
+        }
+        &:after {
+            // left: -1.1* $button_icon_width;     
+        }
+    }
+    &:active,
+    &.active {
+
+    }
+    &:disabled,
+    &.disabled{
+        // background-color: $grey_lighter;
+        &:hover {
+            &:after,
+            &:before {
+                display: none;
+            }
+        }
+    } 
+
+}
+
+
+.button-compare,
+.button-favorite {
+    // width: 1*$l_h_base;
+    // height: 1*$l_h_base;
+
+    // color: #CCCCCC;
+
+    // background: #cccccc;
+    // background-image: linear-gradient(to right, #cccccc, #cccccc);
+    // @include bg_clip_text; 
+    i {
+        @include font_size_pro('base');
+        color: transparent;
+    
+    }
+    &:hover {
+        // @include bg_clip_text;
+        // background-color: $accent;
+        // background: linear-gradient(to right, $accent_light, $accent_alt); // так НЕ работает, только background-image
+        // background-image: linear-gradient(to right, $accent_light, $accent_alt);
+    }
+}
+
+.button-promo {
+    // max-width: 200px;
+    // height: 2*$l_h_base;
+    // background: $accent_light;    
+    // color: $grey_super_light;
+
+    // @include font_size_pro('h5');
+    // @include typo('button');
+    // text-transform: none;
+
+    // @include grad('button');
+    // @include button_with_icon();
+
+    &:hover,
+    &.hover {
+        // background-color: $accent_alt_light;
+    }
+    &:active,
+    &.active {
+
+    }
+    &:disabled,
+    &.disabled{
+        // background-color: $grey_lighter;
+    } 
+   
+}
+
+.button-send {
+    // max-width: 120px;
+    // height: $button_height;
+    // background: $accent_light;
+    // color: $grey_super_light;
+
+    // @include font_size_pro('small');
+    // @include typo('button');
+
+    // @include button_with_icon(); 
+
+    &:hover,
+    &.hover {
+        // background-color: $accent_alt_light;
+    }
+    &:active,
+    &.active {
+
+    }
+    &:disabled,
+    &.disabled{
+        // background-color: $grey_lighter;
+    } 
+   
+}
+
+.button-slider-arrow {
+
+    @include button_square();   
+
+    // background-color: $white_dark;
+    // color: $grey_lighter;
+
+    @extend %shadow;
+
+    i {
+        // @include font_size_pro('h1');        
+    }
+    &:hover,
+    &.hover {
+        // background-color: $accent_alt_light;
+        // color: $white;
+    }
+    &:active,
+    &.active {
+
+    }
+    &:disabled,
+    &.disabled{
+        // background-color: $grey_lighter;
+        // color: $grey_light;
+    }     
+}
+
+.button-send-alt {
+
+    @include button_square();
+
+    // background-color: $accent_light;
+    // color: $grey_super_light;
+
+    @extend %shadow;
+
+    i {
+        // @include font_size_pro('h5');        
+    }
+
+    &:hover,
+    &.hover {
+        // background-color: $accent_alt_light;
+        // color: $white;
+    }
+    &:active,
+    &.active {
+
+    }
+    &:disabled,
+    &.disabled{
+        // background-color: $grey_lighter;
+        // color: $grey_light;
+    }
+}
+
+.button-menu {
+
+    @include button_square(); 
+
+    // background-color: $accent_light;
+    // color: $grey_super_light;
+
+    @extend %shadow;
+
+    i {
+        // @include font_size_pro('h4');        
+    }
+    i.normal { display: block;  }
+    i.active { display: none;  }
+
+    &:hover,
+    &.hover {
+        // background-color: $accent_alt_light;
+        // color: $white;
+    }
+    &:active,
+    &.active {
+        i.normal { display: none;  }
+        i.active { display: block;  }
+    }
+    &:disabled,
+    &.disabled{
+        // background-color: $grey_lighter;
+        // color: $grey_light;
+    }
+}
+
+
+.button-collapse,
+.button-show,
+.button-plus, {
+    @include button_cicrcle();
+
+    // background-color: $white_dark;
+    // color: $grey_lighter;
+
+    @extend %shadow;
+
+
+    i {
+        // @include font_size_pro('h4');        
+    }
+    i.normal { display: block;  }
+    i.active { display: none;  }    
+    &:hover,
+    &.hover {
+        // background-color: $accent_alt_light;
+        // color: $white;
+    }
+    &:active,
+    &.active {
+        i.normal { display: none;  }
+        i.active { display: block;  }
+    }
+    &:disabled,
+    &.disabled{
+        // background-color: $grey_lighter;
+        // color: $grey_light;
+    } 
+}
+
+.button-filter-remove {
+    // max-width: 150px;
+    // @include height_leveling('button');
+
+    // background: $grey_lighter;
+    // color: $text;
+
+    // @include font_size_pro('fb');
+    // @include typo('button');
+    // text-transform: none;
+    // font-weight: 400;
+    // letter-spacing: $l_s;
+
+
+    // padding-right: $button_icon_width;
+
+    @include button_with_icon();
+
+    i {
+    //     @include pseudoelement_right_top(0, 0);
+    //     width: $button_icon_width;
+    //     height: 100%;
+    //     line-height: $button_height;
+    //     @include font_size_pro('h5');
+    // }
+
+    &:hover,
+    &.hover {
+        // background-color: $accent_alt_light;
+        // background-color: $white_dark;
+    // }
+    &:active,
+    &.active {
+
+    }
+    &:disabled,
+    &.disabled{
+        // background-color: $grey_lighter;
+    }
+
+}
+
+.button-search {
+
+    @include button_square();   
+
+    // background-color: $white_dark;
+    // color: $grey_lighter;
+    // color: $grey_light;
+
+    // @extend %shadow;
+
+    i {
+        // @include font_size_pro('h4');        
+    }
+
+    &:hover,
+    &:active {
+        // color: $accent;
+    }
+
+}

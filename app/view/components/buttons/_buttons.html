@@ -1,0 +1,65 @@
+<!-- v. actual -->
+
+
+{% macro button_buy(button_text='', value='') %}
+<a href="#" class="button button-buy" data-text="{{ site['buttons-texts']['button-buy'] }}">
+   <span>{{ button_text }} </span> <i class="material-icons">add_shopping_cart</i>
+</a>
+{% endmacro %}
+
+
+{% macro button_send(button_text='', value='') %}
+<a href="#" class="button button-send">
+    <span>{{ button_text }}</span>
+</a>
+{% endmacro %}
+
+
+
+
+{% macro button_slider_arrow(button_text='', value='') %}
+
+{% if (value == 'prev') %}
+    {% set icon_name = 'chevron_left' %}
+{% elif (value == 'next') %}
+    {% set icon_name = 'chevron_right' %}
+{% endif %}
+
+<a href="#" class="button button-slider-arrow {{ value }} ">
+    <i class="material-icons">{{ icon_name }}</i>
+</a>
+{% endmacro %}
+
+
+
+{% macro button_promo(button_text='', value='') %}
+<a href="#" class="button button-promo">{{ button_text }}</a>
+{% endmacro %}
+
+
+{% macro button_compare(button_text='', button_icon='equalizer') %}
+<a href="#" class="button button-compare"> 
+    <i class="material-icons">{{ button_icon }}</i>
+</a>
+{% endmacro %}
+
+{% macro button_favorite(button_text='', button_icon='favorite') %}
+<a href="#" class="button button-favorite">
+    <i class="material-icons">{{ button_icon }}</i>
+</a>
+{% endmacro %}
+
+
+{% macro button_search(button_text='', button_icon='search') %}
+<a class="search__button button button-search">
+    <i class="material-icons">{{ button_icon }}</i>
+</a>
+{% endmacro %}
+
+
+{% macro button_menu(menu_id, button_text='', button_icon='menu') %}
+<a href="#" class="button button-menu " data-target="{{ menu_id }}">
+    <i class="material-icons normal">menu</i>
+    <i class="material-icons active">menu_open</i>
+</a>
+{% endmacro %}

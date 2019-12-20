@@ -1,0 +1,22 @@
+
+
+{% macro menu_footer(css_class, list_obj) %}
+
+<ul class="menu-footer menu-footer__list {{ css_class }}">
+
+    {% for item in list_obj %}
+    
+    {% set li_css_class = '' %}
+    {% if item['submenu']  %}
+        {% set li_css_class = 'menu-item-has-children' %}
+    {% endif %}
+
+        <li class="menu-footer__item"><a href="{{ item['item-link'] }}">{{ item['item-name'] }}</a></li>
+
+    {%- endfor %}
+
+
+
+</ul>
+
+{% endmacro %}

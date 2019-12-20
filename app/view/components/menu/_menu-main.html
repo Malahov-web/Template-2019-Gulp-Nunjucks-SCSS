@@ -1,0 +1,42 @@
+{% macro menu_main(id, css_class, list_obj) %}
+
+
+<ul id="{{ id }}" class="menu-main menu-main--mv megamenu js-mobile_menu js-dropdown_list" data-js="menu-responsive" data-animation-temp="400">
+
+    {% for item in list_obj %}
+
+    {% set li_css_class = '' %}
+    {% if item['submenu']  %}
+        {% set li_css_class = 'menu-item-has-children' %}
+    {% endif %}
+
+    {% set li_active_css_class = '' %}
+    {% if item['menu-item-is-active'] == 1  %}
+        {% set li_css_class = 'active' %}
+    {% endif %}
+    
+
+    <li class="menu-main__item {{ li_css_class }} {{ li_active_css_class }} ">
+        <a href="{{ item['menu-item-link'] }}" class="menu-main__item-link">{{ item['menu-item-name'] }}</a>
+
+        {% if item['submenu']  %}
+            <i class="material-icons">keyboard_arrow_down</i>
+            <ul class="submenu">
+                {% for item in item['submenu'] %}
+                <li>
+                    <a href="{{ item['item-link'] }}">{{ item['item-name'] }}</a>
+                </li>
+                {%- endfor %}
+            </ul>
+        {% endif %}
+
+    </li>
+
+    {%- endfor %}
+
+
+
+</ul>
+
+
+{% endmacro %}

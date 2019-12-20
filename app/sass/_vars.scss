@@ -83,3 +83,20 @@ Updt Z-index,
 Add Animation,
 
 */
+
+
+$font_units_negative: 2; // font units less then 'base'
+$font_size_names: (  
+    'smaller',
+    'small',
+    'base',
+    h6,
+    h5,
+    h4,
+    h3,
+    h2,
+    'h1',
+    'large'
+);
+
+$fonts: ();

@@ -1,0 +1,75 @@
+@mixin pseudoelement_left_top($value1, $value2){
+    content : "";
+    position : absolute; left : $value1; top : $value2; 
+}
+
+
+@mixin pseudoelement_right_top($value1, $value2){
+    content : "";
+    position : absolute; right : $value1; top : $value2; 
+}
+
+
+/*
+ * Display 'flex', and set justify and aligment
+ * Call: // flex(space-between, center);
+*/
+@mixin flex($justify, $align) {
+
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;    
+}
+
+
+/*
+ * Centered image in container like CSS cover
+ * Call: // image_center_cover();
+*/
+@mixin image_center_cover () {
+
+    width: auto;
+    max-width: none;
+    min-height: 100%;
+    min-width: 100%;
+    @include pseudoelement_left_top(50%, 50%);
+    transform: translate(-50%, -50%);
+}
+
+
+/*
+ * Centered image in container like CSS contain
+ * Call: // image_center_contain();
+*/
+@mixin image_center_contain () {
+
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    @include pseudoelement_left_top(50%, 50%);
+    transform: translate(-50%, -50%);
+}
+
+
+/*
+ * Overflow text in element
+ * Call: // text_overflow();
+*/
+@mixin text_overflow() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/*
+ * Set background clip text
+ * Call: // bg_clip_text();
+*/
+@mixin  bg_clip_text() {
+
+    background-clip: text;
+    color: transparent; 
+    text-fill-color: transparent;
+}

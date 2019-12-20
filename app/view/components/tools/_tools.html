@@ -1,0 +1,46 @@
+                    
+{% macro header_top_tools(block_class, value='') %}
+
+<div class=" {{ block_class }} tools">
+    <div class="tools__item">
+        <div class="tools__item-icon">
+            <i class="material-icons">phone</i>
+        </div>
+        <div class="tools__item-title">Callback</div>                            
+    </div>
+
+    <div class="tools__item">
+        <div class="tools__item-icon">
+            <i class="material-icons">email</i>
+        </div>
+        <div class="tools__item-title">Write us</div>                            
+    </div>
+
+    <div class="tools__item">
+        <div class="tools__item-icon">
+            <i class="material-icons">account_circle</i>
+        </div>
+        <div class="tools__item-title">User/Account </div>                            
+    </div>
+</div>
+
+{% endmacro %}
+
+
+
+
+{% macro header_bottom_tools(block_class, value='') %}
+
+<div class=" {{ block_class }} tools ">
+    <div class="tools__item">
+        <a href="#" class="tools__item-button"><i class="material-icons">favorite</i></a>
+    </div>
+    <div class="tools__item">
+        <a href="#" class="tools__item-button"><i class="material-icons">equalizer</i></a>
+    </div>
+    <div class="tools__item">
+        <a href="#" class="tools__item-button"><i class="material-icons">shopping_cart</i></a>
+    </div>
+</div>
+
+{% endmacro %}

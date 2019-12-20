@@ -1,37 +1,51 @@
 
 // Input data:
 $columns: 12;
-$columns_gap: 10;
-$container_width: 1200;
+$columns_gap: 15;
+$container_width: 1400;
+// $column_name: 'ds_';
+$breakpoints_between: 'responsive'; // 'responsive' || 'fixed'. When responsive - 'container_max' don't use.
 
-$column_name: 'ds_';
 
-/* 
-$devices: ( 
-    mobile_horizontal: 480,
-    tablets          : 768,
-    desktop          : 1024,
-    hi_definition    : 1366
+$modules_display: ( 
+    block: 1,
+    inline-block: 0,
+    flex: 1
 );
 
-$devices_class: ( 
-
-    mobile_horizontal: 'mh_',
-    tablets          : 'tb_',
-    desktop          : 'ds_',
-    hi_definition    : 'hd_'
-);
- */
 
 $devices: ( 
-    mv_: 320,
-    mh_: 480,
-    tb_: 768,
-    ds_: 1024,
-    hd_: 1200
+    mv_: (
+        breakpoint: 320,
+        container_max: 300,
+        font_base: 15px,
+        ms_coeff: 1.10,
+    ),
+    mh_: (
+        breakpoint: 576,
+        container_max: 540,
+        font_base: 15px,
+        ms_coeff: 1.10,
+    ),
+    tb_: (
+        breakpoint: 768,
+        container_max: 750,
+        font_base: 15px,
+        ms_coeff: 1.17,
+    ), 
+    ds_: (
+        breakpoint: 1024,
+        container_max: 960,
+        font_base: 15px,
+        ms_coeff: 1.17
+    ),
+    hd_: (
+        breakpoint: 1440,
+        container_max: 1400,
+        font_base: 15px,
+        ms_coeff: 1.17
+    )      
 );
-
-
 
 
 
@@ -47,94 +61,92 @@ $devices: (
     padding-right: $columns_gap+px;
     margin: 0 auto; box-sizing: border-box;    position: relative;
 }
-.row{
-    margin-left: -$columns_gap+px;
-    margin-right: -$columns_gap+px;
+
+
+/* 2. Modules display */
+
+/* Block  model */
+@if map-get($modules_display, block) == 1 {
+    .row{
+        margin-left: -$columns_gap+px;
+        margin-right: -$columns_gap+px;
+    }
+
+    .row>div{ float : left; }
 }
-.row-line{
-    margin-left: -$columns_gap+px;
-    margin-right: -$columns_gap+px; 
-    font-size: 0; 
+/* Inline-block  model */
+@if map-get($modules_display, inline-block) == 1 {
+    .row-line{
+        margin-left: -$columns_gap+px;
+        margin-right: -$columns_gap+px; 
+        font-size: 0;
+    }
+
+    .row-line>div{ float : none; display : inline-block;}
+
+    .row-line.middle>div{ vertical-align : middle;  }
+    .row-line.top>div{ vertical-align : top; }
+    .row-line.bottom>div{ vertical-align : bottom; }
+    .row-line.baseline>div{ vertical-align : baseline; }
+
+    .row-line.row-reverse{ direction : rtl; }
+    .row-line.row-reverse>div{ direction : ltr; }    
 }
-.row-flex{
-    display: flex; flex-wrap: wrap;
-    margin-left: -$columns_gap+px;
-    margin-right: -$columns_gap+px;    
+/* Flex  model */
+@if map-get($modules_display, flex) == 1 {
+    .row-flex{
+        display: flex; flex-wrap: wrap;
+        margin-left: -$columns_gap+px;
+        margin-right: -$columns_gap+px;    
+    }
+
+    .row-flexbox{ display : flex; margin-left: -$columns_gap+px; margin-right: -$columns_gap+px; } 
+    [class*=row-flex].middle{ align-items : center; }
+    [class*=row-flex].top{ align-items : flex-start; }
+    [class*=row-flex].bottom{ align-items : flex-end; }
+    [class*=row-flex].baseline{ align-items : baseline; }
+    [class*=row-flex].stretch{ align-items : stretch; }
+
+    .row-flex.row-reverse{ flex-direction: row-reverse; }
 }
 
-.row>div{ float : left; }
-.row-line>div{ float : none; display : inline-block;}
-
-.row-line.middle>div{ vertical-align : middle;  }
-.row-line.top>div{ vertical-align : top; }
-.row-line.bottom>div{ vertical-align : bottom; }
-.row-line.baseline>div{ vertical-align : baseline; }
-
-.row-line.row-reverse{ direction : rtl; }
-.row-line.row-reverse>div{ direction : ltr; }
-/* 1.1.3 flex */
-.row-flexbox{ display : flex; margin-left: -$columns_gap+px; margin-right: -$columns_gap+px; } 
-[class*=row-flex].middle{ align-items : center; }
-[class*=row-flex].top{ align-items : flex-start; }
-[class*=row-flex].bottom{ align-items : flex-end; }
-[class*=row-flex].baseline{ align-items : baseline; }
-[class*=row-flex].stretch{ align-items : stretch; }
-// $i: 1;
-// @while $i < ($columns + 1) {
-
-//     .#{$column_name}#{$i} {
-
-//         $width: $i / $columns;
-//         width: $width * 100%;
-//     }
-
-//     $i: $i + 1;
-
-// }
 
 
-// $column_name: mh_;
-// @media  (min-width : 480px ) {
 
-// $i: 1;
-// @while $i < ($columns + 1) {
+/* 3. Columns */
 
-//     .#{$column_name}#{$i} {
-
-//         $width: $i / $columns;
-//         width: $width * 100%;
-//     }
-
-//     $i: $i + 1;
-
-// }
-// }
+/* 3. Columns v.2 */
 
 
-@each $device, $key in $devices {
 
-    @media  (min-width : $key+px ) {
 
-        .container{
-            // max-width: $device;
-            // max-width: map-get($device, $key);
-            // max-width: $key+px;
+@each $device_name, $device_obj in $devices {
+
+    @media (min-width : #{map-get($device_obj, breakpoint)}px) {
+
+        // between points : Container max-width
+        @if $breakpoints_between == 'fixed' {
+            .container{
+                max-width: map-get($device_obj, container_max)+px;
+            }
         }
-  
 
-        .#{$device}offset_0 { 
+        // columns offset reset
+        .#{$device_name}offset_0 { 
             margin-left:  0;
         }
 
+        // columns width and offset
         $i: 1;
         @while $i < ($columns + 1) {
 
-            .#{$device}#{$i} {
+            .#{$device_name}#{$i} {
 
                 $width: $i / $columns;
                 width: $width * 100%;
             }
-            .#{$device}offset_#{$i} {
+
+            .#{$device_name}offset_#{$i} {
 
                 $width: $i / $columns;
                 margin-left:  $width * 100%;
@@ -144,9 +156,21 @@ $devices: (
 
         }
 
-    } 
+    }
+
+    
 }
 
+/* 
+@function set_container_max_width($max_width) {
+
+    .container{
+        max-width: map-get($device_obj, container_max)+px;
+    }
+
+    @return 1;
+}
+ */
 
 // @each $animal in puma, sea-slug, egret, salamander {
 //   .#{$animal}-icon {
@@ -196,55 +220,36 @@ $devices: (
 }
 
 
-// @function toNumber($string) {
-// @function to_number($string) {
-//   // Matrices
-//   $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
-//   $numbers: 0 1 2 3 4 5 6 7 8 9;
-
-//   // Result
-//   $result: 0;
-
-//   // Looping through all characters
-//   @for $i from 1 through str-length($string) {
-//     // Do magic
-//   }
-
-//   @return $result;
-// }
-
-
 
 
 /* 4. Утилиты адаптации  */
-@each $device, $key in $devices {
 
-    // @media  (max-width : #{$key}-1+px ) {
-    $hidden_breakpoint: $key - 1;
-    @media  (max-width : $hidden_breakpoint+px ) {
 
-        .container .#{$device}hidden {
+// v2
+
+/* Скрываем на больших, на малых показываем */
+
+@each $device_name, $device_obj in $devices {
+
+    $hidden_breakpoint: map-get($device_obj, breakpoint)+0px;
+    @media  (min-width : $hidden_breakpoint ) {
+        body .#{$device_name}hidden {
             display: none;
-            // color: $hidden_breakpoint;
-            // color: $key;
         }
 
-        // @while $i < ($columns + 1) {
+    }
 
-        //     .#{$device}#{$i} {
+    $hidden_breakpoint: map-get($device_obj, breakpoint)-1px;
+    @media  (max-width : $hidden_breakpoint ) {
 
-        //         $width: $i / $columns;
-        //         width: $width * 100%;
-        //     }
-
-        //     $i: $i + 1;
-
-        // }
+        body .#{$device_name}visible {
+            display: none;
+        }
 
     } 
+
+    
 }
-
-
 
 
 /* 5. Text utulites  */
@@ -255,14 +260,15 @@ $devices: (
     .justifyed{ text-align : justify; }
 
 
-@each $device, $key in $devices {
+@each $device_name, $device_obj in $devices {
 
-    @media  (min-width : $key+px ) {
+    @media (min-width : #{map-get($device_obj, breakpoint)}px) {
 
-        .#{$device}lefted{ text-align : left; }
-        .#{$device}righted{ text-align : right; }
-        .#{$device}centered{ text-align : center; }
-        .#{$device}justifyed{ text-align : justify; }
+        .#{$device_name}lefted{ text-align : left; }
+        .#{$device_name}righted{ text-align : right; }
+        .#{$device_name}centered{ text-align : center; }
+        .#{$device_name}justifyed{ text-align : justify; }
 
-    } 
+    }
+
 }
