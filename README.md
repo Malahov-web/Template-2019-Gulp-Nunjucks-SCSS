@@ -1,2 +1,4 @@
-# Template-2019-Gulp-SCSS-Bourbon_Neat_Bitters
-Bolierplate to start html+scss project with Bourbon.scss + Neat + Bitters + Refills
+# Template-2019-Gulp-Nunjucks-SCSS
+Boilerplate to start html+njk+scss project with Nunjucks and SCSS
+Also includes:
+bourbon, mw-grid, screw-css
