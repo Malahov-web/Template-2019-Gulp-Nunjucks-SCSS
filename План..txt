@@ -12,3 +12,12 @@
 
 ..далее - компоненты
 чт
+  /components/ : accordeon, rating, (1)
+  pagination, forms, search, tools, tabs, menu, buttons. (1)
+  layout (1)
+..далее - partials, layout
+
+пт
+  fix - blocks/products,
+  update - sass/mixins, add _screw.scss,
+  Testing (3)

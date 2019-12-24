@@ -1,10 +1,10 @@
-// Gulpfile for Gulp v.4
+// Gulpfile for Gulp v.3
 /*
  * 1. Requires
  * 2. Config 
  * 3. Tasks 
  * 4. Calls 
- * 5. Utilites 
+ * 4. Utilites 
 */
 
 // 1. Requires 
@@ -63,8 +63,6 @@ const infoData = require('./app/data/data.json');
 
 const nunjucksRender = require('gulp-nunjucks-render');  
 
-const data = require('gulp-data');
-
 const fs = require('fs');
 
 // const pngquant = require('imagemin-pngquant');
@@ -78,7 +76,7 @@ const fs = require('fs');
 const path = 'app/';
 const path_libs = path + 'libs/';
 
-// autoprefixer settings
+// settings
 const autoprefixerOptions = {
   browsers: ['last 10 versions', 'IE 10', 'IE 11']
 };   
@@ -90,6 +88,7 @@ const js_owl = path_libs + '/owl.carousel/dist/owl.carousel.min.js';
 const js_fancybox = path_libs + '/fancybox/dist/jquery.fancybox.min.js';
 const js_selectric = path_libs + '/jquery-selectric/public/jquery.selectric.min.js';   
 const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.min.js';   
+
 
 
 // 3. Tasks  
@@ -106,17 +105,31 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
      *   3.8.2  nunjucksRender - компиляция в HTML 
     */
 
+    // // 3.1  SCSS - компиляция
+    // gulp.task('scss', function(){ // Создаем таск "scss"        
+    //     return gulp.src('app/sass/**/*.scss')
+
+    //     .pipe(sourcemaps.init())
+    //     .pipe(plumber())
+    //     // .pipe(postcss(processors, {syntax: syntax_scss}))
+    //     .pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
+    //     // .pipe(sass().on('error', sass.logError))
+    //     .pipe(autoprefixer())
+    //     .pipe(sourcemaps.write())
+        
+    //     .pipe(gulp.dest('app/css')) 
+    //     .pipe(browserSync.reload({stream: true}))
+    // }); 
 
     // 3.1  SCSS - компиляция  // UKResult demo // v. new
-    gulp.task('scss', function(){
-        // body...
+    gulp.task('scss', function(){ // Создаем таск "scss"        
         return gulp.src('app/sass/**/*.scss')
 
+        // .pipe(debug({title: 'SRC'}))
         .pipe(sourcemaps.init())
         .pipe(plumber( {  
             errorHandler: notify.onError()
         } ))
-
         // .pipe(postcss(processors, {syntax: syntax_scss}))  // Lint
         // .pipe(
         //     gulpif(
@@ -125,15 +138,17 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
         //         },
         //         postcss(processors, {syntax: syntax_scss})
         //     )  
-        // )  
+        // )
         .pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
+        .pipe(debug({title: 'SASS'}))
         .pipe(autoprefixer())
+        .pipe(debug({title: 'AUTOPREFIXER'}))
         .pipe(sourcemaps.write())      // .pipe(sourcemaps.write('.')) // ('.') - Выводит в отдельный файл
         
         .pipe(gulp.dest('app/css')) 
-        .pipe(bs.stream());       
-
-    }) ;
+        .pipe(debug({title: 'DEST'}))
+        .pipe(bs.stream());
+    }); 
 
 
     // 3.2  Static Server + autoreloading  // v. new
@@ -142,9 +157,12 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
         bs.init({
             server: "./app"
         });
-    }); 
 
-
+        // gulp.watch("app/scss/*.scss", ['sass']);
+        // gulp.watch("app/*.html").on('change', browserSync.reload);
+    });    
+    
+    
     // 3.3  Svgmin - оптимизация svg
     gulp.task('Svgmin', function () {
         return gulp.src('app/images/svg-icons/*')
@@ -197,6 +215,22 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
     }); 
 
 
+    // // JS - сборка
+    // gulp.task('js', function() {
+    //   return  gulp.src(
+    //     [
+    //         js_owl,
+    //         js_selectric,
+    //         'app/js/*.js'
+
+    //         //, 'app/js/menu-responsive/js/menu-responsive.js'
+    //     ]
+    //     )
+    //     .pipe(concat('scripts.js'))
+    //     .pipe(uglify())
+    //     .pipe(rename('scripts.min.js'))
+    //     .pipe(gulp.dest('app/js/min/'));
+    // });
     // 3.6  JS - сборка
     gulp.task('js', function() {
       return  gulp.src(
@@ -213,8 +247,26 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
         // .pipe(uglify())
         .pipe(rename('scripts.min.js'))
         .pipe(gulp.dest('app/js/min/'));
-    });
+    });     
 
+
+    // Lint - stylelint
+    const stylelint = require('stylelint');
+    const postcss = require('gulp-postcss');
+    const messages = require('postcss-browser-reporter');
+    const syntax_scss = require('postcss-scss');
+
+    const processors = [
+        stylelint({
+            reporters: [
+                {formatter: 'string', console: true}
+            ]
+            // ,fix: true
+        }),
+        messages({
+            selector: 'body:before'
+        })
+    ];
 
     // 3.7  Clean - очистка директории /dist
     gulp.task('clean', function() {
@@ -222,11 +274,42 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
     });
 
 
+
+
     // 3.8.2  NunjucksRender - 
     // Nunjucks.js
-    let nunjucksOptions = {
+    var nunjucksOptions = {
         path: ['app/view/'],
-        // data: infoData
+        data: infoData
+        // data: {
+        //     "mytitle": "TechnicA",
+        //     "items": [
+        //         { "itemTitle": "foo", id: 1 }, 
+        //         { "itemTitle": "bar", id: 2}
+        //     ],
+
+        //     "news": [
+        //         { 
+        //             "item-title": "Going Green Is So Much Simpler Than Most People", 
+        //             "item-image": "news-item-img-1.jpg",
+        //             "item-date": "05.02.2019",
+        //             "item-datetime": "2019-02-05",
+        //             "item-text": "Создание приверженного покупателя усиливает охват аудитории, не считаясь с затратами",
+        //             "item-text-long": "Нередки ситуации, когда заемщик обращается в банк за получением кредитной карты и ему выдают заветный пластик всего за 5 минут. Сотрудник кредитного учреждения предлагает заполнить короткую анкету, подписать ее, делает ксерокопию паспорта и выдает карту с ПИН-конвертом, в котором указывает код для доступа к средствам. ",
+        //             "item-link": "#"
+        //         },
+        //         { 
+        //             "item-title": "IT-компаниям могут предоставить налоговые льготы", 
+        //             "item-image": "news-item-img-2.jpg",
+        //             "item-date": "05.03.2019",
+        //             "item-datetime": "2019-03-05",
+        //             "item-text": "В Госдуме обсудили меры поддержки производителей отечественного программного обеспечения.",
+        //             "item-text-long": "Как сообщает пресс-служба Госдумы, в частности, производители программного обеспечения говорили о высоком налоговом бремени и просили законодателей внести изменения в действующее законодательство – снизить для специализирующихся в этой сфере компаний НДС и налог на прибыль. ",
+        //             "item-link": "#"
+        //         }                       
+
+        //     ]   
+        // }
     };
 
     gulp.task('nunjucksRender', function () {
@@ -234,36 +317,43 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
         // return gulp.src('src/templates/*.html')
         return gulp.src('app/view/*.html')
 
-            .pipe(data(function(file) {
-                return JSON.parse(fs.readFileSync('./app/data/data.json'));
-            }))            
             .pipe(nunjucksRender(nunjucksOptions))
-
+            
             .pipe(gulp.dest('app/'))
-            .pipe(bs.stream());
+            .pipe(bs.stream());             
     });
+
+
 
 
 // 4. Calls
 
-// gulp.task('watch', ['bs-serve', 'scss', 'nunjucksRender'], function() {
-gulp.task('watch',  function() {
-    // gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss']);     
-    gulp.watch('app/sass/**/*.+(scss|scss)', gulp.parallel('scss'));  
-    gulp.watch(['app/view/**/*.html', 'app/data/**/*.json'], gulp.parallel('nunjucksRender'));        
+
+// gulp.task('watch', ['browser-sync', 'scss'], function() {
+gulp.task('watch', ['bs-serve', 'scss', 'nunjucksRender'], function() {
+
+    // gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss']);
+
+    // gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss', 'html']);  // будут выполнятся обе задачи []
+    gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss']);     
+    gulp.watch(['app/view/**/*.html', 'app/data/**/*.json'], [ 'nunjucksRender']);     
 });
 
-gulp.task('watchjs', gulp.parallel('bs-serve', 'js'), function() {
 
-    gulp.watch('app/js/*.js', gulp.parallel('js'));
-    gulp.watch(['app/view/**/*.html', 'app/data/**/*.json'], gulp.parallel('nunjucksRender'));
+
+
+
+// gulp.task('watchjs', ['browser-sync', 'js'], function() {
+gulp.task('watchjs', ['bs-serve', 'js'], function() {
+
+    gulp.watch('app/js/*.js', ['js']);
+    gulp.watch('app/templates_hbs/**/*.hbs', [ 'html']); 
 }); 
 
-gulp.task('makesvgfont', gulp.series('Svgmin', 'Iconfont'));
 
-gulp.task('default', gulp.parallel( 'watch', 'bs-serve', 'scss', 'nunjucksRender') );
+gulp.task('makesvgfont', ['Svgmin', 'Iconfont']);
 
-gulp.task('build', gulp.series('clean'),  function () {
+gulp.task('build', ['clean'],  function () {
 
     gulp.src('app/*.html')
         .pipe(gulp.dest('dist'))        
@@ -281,24 +371,16 @@ gulp.task('build', gulp.series('clean'),  function () {
         .pipe(gulp.dest('dist/fonts'))
 
     gulp.src('app/images/**/*')
-        .pipe(imagemin({ // Сжимаем с наилучшими настройками
-            interlaced: true,
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()]
-        }))
+        .pipe(imagemin())
         .pipe(gulp.dest('dist/images'))
 
     gulp.src('app/uploads/**/*')
-        .pipe(imagemin({ // Сжимаем с наилучшими настройками
-            interlaced: true,
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()]
-        }))
+        .pipe(imagemin())
         .pipe(gulp.dest('dist/uploads'))    
-
+    
 });
+
+gulp.task('default', ['watch']);
 
 
 
@@ -347,20 +429,19 @@ let rename_target_folder ='./app/view/blocks/products/view';
 
 
 
+// const path = './file.txt'
 
-// gulp.task('default', ['del'], function() {
-//     // default task code here
-// });
+// fs.unlink(path, (err) => {
+//   if (err) {
+//     console.error(err)
+//     return
+//   }
 
-// gulp.task('default', gulp.series('del', function() { 
-//     // default task code here
-// }));
+//   //file removed
+// })
 
 
-// // Doc 
-// function css() {
-//   return src('client/templates/*.less')
-//     .pipe(less())
-//     .pipe(minifyCSS())
-//     .pipe(dest('build/css'))
-// }
+    // 3.7  Clean - очистка директории /dist
+    // gulp.task('clean', function() {
+    //     return del.sync('dist'); // Удаляем папку dist перед сборкой
+    // });
