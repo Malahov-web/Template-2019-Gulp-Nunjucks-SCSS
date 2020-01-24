@@ -217,10 +217,11 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
 
 
     // 3.7  Clean - очистка директории /dist
-    gulp.task('clean', function() {
-        return del.sync('dist'); // Удаляем папку dist перед сборкой
-    });
 
+    gulp.task('clean', function() {
+        // return del.sync('dist'); // - NOT work // Удаляем папку dist перед сборкой
+        return del('dist');         // + Work!  // Удаляем папку dist перед сборкой
+    });
 
     // 3.8.2  NunjucksRender - 
     // Nunjucks.js
@@ -253,7 +254,12 @@ gulp.task('watch',  function() {
     gulp.watch(['app/view/**/*.html', 'app/data/**/*.json'], gulp.parallel('nunjucksRender'));        
 });
 
-gulp.task('watchjs', gulp.parallel('bs-serve', 'js'), function() {
+// gulp.task('watchjs', gulp.parallel('bs-serve', 'js'), function() {
+
+//     gulp.watch('app/js/*.js', gulp.parallel('js'));
+//     gulp.watch(['app/view/**/*.html', 'app/data/**/*.json'], gulp.parallel('nunjucksRender'));
+// }); 
+gulp.task('watchjs', function() {
 
     gulp.watch('app/js/*.js', gulp.parallel('js'));
     gulp.watch(['app/view/**/*.html', 'app/data/**/*.json'], gulp.parallel('nunjucksRender'));
@@ -263,7 +269,7 @@ gulp.task('makesvgfont', gulp.series('Svgmin', 'Iconfont'));
 
 gulp.task('default', gulp.parallel( 'watch', 'bs-serve', 'scss', 'nunjucksRender') );
 
-gulp.task('build', gulp.series('clean'),  function () {
+gulp.task('build3', gulp.series('clean'),  function () {
 
     gulp.src('app/*.html')
         .pipe(gulp.dest('dist'))        
@@ -299,6 +305,69 @@ gulp.task('build', gulp.series('clean'),  function () {
         .pipe(gulp.dest('dist/uploads'))    
 
 });
+
+
+
+// 3.X Tasks for build (:prod)
+
+    gulp.task('html:prod', function () {
+
+        return gulp.src('app/*.html')
+            .pipe(gulp.dest('dist')) 
+    });
+    gulp.task('styles:prod', function () {
+
+        return gulp.src('app/css/**/*.css')
+            .pipe(cleanCSS({compatibility: 'ie10'}))
+            // .pipe(gulpResolveUrl())
+            // .pipe(cssAdjustUrlPath(/(url\(['"]?)[/]?(assets)/g))
+
+            // .pipe(rename({suffix: '.min'}))  // TODO: Не забыть изменить путь подключаемого файла в html
+            .pipe(gulp.dest('dist/css'))
+    });
+    gulp.task('js:prod', function () {
+        return gulp.src('app/js/min/scripts.min.js')
+            .pipe(uglify())    
+            .pipe(gulp.dest('dist/js/min'))
+    });
+    gulp.task('fonts:prod', function () {
+        return gulp.src('app/fonts/**/*')
+            .pipe(gulp.dest('dist/fonts'))
+    }); 
+    gulp.task('images:prod', function () {
+        return gulp.src('app/images/**/*')
+            .pipe(imagemin({ // Сжимаем с наилучшими настройками
+                interlaced: true,
+                progressive: true,
+                svgoPlugins: [{removeViewBox: false}],
+                use: [pngquant()]
+            }))
+            .pipe(gulp.dest('dist/images'))
+    }); 
+    gulp.task('uploads:prod', function () {
+        return gulp.src('app/uploads/**/*')
+            .pipe(imagemin({ // Сжимаем с наилучшими настройками
+                interlaced: true,
+                progressive: true,
+                svgoPlugins: [{removeViewBox: false}],
+                use: [pngquant()]
+            }))
+            .pipe(gulp.dest('dist/uploads'))
+    }); 
+
+gulp.task('build', gulp.series(
+    'clean', 
+    'html:prod', 
+    'styles:prod',
+    'js:prod',
+    'fonts:prod',
+    'images:prod',
+    'uploads:prod'
+));
+
+
+
+
 
 
 

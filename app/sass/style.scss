@@ -13,16 +13,16 @@
  *
  */
 
-@import 'mwgrid';
-@import 'fonts'; //
-@import 'svgfontstyle'; //
-@import 'libs'; //
-@import 'base'; //
+@import 'mwgrid';       // layout framework
+@import 'fonts';        // fonts add
+@import 'svgfontstyle'; // for generate web fonts from svg
+@import 'libs';         // external libs
+@import 'base';         // base, mixin, extends, etc..
 @import 'media'; //
 
 // @import 'hamburgers/hamburgers'; //
 
-// @import 'components';     //
+// @import 'components';   // blocks and components
 
 
 /* 0. General Vars, Mixins, Extends
