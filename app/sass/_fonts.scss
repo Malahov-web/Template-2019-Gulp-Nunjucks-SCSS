@@ -50,6 +50,10 @@
 
 
 
+// File structure: ./app/fonts/fontName/fileName.ttf; :
+// @include font-face(Lato, '../fonts/Lato/Lato-Regular', normal, normal, woff2 woff ttf svg); 
+// @include font-face(Lato, '../fonts/Lato/Lato-Medium', 500, normal, woff2 woff ttf svg); 
+// @include font-face(Lato, '../fonts/Lato/Lato-Medium', bold, normal, woff2 woff ttf svg); 
 
 // @include font-face(Samplino, fonts/Samplino); 
 @include font-face(myfont, fonts/myfont); 
@@ -57,3 +61,5 @@
 // @include font-face(SFUI-Text-Light, fonts/SFUI-Text-Bold); 
 // @include font-face(SFUI-Text-Light, fonts/SFUI-Text-Medium); 
 // @include font-face('social-icons', fonts/social-icons); 
+
+

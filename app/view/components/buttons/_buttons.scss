@@ -329,13 +329,13 @@ $button_height: 1.5*$l_h_base;
     //     height: 100%;
     //     line-height: $button_height;
     //     @include font_size_pro('h5');
-    // }
+    }
 
     &:hover,
     &.hover {
         // background-color: $accent_alt_light;
         // background-color: $white_dark;
-    // }
+    }
     &:active,
     &.active {
 

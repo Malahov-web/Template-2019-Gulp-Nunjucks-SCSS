@@ -67,9 +67,11 @@ const data = require('gulp-data');
 
 const fs = require('fs');
 
-// const pngquant = require('imagemin-pngquant');
+const pngquant = require('imagemin-pngquant');
 
 // const rename = require('rename');
+
+// const pug = require('gulp-pug');
 
 
 // 2. Config 
@@ -77,6 +79,46 @@ const fs = require('fs');
 // paths
 const path = 'app/';
 const path_libs = path + 'libs/';
+const path_view_styles = 'app/view/**/*.+(scss|scss)';
+const path_view_js     = 'app/view/**/*.+(js|js)';
+
+
+// Updt: прим.: переписали пути в all:build
+// /* пути к исходным файлам (src), к готовым файлам (build), а также к тем, за изменениями которых нужно наблюдать (watch) */
+// // пути к исходным файлам (watch), к готовым (скомпилированным) файлам (src), и файлам в сборке (build)
+
+let path = {
+
+    watch: {
+        html:  'app/view/**/*.html',
+        js:    'app/js/**/*.js',
+        css:   'app/sass/**/*.scss',
+        img:   'app/images/**/*.*',
+        uploads:   'app/uploads/**/*.*',
+        fonts: 'app/fonts/**/*.*'
+    },
+
+    src: {
+        html: 'assets/src/*.html',
+        js: 'assets/src/js/main.js',
+        style: 'assets/src/style/main.scss',
+        img: 'assets/src/img/**/*.*',
+        fonts: 'assets/src/fonts/**/*.*'
+    },
+
+    build: {
+        html:    'dist/',
+        js:      'dist/js/min',
+        css:     'dist/css/',
+        img:     'dist/img/',
+        uploads: 'dist/uploads/',        
+        fonts:   'dist/fonts/'
+    },
+
+
+    clean: './dist/*'
+};
+
 
 // autoprefixer settings
 const autoprefixerOptions = {
@@ -252,6 +294,7 @@ gulp.task('watch',  function() {
     // gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss']);     
     gulp.watch('app/sass/**/*.+(scss|scss)', gulp.parallel('scss'));  
     gulp.watch(['app/view/**/*.html', 'app/data/**/*.json'], gulp.parallel('nunjucksRender'));        
+    gulp.watch(['app/js/*.js', path_view_js], gulp.parallel('js'));     
 });
 
 // gulp.task('watchjs', gulp.parallel('bs-serve', 'js'), function() {
@@ -267,17 +310,21 @@ gulp.task('watchjs', function() {
 
 gulp.task('makesvgfont', gulp.series('Svgmin', 'Iconfont'));
 
+// gulp.task('default', gulp.parallel( 'watch', 'bs-serve', 'scss', 'nunjucksRender', 'js') );
 gulp.task('default', gulp.parallel( 'watch', 'bs-serve', 'scss', 'nunjucksRender') );
+
+gulp.task('defaultjs', gulp.parallel('watchjs', 'bs-serve', 'js', 'nunjucksRender') );
 
 gulp.task('build3', gulp.series('clean'),  function () {
 
     gulp.src('app/*.html')
-        .pipe(gulp.dest('dist'))        
+        .pipe(gulp.dest('dist'))     
 
     gulp.src('app/css/**/*.css')
         .pipe(cleanCSS({compatibility: 'ie10'}))
         // .pipe(rename({suffix: '.min'}))  // TODO: Не забыть изменить путь подключаемого файла в html
         .pipe(gulp.dest('dist/css'))
+
 
     gulp.src('app/js/min/scripts.min.js')
         .pipe(uglify())    
@@ -313,7 +360,8 @@ gulp.task('build3', gulp.series('clean'),  function () {
     gulp.task('html:prod', function () {
 
         return gulp.src('app/*.html')
-            .pipe(gulp.dest('dist')) 
+            // .pipe(gulp.dest('dist')) 
+            .pipe(gulp.dest(path.build.html)) 
     });
     gulp.task('styles:prod', function () {
 
@@ -323,16 +371,19 @@ gulp.task('build3', gulp.series('clean'),  function () {
             // .pipe(cssAdjustUrlPath(/(url\(['"]?)[/]?(assets)/g))
 
             // .pipe(rename({suffix: '.min'}))  // TODO: Не забыть изменить путь подключаемого файла в html
-            .pipe(gulp.dest('dist/css'))
+            // .pipe(gulp.dest('dist/css'))
+            .pipe(gulp.dest(path.build.css)) 
     });
     gulp.task('js:prod', function () {
         return gulp.src('app/js/min/scripts.min.js')
             .pipe(uglify())    
-            .pipe(gulp.dest('dist/js/min'))
+            // .pipe(gulp.dest('dist/js/min'))
+            .pipe(gulp.dest(path.build.js)) 
     });
     gulp.task('fonts:prod', function () {
         return gulp.src('app/fonts/**/*')
-            .pipe(gulp.dest('dist/fonts'))
+            // .pipe(gulp.dest('dist/fonts'))
+            .pipe(gulp.dest(path.build.fonts))
     }); 
     gulp.task('images:prod', function () {
         return gulp.src('app/images/**/*')
@@ -342,7 +393,8 @@ gulp.task('build3', gulp.series('clean'),  function () {
                 svgoPlugins: [{removeViewBox: false}],
                 use: [pngquant()]
             }))
-            .pipe(gulp.dest('dist/images'))
+            // .pipe(gulp.dest('dist/images'))
+            .pipe(gulp.dest(path.build.images))
     }); 
     gulp.task('uploads:prod', function () {
         return gulp.src('app/uploads/**/*')
@@ -352,7 +404,8 @@ gulp.task('build3', gulp.series('clean'),  function () {
                 svgoPlugins: [{removeViewBox: false}],
                 use: [pngquant()]
             }))
-            .pipe(gulp.dest('dist/uploads'))
+            // .pipe(gulp.dest('dist/uploads'))
+            .pipe(gulp.dest(path.build.uploads))
     }); 
 
 gulp.task('build', gulp.series(

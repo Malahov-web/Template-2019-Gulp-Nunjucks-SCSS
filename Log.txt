@@ -1,3 +1,17 @@
+21.02
+Update: gulpfile.js : task 'default'
+
+20.02.
+Fix: components/buttons/_buttons
+
+11.02
+Fix: gulpfile.js : task 'defaultjs'
+
+6.02
+Fix: _fonts.scss
+
+update gulpfile.js  -> Gulp 4
+
 18.12
 Add view/blocks/ (categories, edges, brands, reviews, slider-main, products)
 

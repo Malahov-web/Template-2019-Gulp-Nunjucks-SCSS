@@ -1,5 +1,10 @@
 
-пн
+чт 24.01
+  Update gulpfile.js - task build, clean, *:prod
+
+
+(16-21.12)
+пн 16.12
   init, file structure;
   /blocks/news (2)
 вт
@@ -17,7 +22,7 @@
   layout (1)
 ..далее - partials, layout
 
-пт
+пт 21.12
   fix - blocks/products,
   update - sass/mixins, add _screw.scss,
   Testing (3)
