@@ -310,8 +310,9 @@ gulp.task('watchjs', function() {
 
 gulp.task('makesvgfont', gulp.series('Svgmin', 'Iconfont'));
 
-// gulp.task('default', gulp.parallel( 'watch', 'bs-serve', 'scss', 'nunjucksRender', 'js') );
-gulp.task('default', gulp.parallel( 'watch', 'bs-serve', 'scss', 'nunjucksRender') );
+
+// gulp.task('default', gulp.parallel( 'watch', 'bs-serve', 'scss', 'nunjucksRender') );
+gulp.task('default', gulp.parallel( 'watch', 'bs-serve', 'scss', 'nunjucksRender', 'js') );
 
 gulp.task('defaultjs', gulp.parallel('watchjs', 'bs-serve', 'js', 'nunjucksRender') );
 
@@ -384,7 +385,8 @@ gulp.task('build3', gulp.series('clean'),  function () {
         return gulp.src('app/fonts/**/*')
             // .pipe(gulp.dest('dist/fonts'))
             .pipe(gulp.dest(path.build.fonts))
-    }); 
+    });
+
     gulp.task('images:prod', function () {
         return gulp.src('app/images/**/*')
             .pipe(imagemin({ // Сжимаем с наилучшими настройками
@@ -406,6 +408,7 @@ gulp.task('build3', gulp.series('clean'),  function () {
             }))
             // .pipe(gulp.dest('dist/uploads'))
             .pipe(gulp.dest(path.build.uploads))
+
     }); 
 
 gulp.task('build', gulp.series(
