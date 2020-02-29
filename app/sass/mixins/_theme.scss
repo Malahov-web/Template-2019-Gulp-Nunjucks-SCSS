@@ -102,21 +102,55 @@
 
 }
 
+
+// // TODO : remove duplicate fonts-sizes from mixin font_size_pro();
+// @mixin font_size_pro ($type) {
+
+//     // set_font_size_pro($type);
+
+
+//         @each $fonts_device, $fonts_obj in $fonts {
+
+//             // @media (min-width: #{map-get($devices, $fonts_device)}px) {                
+//             @media (min-width: #{  bp($fonts_device) }px) {                
+//                 font-size: map-get($fonts_obj, $type);
+//             }
+//         }
+
+// }
+
+
+// Set font-size for each device from $fonts to @media selectors
 @mixin font_size_pro ($type) {
 
-    // set_font_size_pro($type);
+    $curr_font_size : 0;
+    $prev_font_size : 0;
+
+    @each $fonts_device, $fonts_obj in $fonts {
+
+        $curr_font_size: map-get($fonts_obj, $type);
+        // @debug "curr_font_size_ : #{$curr_font_size}";
+        // @debug "prev_font_size : #{$prev_font_size}";
 
 
-        @each $fonts_device, $fonts_obj in $fonts {
+        @if ( $curr_font_size != $prev_font_size ) {
+
+            $prev_font_size: $curr_font_size;
 
             // @media (min-width: #{map-get($devices, $fonts_device)}px) {                
             @media (min-width: #{  bp($fonts_device) }px) {                
                 font-size: map-get($fonts_obj, $type);
             }
-        }
 
+        } // @if
+
+        // @debug "__ start next iteration";     
+    } // @each
 
 }
+
+
+
 
 /*
 
