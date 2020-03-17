@@ -77,8 +77,8 @@ const pngquant = require('imagemin-pngquant');
 // 2. Config 
 
 // paths
-const path = 'app/';
-const path_libs = path + 'libs/';
+const path_base = 'app/';
+const path_libs = path_base + 'libs/';
 const path_view_styles = 'app/view/**/*.+(scss|scss)';
 const path_view_js     = 'app/view/**/*.+(js|js)';
 
@@ -90,20 +90,20 @@ const path_view_js     = 'app/view/**/*.+(js|js)';
 let path = {
 
     watch: {
-        html:  'app/view/**/*.html',
-        js:    'app/js/**/*.js',
-        css:   'app/sass/**/*.scss',
-        img:   'app/images/**/*.*',
-        uploads:   'app/uploads/**/*.*',
-        fonts: 'app/fonts/**/*.*'
+        html:    'app/view/**/*.html',
+        js:      'app/js/**/*.js',
+        css:     'app/sass/**/*.scss',
+        img:     'app/images/**/*.*',
+        uploads: 'app/uploads/**/*.*',
+        fonts:   'app/fonts/**/*.*'
     },
 
     src: {
-        html: 'assets/src/*.html',
-        js: 'assets/src/js/main.js',
-        style: 'assets/src/style/main.scss',
-        img: 'assets/src/img/**/*.*',
-        fonts: 'assets/src/fonts/**/*.*'
+        html:    'assets/src/*.html',
+        js:      'assets/src/js/main.js',
+        style:   'assets/src/style/main.scss',
+        img:     'assets/src/img/**/*.*',
+        fonts:   'assets/src/fonts/**/*.*'
     },
 
     build: {
@@ -145,7 +145,8 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
      * 3.7 clean  // Clean - очистка директории для build
      * 3.8 html  // HTML - компиляция 
      *   3.8.1  Mustache/Handlebars - компиляция в HTML 
-     *   3.8.2  nunjucksRender - компиляция в HTML 
+     *   3.8.2  nunjucksRender - компиляция в HTML
+     *   3.8.3  pugRender - компиляция в HTML      
     */
 
 
@@ -285,6 +286,27 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
             .pipe(gulp.dest('app/'))
             .pipe(bs.stream());
     });
+
+    // 3.8.3 Pug to HTML
+    // Pug.js
+    let pugOptions = {
+        path: ['app/view/'],
+        // data: infoData
+    };    
+
+    gulp.task('pugRender', function () {
+
+        return gulp.src('app/view/*.pug')
+            .pipe(data(function(file) {
+                return JSON.parse(fs.readFileSync('./app/data/data.json'));
+            }))     
+            .pipe(pug({
+            // Your options in here.
+
+            }))
+            .pipe(gulp.dest('app/'))
+            .pipe(bs.stream());
+    });      
 
 
 // 4. Calls

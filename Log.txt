@@ -1,3 +1,9 @@
+16.03
+Update: gulpfile.js : Add task 'pugRender'
+
+29.02
+Fix: services.scss - remove duplicate fonts-sizes from mixin font_size_pro()
+
 21.02
 Update: gulpfile.js : task 'default'
 
