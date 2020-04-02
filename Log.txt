@@ -1,3 +1,6 @@
+31.03
+Fix: _head.html : meta name=viewport (<!-- яндекс.Ѕраузер -->)
+
 16.03
 Update: gulpfile.js : Add task 'pugRender'
 
