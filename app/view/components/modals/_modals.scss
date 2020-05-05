@@ -1,0 +1,159 @@
+/* modals */
+
+/* Hint:
+
+add include modals template:
+ 
+<div class="overlay" id="overlay">
+    <div class="overlay-inner">
+        {% include "components/modals/_modals.html" %}
+    </div>
+</div> 
+
+or use modal macros:
+
+{% import "components/modals/_modals.html" as modals %}
+
+<div class="overlay" id="overlay">
+    <div class="overlay-inner">
+        {{  modal.modal('callback', 'Заказ обратного звонка', modal_callback_content)  }}
+    </div>
+</div> 
+
+ */
+ 
+.overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparentize($grey_dark, 1-0.8);
+    z-index: $zindex_modal;
+    overflow-x: scroll;
+    backdrop-filter: blur(50px);
+    &-inner {
+        @include pseudoelement_left_top(0, 0);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal {}
+}
+
+$button_close_width: 1em;
+.modal {
+    position: relative;
+    z-index: $zindex_modal;
+    width: 90%;
+    max-width: 780px;
+    background: $accent;
+    color: $white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    /* shadow elements */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.33);
+    border-radius: 10px;
+    padding: 1*$l_h 0 1*$l_h;
+    @include h_rhytm('modal', $l_h); // @media (min-width: #{map-get($devices, 'ds_')}px) {
+    @media (min-width: get_grid_bp('ds_')+px) {
+        width: 100%;
+    }
+    &--video {
+        padding: 2*$l_h 0 2*$l_h;
+        .modal__text {
+            padding-top: 0;
+        }
+    }
+    &-inner {
+        position: relative;
+    }
+    &__close {
+        z-index: $zindex_modal + 10;
+        @include pseudoelement_right_top(1*$l_h_base, 1*$l_h_base);
+        width: 1.5*$l_h_base;
+        height: 1.5*$l_h_base; // background-color: $text;
+        background: $white url('../images/close.png') center center no-repeat;
+        background-size: contain;
+        color: $text;
+        opacity: 0.5;
+        cursor: pointer;
+        @extend %border_circle;
+        @extend %transition;
+        &:hover {
+            opacity: 0.75;
+            color: $accent;
+        }
+    }
+    &__header {
+        position: relative;
+        text-align: center;
+    }
+    &__content {
+        padding-top: 2*$l_h_base;
+        text-align: center;
+    }
+    &__footer {
+        text-align: center;
+    }
+    &__title {
+        @include font_size_pro('h2');
+        @include height_leveling('heading');
+        @include typo('heading');
+        color: #FFFFFF;
+        text-align: center;
+    }
+    &__text {
+        @include font_size_pro('h5');
+        @include height_leveling('text');
+        // padding-top: 2*$l_h_base;
+        text-align: center;
+    }
+    &__buttons {
+        margin-top: 2*$l_h;
+        .button {
+            margin: 0 auto;
+        }
+    }
+    .form__assign {
+        justify-content: center;
+        padding-top: 1*$l_h_base;
+    }
+}
+
+.js-modal {
+    display: none;
+}
+
+/* TEMP */
+
+.modal--callback {
+    // display: none;
+    // display: block;
+}
+
+.modal--consultation {
+    // display: none;
+}
+
+.modal--order {
+    // display: none;
+}
+
+.modal--review {}
+
+.modal--thanks {
+    // display: none;
+}
+
+.overlay {
+    // display: none;
+    // display: block;
+}
+
+.modal {
+    // display: none;
+}

@@ -1,0 +1,260 @@
+
+/*
+ * 2. Forms elements
+*/
+
+/* Input, Textarea */
+/* Reset*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+
+#{$all-text-inputs}{
+    width: 100%;
+    // background-color: $white;
+    background-color: none;
+    background-color: transparent;
+    border: none;
+
+    margin: 0;
+    line-height: $l_h;
+    font-family: $font_family;
+    font-weight: 400; 
+
+    &::placeholder {
+        // color: $grey_semilight;
+        opacity: 1;
+    }
+}
+
+
+input.field-text,
+input.wpcf7-text, 
+input.wpcf7-tel {
+
+    @include height_leveling('forms_element');
+    // @include h_rhytm('forms_element', $font_forms_elements);
+
+    // max-width: 240px;
+    @include font_size_pro('h5');    
+    color: $white;
+    // border: 1px solid #ccc;
+
+    &:after {
+        @include pseudoelement_left_top(0, 0);
+        width: 100%;
+        height: 2px;
+        border-bottom: 1px solid $grey_lighter;
+    }
+
+    &:focus,
+    &.focus{
+        // border-color: $grey_dark;
+        // color: $text;
+    }
+ 
+    &.error{
+        border-color: transparentize($error_color, 1-0.75);
+        // border-color: $error_color;
+        background-color: transparentize($error_color, 1-0.12);
+        color: $error_color;
+    }   
+
+    // :empty 
+    // :placeholder-shown
+    &:placeholder-shown {
+        // border-top: 5px solid $success_color !important;
+        // color: $grey_semilight;
+    }
+
+    &:valid {
+
+    }
+    &:invalid {
+
+    }
+
+    // &:not(:empty) { // Dont' work)
+    //     color: $success_color;
+    // }
+
+    // &:not([value]) {  // Need obviously html-attribute "value" (add inline js?)
+    //     border-top: 5px solid $warning_color !important;
+    // }
+
+    &:not(:placeholder-shown) { // Когда заполнено текстом
+        // color: $text;
+    }
+
+
+}
+
+input[type=submit],
+input.wpcf7-submit {
+    border: none;
+    width: 100%;
+    @extend .button-send;
+    @extend %transition;
+}
+
+
+
+// .dark input.field-text{
+//     // color: $grey_semilight;
+//     border-color: $grey;
+
+//     &:focus,
+//     &.focus{
+//         // border-color: $grey_semilight;
+//         color: $grey_super_light;
+//     }
+
+//     &.error{
+//         border-color: transparentize($error_color, 1-0.5);
+//         background-color: transparentize($error_color, 1-0.5);
+//         color: transparentize($white, 1-0.5);
+//     }
+
+//     &:not(:placeholder-shown) { // Когда заполнено текстом
+//         color: $grey_super_light;
+//     }    
+// }
+
+
+
+
+$input_radio_checkbox_metric: 0.8* 1em; // 20 || 22
+
+%input_radio_checkbox_style{
+
+        position: relative;
+        @extend %transition;
+
+        &:before{
+            display: block;
+            content: "";
+            // @include pseudoelement_left_top(0, 50%); // redefine content : "";
+            margin-right: 0.5em;
+            width: $input_radio_checkbox_metric;
+            height: $input_radio_checkbox_metric;
+            border: 1px solid $grey_super_light;
+            border-radius: 50%;
+            @extend %transition;
+        }
+
+        &:hover:before,
+        &.hover:before {
+            border: 1px solid $accent;
+            color: $accent;
+        }
+        &:hover:after,
+        &.hover:after {
+            background-color: $accent;
+        }   
+
+        // demo checked
+        &:checked:before,
+        &.checked:before {
+            border: 1px solid $accent;
+            background-color: $accent;
+            color: $white;
+            // background: linear-gradient(to right, $accent_dark, $accent);    
+        }
+}
+
+input[type="checkbox"],
+input.field-checkbox{
+
+    opacity: 0.5;
+    display: none;
+
+
+    &+label{
+
+        display: block;
+        @include flex(flex-start, center);
+        // font-size: $fb;
+        // line-height: $l_h;
+        line-height: normal;
+
+
+        @extend %input_radio_checkbox_style;
+        // @extend .icon-checked;
+
+        &:before{
+
+        }
+
+
+    }
+    // real checked
+    &:checked{
+        &+label{
+
+            &:before,
+            &:before {
+                border: 1px solid $accent;
+                background-color: $accent;
+                // background: linear-gradient(to right, $accent_dark, $accent);    
+            } 
+        }
+    }    
+}
+
+input[type="radio"],
+input.field-radio{
+
+    opacity: 0.5;
+    display: none;
+
+
+    &+label{
+
+        display: block;
+        font-size: $fb;
+        // line-height: $l_h;
+        line-height: normal;
+
+
+        @extend %input_radio_checkbox_style;
+        // @extend .icon-checked;
+        // font-family: "hc_fontello";        
+
+        &:before{
+            content: "";
+            border-radius: 50%;
+            // @extend %border_circle;
+        }
+        // точка внутри круга
+        &:after {
+            @include pseudoelement_left_top(1/2*$input_radio_checkbox_metric, 50%);
+            transform: translate(0, -50%);
+            width: 2px;
+            height: 2px;
+            background-color: $text;
+        }
+
+    }
+
+    &:checked{
+        &+label{
+            &:before,
+            &:before {
+                border: 1px solid $accent;
+                background-color: $accent;   
+            }
+            &:after,
+            &:after {
+                // background-color: $white;
+                background-color: $text; 
+            }               
+        }
+    }
+
+}

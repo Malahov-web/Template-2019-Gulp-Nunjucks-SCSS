@@ -1,10 +1,13 @@
++ Update components/tabs/ - вкладки одинаковой высоты
++ Add components/modals
++ Update components/pagination - add wp_pagination
 + Update  gulpfile.js: path - paths for wp theme dev
-Update plugins/_plugins.scss  (m.b. move to components/ ?)
-Update component /forms/ : _forms, _forms_elements
-Update _screw.scss - add set_bg_adaptive()
++ Update plugins/_plugins.scss  (m.b. move to components/ ?)
++ Update component /forms/ : _forms, _forms_elements
++ Update _screw.scss - add set_bg_adaptive(), update flex()
 + Update, fix gulpfile tasks: js, watch (add views/ path)
 + Update package.json: add bourbon, mw-grid
-20.04 
+20.04 - 31.04
 
 Add view/modals
 02.04

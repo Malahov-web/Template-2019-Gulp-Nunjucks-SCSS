@@ -1,115 +1,145 @@
+@import '../view/components/forms/_forms-elements';     //
 
 /*
- * 2. Forms elements
-*/
+ * Here we styles specific forms
+ * Здесь мы стилизуем конекретные формы (блоки)
 
-/* Input, Textarea */
-/* Reset*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
-}
-input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
-}
+ */
 
 
-#{$all-text-inputs}{
-    width: 100%;
-    // background-color: $white;
-    background-color: none;
-    background-color: transparent;
-    border: none;
+$field_text_icon_metric: 2em; // 40
 
-    margin: 0;
-    line-height: $l_h;
-    font-family: $font_family;
-    font-weight: 300; 
-    font-weight: 400; 
+.form-order {
+    // padding-top: 2*$l_h_base;
+    // @include v_rhytm('list', $l_h);
 
-    &::placeholder {
-        // color: $grey_semilight;
-        opacity: 1;
-    }
-}
-
-input[type="text"]{
-
-}
-input.field-text{
-
-    // @include height_leveling('forms_element');
-    @include height_leveling('button');
-    // @include h_rhytm('forms_element', $font_forms_elements);
-
-    max-width: 240px;
-
-    font-size: $font_forms_elements;
-    border-bottom: 1px solid $grey_lighter;
-    // color: $text;
-    // color: $forms_placeholder_color;
-    color: $grey_semilight;
-
-    &:focus,
-    &.focus{
-        border-color: $grey_dark;
-        color: $text;
-    }
- 
-    &.error{
-        border-color: transparentize($error_color, 1-0.75);
-        // border-color: $error_color;
-        background-color: transparentize($error_color, 1-0.12);
-        color: $error_color;
-    }   
-
-    // :empty 
-    // :placeholder-shown
-    &:placeholder-shown {
-        // border-top: 5px solid $success_color !important;
-        // color: $grey_semilight;
-    }
-
-    &:valid {
-
-    }
-    &:invalid {
-
-    }
-
-    // &:not(:empty) { // Dont' work)
-    //     color: $success_color;
+    // .form-field {
+    //     @include v_rhytm('list-item', $l_h);
+    //     // @include v_rhytm('item', $l_h);
+    // }
+    // .form-field--date {
+    //     @include flex(space-between, center);
+    // }
+    // .button-send {
+    //     margin-top: 2*$l_h;
+    //     margin-left: auto;
+    //     margin-right: auto;
     // }
 
-    // &:not([value]) {  // Need obviously html-attribute "value" (add inline js?)
-    //     border-top: 5px solid $warning_color !important;
-    // }
+}
 
-    &:not(:placeholder-shown) { // Когда заполнено текстом
-        color: $text;
+
+.form-field {
+    label {
+
+        position: relative;
+        display: block;        
+        letter-spacing: $l_s_big;
+        // border-bottom: 2px solid $accent;
+        border-bottom: 2px solid transparentize($accent, 1-0.75);
+
+        // icon
+        &:before {
+            @include pseudoelement_right_top(0, 100%);
+            transform: translateY(-100%);
+            width: $field_text_icon_metric;
+            height: $field_text_icon_metric;
+            @include font_size_pro('h5'); 
+            // background-color: #ccc;
+        }
+        &.label--name {
+            &:before {
+                background: url('../images/user.png') 0 0 no-repeat;
+                background-size: cover;
+            }
+        }
+        &.label--phone {
+            &:before {
+                background: url('../images/phone.png') 0 0 no-repeat;
+                background-size: cover;
+            }
+        }
+
+        // border-bottom
+        &:after {
+            @include pseudoelement_left_top(0, 100%);
+            width: 100%;
+            height: 2px;
+        }
+       
+
+        & > span:first-child {
+            display: block;
+            @include height_leveling('base');
+        }
+
+        .wpcf7-form-control-wrap {
+            display: block;
+            input {
+
+            }
+        }
+
+
+        &:focus-within {
+            border-bottom: 2px solid $accent;  
+            // box-shadow: 0 0  0.5em 1em transparentize($accent, 1-0.1); 
+        }
+        &.label--name:focus-within:before {
+            background-image: url('../images/user-hover.png');
+        }
+        &.label--phone:focus-within:before {
+            background-image: url('../images/phone-hover.png');    
+        }        
+        &:focus-within:after {
+            box-shadow: 0 0  1em 0.1em transparentize($accent, 1-0.5);       
+        } 
     }
 
 
 }
 
-.dark input.field-text{
-    // color: $grey_semilight;
-    border-color: $grey;
 
-    &:focus,
-    &.focus{
-        border-color: $grey_semilight;
-        color: $grey_super_light;
-    }
+// .callback {
+//     margin: 0 auto;
+//     max-width: 900px;
+//     padding: 1*$l_h_base 2.5em;
+//     background-color: transparentize($black, 1-0.3);
+//     color: $white;
+//     @media (min-width: get_grid_bp('tb_')+px) {
+//         padding: 1*$l_h_base 3em
+//     }
 
-    &.error{
-        border-color: transparentize($error_color, 1-0.5);
-        background-color: transparentize($error_color, 1-0.5);
-        color: transparentize($white, 1-0.5);
-    }
+//     .form-field {
+//         // @include v_margin(2*$l_h, 0);
+//         margin-top: 2*$l_h;
+//     }
 
-    &:not(:placeholder-shown) { // Когда заполнено текстом
-        color: $grey_super_light;
-    }    
-}
+//     &__title {
+//         @include font_size_pro('h4');
+//         @include height_leveling('heading');
+//         // font-weight: bold;
+//         // letter-spacing: $l_s_big;
+//         @include typo('title');
+//         // text-transform: uppercase;
+//     }
+//     &__header {
+//        text-align: center;
+//     }
+//     &__footer {
+        
+//     }    
+//     &__footer {
+        
+//     }
+//     &__assign {
+//         @include flex(flex-start, center);
+//         @include font_size_pro('smaller');
+//         margin: 1em auto 0;
+//         max-width: 300px;
+//         label {
+//             font-size: 85%;
+//             @include height_leveling('text');
+//         }
+//     }    
+// }

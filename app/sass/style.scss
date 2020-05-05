@@ -20,9 +20,9 @@
 @import 'base';         // base, mixin, extends, etc..
 @import 'media'; //
 
-// @import 'hamburgers/hamburgers'; //
+// @import 'plugins/plugins'; // external plugins custom styles
 
-// @import 'components';   // blocks and components
+// @import 'components';   // moved to -> _base
 
 
 /* 0. General Vars, Mixins, Extends

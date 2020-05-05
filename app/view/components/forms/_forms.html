@@ -1,3 +1,5 @@
+{% import "components/buttons/_buttons.html" as buttons %}
+
 
 {% macro form__subscribe (block_class, value='', input_placeholder='') %}
 <form class="subscribe__form form--subscribe {{ block_class }}" method="post">
@@ -13,3 +15,91 @@
 </form>
 {% endmacro %}
 
+
+
+
+{% macro form__callback_wpcf7 (block_class, value='', input_placeholder='') %}
+
+<div role="form" class="wpcf7">
+
+    <form action="#" method="post" class="wpcf7-form">
+
+        <div class="row">
+            <div class="form-field mv_12 ds_6">
+                <label class="label label--name" for="header-callback-name">
+                    <span>Введите ваше имя:</span>
+                    <span class="wpcf7-form-control-wrap ">
+                        <input type="text" name="" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" >
+                    </span>
+                    <i class="svg_icon"></i>
+                </label>
+            </div>
+
+            <div class="form-field mv_12 ds_6">
+                <label class="label label--phone" for="header-callback-tel">
+                    <span>Введите ваш телефон:</span>
+                
+                    <span class="wpcf7-form-control-wrap">
+                        <input type="tel" name="" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel">
+                    </span>
+                    <i class="svg_icon mail_icon"></i>
+                </label>
+            </div>
+
+            <div class="form-field mv_12 tb_12 centered">
+                <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit">
+                <span class="ajax-loader"></span>
+            </div>
+        </div>
+ 
+    </form>
+
+</div>
+{% endmacro %}
+
+
+
+
+{% macro form__questions (block_class, id='questions', value='', input_placeholder='') %}
+<form class="questions__form form--questions {{ block_class }}" method="post">
+
+    <div class="row">
+        <div class="mv_12 ds_6">
+            <div class="field-outer field-outer--name">
+                <input type="text" class="field-text" placeholder="Ваше имя">
+                <i></i>
+            </div>
+        </div>
+        <div class="mv_12 ds_6">
+            <div class="field-outer field-outer--phone">
+                <input type="tel" class="field-text" placeholder="Ваш телефон">
+                <i></i>
+            </div>
+        </div>
+        <div class="mv_12 ds_12">
+            <div class="field-outer">
+                <textarea name="question" id="" placeholder="Задайте ваш вопрос">Задайте ваш вопрос</textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mv_12 __ds_6 ds_12 hd_6">
+            <div class="field-outer">
+                <div class="form__assign">                
+                    <input type="checkbox" class="field-checkbox" name="checkbox_group_1" id="checkbox_{{ id }}" required="required">
+                    <label for="checkbox_{{ id }}">Даю согласие на обработку персональных данных</label>
+                </div>                               
+            </div>
+        </div>
+        <div class="mv_12 __ds_6 ds_12 hd_6">
+            <div class="field-outer">
+                {{ buttons.button_send('Задать вопрос') }}
+                <!-- <a href="#" class="button button-green button-send">Задать вопрос
+                </a> -->
+            </div>
+        </div>
+    </div>
+
+</form>
+{% endmacro %}

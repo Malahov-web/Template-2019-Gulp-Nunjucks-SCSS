@@ -1,0 +1,55 @@
+
+// Hack for TaroGrand
+.button-send {
+
+    // When we add ".wpcf7-submit" button into ".button-send" (need to stylish)
+    // we place ".wpcf7-submit" on top of the ".button-send"
+    button.wpcf7-submit,
+    .wpcf7-submit {
+        @include pseudoelement_left_top(0, 0);
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+
+    // Posotioning ajax-loader
+    div.wpcf7 .ajax-loader {
+        position: absolute;
+        left: 0;
+        // left: -0.5em;
+        transform: translatex(-200%);
+    }    
+}
+
+// Example:
+
+// <span href="#" class="button button-green button-send" data-text="">
+//     [submit "Задать вопрос"]
+//     <span>Задать вопрос </span>
+//     <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+//         <line y1="-1" x2="13.885" y2="-1" transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 0.0908203 20)" stroke="white" stroke-width="2"/>
+//         <line x1="0.797927" y1="1.29289" x2="10.6161" y2="11.1111" stroke="white" stroke-width="2"/>
+//     </svg>
+// </span>
+
+
+
+
+
+/* Contact form 7 additional classes */
+/* валидация формы */
+span.wpcf7-not-valid-tip {
+    /* position: absolute;   bottom: 0; margin-bottom : -2em; */
+    // font-size : 15px; 
+    @include font_size_pro('base');
+}
+div.wpcf7-response-output {
+    /* position : absolute; margin-top : 0; background-color : #fff; */
+     position : relative; background-color : #fff; color : #070707; z-index : 3000;
+}
+div.wpcf7-response-output:hover{ cursor : pointer; opacity : 0.9; }
+.wpcf7-form input.wpcf7-not-valid{
+    border-color: rgba(255, 0, 0 , 0.5); 
+    color: rgba(255, 0, 0 , 1);
+}
+

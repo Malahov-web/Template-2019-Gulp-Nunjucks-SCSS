@@ -50,3 +50,62 @@
 
     }
 }
+
+// wp_pagination
+.pagination{
+    .nav-links {
+        @include flex(center, center);
+
+        // все кнопки, ссылки - a, span
+        .page-numbers {
+            // display: block;
+            // margin: 0.25*$l_h;
+            // width: 1.25*$l_h;
+            // height: 1.25*$l_h;
+            
+            // border: 2px solid $grey_light;
+            // border: 2px solid $grey_super_light;
+            // border-radius: 10px;
+
+            // @include font_size_pro('h6');
+            // @include typo('heading');
+            // color: $grey;
+            // color: $grey_light;
+
+            // @extend %border_circle;
+           
+            @include flex(center, center);
+
+        }
+        // ссылки   
+        a.page-numbers {
+            &:hover {
+                // background-color: transparentize($accent, 1-0.25);
+                // border-color: $accent;
+                // color: $accent;
+                
+                // background-color: transparentize($accent, 0.0);
+                // border-color: transparentize($accent, 1-0.25);
+                // color: $white;
+
+            }
+        }
+        // текущая страница
+        span.page-numbers.current {
+            // border-color: $accent;
+            // color: $accent;
+        }
+        // prev, next
+        .page-numbers.prev,
+        .page-numbers.next {
+            // text-indent: -10000px;
+        }
+        .page-numbers.prev {
+
+        } 
+        .page-numbers.next {
+
+        }                 
+    }
+
+}

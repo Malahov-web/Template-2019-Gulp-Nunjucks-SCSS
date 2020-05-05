@@ -1,0 +1,120 @@
+{% macro modal (modal_name='', modal_title='', modal_content='' value='') %}
+
+        <div class="modal modal--{{ modal_name }} js-modal" id="modal-{{ modal_name }}">
+            <div class="modal__close js-modal-close">
+            </div>    
+
+            <div class="modal-inner">
+
+                <div class="modal__title">
+                    <h2 class="title">{{ modal_title }}</h2>
+                </div>                 
+
+                <div class="modal__content">
+
+                    {{ modal_content }}
+
+                </div>
+
+            </div>
+        </div>
+
+{% endmacro %}
+
+
+        <div class="modal modal--callback js-modal" id="modal-callback">
+            <div class="modal__close js-modal-close">
+            </div>    
+
+            <div class="modal-inner">
+
+                <div class="modal__title">
+                    <h2 class="title">Заказ обратного звонка</h2>
+                </div>                 
+
+                <div class="modal__content">
+
+                    {{ forms.form__callback() }}
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="modal modal--order js-modal" id="modal-order">
+            <div class="modal__close js-modal-close">
+                <i class=""></i>
+            </div>    
+
+            <div class="modal-inner">
+
+                <div class="modal__title">
+                    <h2 class="title">Обратиться</h2>
+                </div>                 
+
+                <div class="modal__content">
+                    
+                    {{ forms.form__order() }}
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="modal modal--review js-modal" id="modal-review">
+            <div class="modal__close js-modal-close">
+                <i class=""></i>
+            </div>    
+
+            <div class="modal-inner">
+
+                <div class="modal__title">
+                    <h2 class="title">Оставить отзыв</h2>
+                </div>                 
+
+                <div class="modal__content">
+
+                    {{ forms.form__reviews() }}
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="modal modal--thanks js-modal" id="modal-thanks">
+            <div class="modal__close js-modal-close">
+                <i class=""></i>
+            </div>    
+
+            <div class="modal-inner">
+
+                <div class="modal__title">
+                    <h2 class="title" id="modal-thanks-title">Спасибо за заказ</h2>
+                </div>                 
+
+                <div class="modal__content">
+
+                    <div class="modal__text" id="modal-thanks-text">Спасибо, Мы свяжемся с Вами в ближайшее время.</div>
+
+                    <form class="questions__form form form--thanks" id="form_order" method="post" action="#" data-page_form="">
+                        <div class="row">
+
+                            <div class="mv_12">
+                                <a href="#" class="button button-order button-large js-modal-close" id="">Ок
+                                </a>
+                            </div>
+ 
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+

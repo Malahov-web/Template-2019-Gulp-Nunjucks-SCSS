@@ -45,25 +45,69 @@
     }
 
 }
+
+// v.1 Скрытие обычное через абсол-е позиционир-е и прозрачность
 .js-tabs__controls-button{
 
 }
 .js-tabs__content-item{
     // display: none;
-    
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    z-index: -1;
+    // v. скрытие через фбсол-е позици-е
+    // width: 100%;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // opacity: 0;
+    // z-index: -1;
     
 }
 .js-tabs__content-item.active{
     // display: block;
+    // v. скрытие через фбсол-е позици-е
+    // position: relative;
+    // opacity: 1;
+    // z-index: 1;
 
+    //  v. скрытие как в слайдере (табы одинаковой высоты)
+}
+
+
+// v.2 Скрытие вкладки одинаковой высоты через flex, абсол-е позиционир-е и прозрачность
+//  Не забыть добавить .js-tabs__content-inner
+// 
+// Делаем табы одинаковой высоты
+// Нужно знать заранее число вкладок
+// Или не нужно, но надо тестировать во всех браузерах
+.js-tabs__content {
     position: relative;
-    opacity: 1;
-    z-index: 1;
+    &-inner {
+        display: flex;
+        width: 200%;
+        // width: 100%;
+    }
 
+        &-item {
+            //  v. скрытие как в слайдере (табы одинаковой высоты)
+            width: 50%; 
+            // width: 100%;
+            opacity: 0;
+        }
+        &-item.active {
+            //  v. скрытие как в слайдере (табы одинаковой высоты)
+            // position: absolute;
+            // left: 0;
+            // top: 0;
+            // width: 100%;
+            // z-index: $zindex_nav;
+        }
+        &-item:nth-child(1).active {
+            opacity: 1;
+            transform: translateX(0);
+
+        }
+        &-item:nth-child(2).active {
+            opacity: 1;
+            transform: translateX(-100%);
+
+        }
 }

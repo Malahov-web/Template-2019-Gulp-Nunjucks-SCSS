@@ -1,11 +1,20 @@
-04.05
-  package.json - add bourbon, mw-grid,
+05.05
+  Update plugins/_plugins.scss, 
+  Update components/pagination - add wp_pagination (1)
+  Add components/modals,
+  Update components/tabs/ - вкладки одинаковой высоты,
+  Update component /forms/ : _forms, _forms_elements
 
+
+04.05
+  package.json - add bourbon, mw-grid;
+  Update, fix gulpfile tasks: watch (add views/ path);
+  Update _screw.scss - add set_bg_adaptive(), update flex() (3)
 ..
 
 
 чт 24.01
-  Update gulpfile.js - task build, clean, *:prod
+  Update gulpfile.js - task build, clean, *:prod (1)
 
 
 (16-21.12)
