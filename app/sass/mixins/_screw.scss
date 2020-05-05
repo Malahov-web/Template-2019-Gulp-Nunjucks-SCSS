@@ -91,91 +91,6 @@
 }
 
 
-
-// @mixin set_bg_adaptive($file_path, $breakpoint_prefix, $file_ext) {
-
-//     background: #fff url($file_path+'.'+$file_ext) 0 0 no-repeat;
-
-    
-//     // @media (min-width: #{map-get($devices, 'ds_')}px) {
-//     @media (min-width: $breakpoint_prefix+px) {
-        
-//         background-image: url($file_path+'-'+$breakpoint_prefix+'.'+$file_ext);
-//     }      
-// }
-
-
-// v.1 image-768.jpg - is mean width 768 for 768px to next
-@mixin set_bg_adaptive_pro($file_path, $breakpoints_list, $file_ext) {
-
-    background: #fff url($file_path+'.'+$file_ext) 0 0 no-repeat;
-
-    // @each $animal in 320, 768, 1024  {
-
-    //     .#{$animal}-icon {
-    //         // background-image: url('/images-#{$animal}.png');
-    //     }
-
-    //     @media (min-width: $animal+px) and (max-width: $animal+px) {
-    //        background-image: url($file_path+'-'+$animal+'.'+$file_ext); 
-    //     }
-
-    // }
-
-
-    // @each $animal in 320, 768, 1024  {
-
-    //     .#{$animal}-icon {
-    //         // background-image: url('/images-#{$animal}.png');
-    //     }
-
-    //     @media (min-width: $animal+px) and (max-width: $animal+px) {
-    //        background-image: url($file_path+'-'+$animal+'.'+$file_ext); 
-    //     }
-
-    // }
-
-
-    @for $i from 1 through length($breakpoints_list) {
-
-        $next_i: $i+1;
-
-        @if ( $next_i <= length($breakpoints_list) ) {
-            // $next_i: $i;
-
-            @media (min-width: nth($breakpoints_list, $i)+px) and (max-width: nth($breakpoints_list, $next_i)+px) {
-
-                background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
-            }
-        } @else {
-
-            @media (min-width: nth($breakpoints_list, $i)+px) {
-
-                background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
-            }
-
-        }
-
-        // @media (min-width: nth($breakpoints_list, $i)+px) and (max-width: nth($breakpoints_list, $next_i)+px) {
-
-        //     background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
-        // }
-
-        // item-#{$i} { 
-        //     background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
-        // }
-    }
-
-    
-
-    // @media (min-width: #{map-get($devices, 'ds_')}px) {
-    // @media (min-width: $breakpoint_prefix+px) {
-        
-    //     background-image: url($file_path+'-'+$breakpoint_prefix+'.'+$file_ext);
-    // }      
-}
-
-
 /*
  * Set adaptive bg-image
  * Call: // set_bg_adaptive('../images/section-main-bg', (768, 1200), 'jpg');
@@ -235,3 +150,18 @@
 // .jpg     -     min
     
 }
+
+
+// v. old - only 1 breakpoint min-width
+// 
+// @mixin set_bg_adaptive($file_path, $breakpoint_prefix, $file_ext) {
+
+//     background: #fff url($file_path+'.'+$file_ext) 0 0 no-repeat;
+
+    
+//     // @media (min-width: #{map-get($devices, 'ds_')}px) {
+//     @media (min-width: $breakpoint_prefix+px) {
+        
+//         background-image: url($file_path+'-'+$breakpoint_prefix+'.'+$file_ext);
+//     }      
+// }
