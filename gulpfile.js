@@ -110,10 +110,20 @@ let path = {
         html:    'dist/',
         js:      'dist/js/min',
         css:     'dist/css/',
-        img:     'dist/img/',
+        images:   'dist/images/',
         uploads: 'dist/uploads/',        
         fonts:   'dist/fonts/'
     },
+
+    // build paths for wp theme dev
+    // build: {
+    //     html:    'html/', // будем класть html-шаблоны в папку для нарезки
+    //     js:      'js/',
+    //     css:     'css/',  // а стили сразу в папку css/
+    //     images:  'images/',
+    //     uploads: 'uploads/',        
+    //     fonts:   'fonts/'
+    // },
 
 
     clean: './dist/*'
@@ -244,11 +254,11 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
     gulp.task('js', function() {
       return  gulp.src(
         [
-            js_jquery,
-            js_owl,
-            js_fancybox,
-            js_selectric,
-            js_maskedinput,
+            // js_jquery,
+            // js_owl,
+            // js_fancybox,
+            // js_selectric,
+            // js_maskedinput,
             'app/js/*.js'
         ]
         )
@@ -310,11 +320,10 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
 
 
 // 4. Calls
-
-// gulp.task('watch', ['bs-serve', 'scss', 'nunjucksRender'], function() {
 gulp.task('watch',  function() {
     // gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss']);     
-    gulp.watch('app/sass/**/*.+(scss|scss)', gulp.parallel('scss'));  
+    // gulp.watch('app/sass/**/*.+(scss|scss)', gulp.parallel('scss'));  
+    gulp.watch(['app/sass/**/*.+(scss|scss)', path_view_styles], gulp.parallel('scss')); 
     gulp.watch(['app/view/**/*.html', 'app/data/**/*.json'], gulp.parallel('nunjucksRender'));        
     gulp.watch(['app/js/*.js', path_view_js], gulp.parallel('js'));     
 });

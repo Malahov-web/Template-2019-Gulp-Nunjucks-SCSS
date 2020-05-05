@@ -1,0 +1,15 @@
++ Update  gulpfile.js: path - paths for wp theme dev
+Update plugins/_plugins.scss  (m.b. move to components/ ?)
+Update component /forms/ : _forms, _forms_elements
+Update _screw.scss - add set_bg_adaptive()
++ Update, fix gulpfile tasks: js, watch (add views/ path)
++ Update package.json: add bourbon, mw-grid
+20.04 
+
+Add view/modals
+02.04
+
+Update _plugins.scss (решения для owl)
+
+Add pug templates
+01.04

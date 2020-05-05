@@ -1,3 +1,15 @@
+/*
+ * 1. pseudoelement_left_top()
+ * 2. pseudoelement_right_top()
+ * 3. flex()
+ * 4. image_center_cover
+ * 5. image_center_contain
+ * 6. text_overflow
+ * 7. bg_clip_text
+ * 8. set_bg_adaptive
+ * 0.
+ */
+
 @mixin pseudoelement_left_top($value1, $value2){
     content : "";
     position : absolute; left : $value1; top : $value2; 
@@ -11,14 +23,18 @@
 
 
 /*
- * Display 'flex', and set justify and aligment
+ * Display 'flex' - set justify and aligment,
+ * add set flex-direction and flex-wrap
  * Call: // flex(space-between, center);
 */
-@mixin flex($justify, $align) {
+@mixin flex($justify, $align, $direction: row, $wrap: nowrap ) {
 
     display: flex;
     justify-content: $justify;
-    align-items: $align;    
+    align-items: $align; 
+
+    flex-direction: $direction; 
+    flex-wrap: $wrap; 
 }
 
 
@@ -72,4 +88,150 @@
     background-clip: text;
     color: transparent; 
     text-fill-color: transparent;
+}
+
+
+
+// @mixin set_bg_adaptive($file_path, $breakpoint_prefix, $file_ext) {
+
+//     background: #fff url($file_path+'.'+$file_ext) 0 0 no-repeat;
+
+    
+//     // @media (min-width: #{map-get($devices, 'ds_')}px) {
+//     @media (min-width: $breakpoint_prefix+px) {
+        
+//         background-image: url($file_path+'-'+$breakpoint_prefix+'.'+$file_ext);
+//     }      
+// }
+
+
+// v.1 image-768.jpg - is mean width 768 for 768px to next
+@mixin set_bg_adaptive_pro($file_path, $breakpoints_list, $file_ext) {
+
+    background: #fff url($file_path+'.'+$file_ext) 0 0 no-repeat;
+
+    // @each $animal in 320, 768, 1024  {
+
+    //     .#{$animal}-icon {
+    //         // background-image: url('/images-#{$animal}.png');
+    //     }
+
+    //     @media (min-width: $animal+px) and (max-width: $animal+px) {
+    //        background-image: url($file_path+'-'+$animal+'.'+$file_ext); 
+    //     }
+
+    // }
+
+
+    // @each $animal in 320, 768, 1024  {
+
+    //     .#{$animal}-icon {
+    //         // background-image: url('/images-#{$animal}.png');
+    //     }
+
+    //     @media (min-width: $animal+px) and (max-width: $animal+px) {
+    //        background-image: url($file_path+'-'+$animal+'.'+$file_ext); 
+    //     }
+
+    // }
+
+
+    @for $i from 1 through length($breakpoints_list) {
+
+        $next_i: $i+1;
+
+        @if ( $next_i <= length($breakpoints_list) ) {
+            // $next_i: $i;
+
+            @media (min-width: nth($breakpoints_list, $i)+px) and (max-width: nth($breakpoints_list, $next_i)+px) {
+
+                background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
+            }
+        } @else {
+
+            @media (min-width: nth($breakpoints_list, $i)+px) {
+
+                background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
+            }
+
+        }
+
+        // @media (min-width: nth($breakpoints_list, $i)+px) and (max-width: nth($breakpoints_list, $next_i)+px) {
+
+        //     background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
+        // }
+
+        // item-#{$i} { 
+        //     background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
+        // }
+    }
+
+    
+
+    // @media (min-width: #{map-get($devices, 'ds_')}px) {
+    // @media (min-width: $breakpoint_prefix+px) {
+        
+    //     background-image: url($file_path+'-'+$breakpoint_prefix+'.'+$file_ext);
+    // }      
+}
+
+
+/*
+ * Set adaptive bg-image
+ * Call: // set_bg_adaptive('../images/section-main-bg', (768, 1200), 'jpg');
+*/
+
+// v.2 image-768.jpg - is mean width 768 for small than 768px to 768px
+@mixin set_bg_adaptive (
+    $file_path, 
+    $breakpoints_list, 
+    $file_ext, 
+    $bg_color : #fff, 
+    $bg_pos : 0 0, 
+    $bg_repeat: no-repeat
+
+    ) {
+
+    // background: #fff url($file_path+'.'+$file_ext) 0 0 no-repeat;
+
+    background-color: $bg_color;
+    background-position: $bg_pos;
+    background-repeat: $bg_repeat;
+    // $bg_attachment: scroll,
+
+    // padding: length($breakpoints_list);
+    $quantity: length($breakpoints_list);
+
+
+    @for $i from 1 through length($breakpoints_list) {
+
+        $next_i: $i+1;
+
+        @if ( $i == 1 ) {
+
+            @media (max-width: 768px) {
+                // count: $i;
+                background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
+            } 
+        }
+        @if ( ( $i > 1 ) and ($i <= length($breakpoints_list)) ) {
+
+            @media (min-width: nth($breakpoints_list, $i - 1)+px) and (max-width: nth($breakpoints_list, $i)+px) {
+                // count: $i;
+                background-image: url($file_path+'-'+ nth($breakpoints_list, $i) +'.'+$file_ext);             
+            }
+        }
+    }
+
+    @media (min-width: nth($breakpoints_list, $quantity)+px)  {
+
+        background-image: url($file_path+'.'+$file_ext);            
+    }     
+
+
+// 768.jpg  i=1   max
+// 1200.jpg i=2   min and max
+// 1440     i=3   min and max
+// .jpg     -     min
+    
 }

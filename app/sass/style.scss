@@ -117,3 +117,28 @@
         height: 100vh;
     }
 }
+
+.section-news {
+
+    // Что мы хотим видеть:
+    //     есть много картинок
+    //     image-320.jpg
+    //     image-768.jpg
+    //     image-1024.jpg
+    //     image.jpg
+    //     
+    //     
+
+    // @include set_bg_adaptive_pro('../images/section-webinars-bg', (320, 768, 1024), 'jpg');
+
+    // @include set_bg_adaptive_pro_2('../images/section-webinars-bg', ( 768, 1200, 1440), 'jpg');
+
+    @include set_bg_adaptive('../images/section-webinars-bg', ( 768, 1200, 1440), 'jpg', #ccc, center center, repeat-x );
+
+    // @include set_bg_adaptive('../images/section-webinars-bg', 1200, 'jpg');
+
+
+
+    @include flex(center, center, column, wrap);
+
+}

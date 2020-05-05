@@ -4,6 +4,7 @@
   "description": "Project description",
   "main": "gulpfile.js",
   "dependencies": {
+    "bourbon": "^7.0.0",    
     "del": "^4.0.0",
     "fs": "0.0.1-security",
     "gulp-clean-css": "^4.3.0",
@@ -35,6 +36,7 @@
     "gulp-stylelint": "^8.0.0",
     "gulp-svgmin": "^2.1.0",
     "imagemin-pngquant": "^8.0.0",
+    "mw-grid": "^2.0.1",    
     "postcss": "^7.0.14",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-reporter": "^6.0.1",

@@ -6,9 +6,9 @@
     <title>Boilerplate Gulp-Nunjucks-SCSS 1</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta content='true' name='HandheldFriendly'>
     <meta content='width' name='MobileOptimized'>
-    <meta content='yes' name='apple-mobile-web-app-capable'>
     
 
     <meta name="theme-color" content="#EF6C00"> 
@@ -20,7 +20,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
     <!-- Яндекс.Браузер -->
-    <meta name="viewport" content="ya-title=#EF6C00,ya-dock=fade">      
+    <!-- Из-за этого тэга неправильно отображается в Chrome Mobile -->
+    <!-- <meta name="viewport" content="ya-title=#EF6C00,ya-dock=fade">       -->
 
     <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="css/mw_kit.css"> -->
@@ -166,8 +167,9 @@
 </header>
 
 
-    <section class="section">
-                            <div class="news row-flex">
+    <section class="section section-news">
+        <div class="container">
+                                <div class="news row-flex">
                     
                         
 
@@ -259,6 +261,7 @@
                         
                     
                     </div>
+        </div>
     </section>
     
 
