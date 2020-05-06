@@ -3,8 +3,11 @@
   Update components/pagination - add wp_pagination (1)
   Add components/modals,
   Update components/tabs/ - вкладки одинаковой высоты,
-  Update component /forms/ : _forms, _forms_elements
+  Update component /forms/ : _forms, _forms_elements (1)
+  js/libs/: sliders_init.js, modals.js, tabs.js, trigger_show_hide.js, open_close.js (1)
 
+  smooth-scroll.js, menu-side-scroll.js wpcf7-helpers.js,  dropdown_list.js, add_animate.js, accordeon_mobile.js(1)
+  megamenu.js, menu-responsive.jquery.js, search_mobile.js, button_scroll_to_top.js, mw-filter.js, mw_mobile_nav.js (1)
 
 04.05
   package.json - add bourbon, mw-grid;

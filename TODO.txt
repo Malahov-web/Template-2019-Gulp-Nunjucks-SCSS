@@ -1,3 +1,6 @@
++ js/libs - собрать все свои скрипты (далее перевести на метаязык)
+1.05
+
 + Update components/tabs/ - вкладки одинаковой высоты
 + Add components/modals
 + Update components/pagination - add wp_pagination
@@ -9,10 +12,10 @@
 + Update package.json: add bourbon, mw-grid
 20.04 - 31.04
 
-Add view/modals
++ Add view/modals
 02.04
 
-Update _plugins.scss (решения для owl)
++ Update _plugins.scss (решения для owl)
 
 Add pug templates
 01.04
