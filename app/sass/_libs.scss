@@ -1,10 +1,40 @@
+// must use
+// @import "../../node_modules/bourbon/core/bourbon";
+// @import "../../node_modules/normalize.css/normalize";
+
+// сомнительные плагины
 //@import "../libs/jQuery.mmenu/dist/jquery.mmenu.all"
 // @import "../libs/css-hamburgers/dist/hamburgers.min";
-
 // @import "../libs/css-hamburgers/_sass/hamburgers";
-
 // @import "../libs/hamburgers/hamburgers";
 
+
+// Sliders
 // @import "../libs/owl.carousel/dist/assets/owl.carousel.min";
+// @import "../libs/swiper/src/swiper.scss";
+// @import "../libs/slick-carousel/slick/slick.css";
+// @import "../libs/slick-carousel/slick/slick-theme.css"; // Скорее Не неужен
+// 
+// Forms stylish
 // @import "../libs/jquery-selectric/public/selectric";
+
+// @import "../libs/animate.css/animate.min";
+// @import "../libs/fancybox/dist/jquery.fancybox.min.css";
+// @import "../css/jquery.fancybox.min.css"; // ? Переносил вручную
+
+@import '../fonts/font-awesome/css/all.min.css';
+/*
+Move 
+/font-awesome/css
+/font-awesome/webfonts
+to
+/fonts/
+*/
+
+
+
+
+
+
+
 

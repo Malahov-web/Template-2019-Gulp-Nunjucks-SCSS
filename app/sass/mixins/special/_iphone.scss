@@ -1,0 +1,98 @@
+/*
+Mixin iphone() - render CSS iphone image
+*/
+
+@mixin iphone(
+	$content_image_url: '', 
+	$color_phone_bg: #fff, 
+	$color_secondary: #f0f0f0 ) {
+
+	$phone_w: 100%; // 280px
+	$phone_h_coeff: 2.1;
+	$phone_border_radius: 8.571528%; // 24px;
+	$phone_border_radius_h: $phone_border_radius;
+	$phone_border_radius_v: $phone_border_radius / $phone_h_coeff; 
+
+	position: relative;
+	width: 100%; // 280px;
+	padding-bottom: $phone_h_coeff * $phone_w;
+	background-color: $color_phone_bg;
+	border-radius: #{$phone_border_radius_h}/#{$phone_border_radius_v}; 
+
+	.phone-inner{
+		position: absolute;
+		width: 100%; 
+		height: 100%;
+		display: flex; flex-direction: column;
+	}
+
+		.phone-top{
+			position: relative;
+			display: flex; flex-direction: column; justify-content: center; align-items: center;
+			width: 100%; 
+			height: 13.898305%;
+
+			.phone-dynamic{
+				$phone_dynamic_width: 18%;
+				$phone_dynamic_h_coeff: 1/4;
+				width: $phone_dynamic_width; 
+				padding-bottom: $phone_dynamic_h_coeff * $phone_dynamic_width; /* 48px * 12px*/
+				background-color: $color_secondary;
+				border-radius: 12.5%/50%;
+
+				position: absolute; 
+				bottom: 37.037037%;
+				transform: translateY(50%);
+
+			}
+			.phone-camera{
+				$phone_camera_width: 4.5%; 
+				width: $phone_camera_width;
+				padding-bottom: $phone_camera_width;
+				background-color: $color_secondary;
+				border-radius: 50%;
+
+				position: absolute; 
+				top: 37.037037%;
+				transform:  translateY(-50%);
+			}
+		}
+		.phone-middle{
+			width: 100%; height: 70.847458%;			
+			background: url('#{$content_image_url}') center center no-repeat; 
+			background-size: cover;
+		}
+		.phone-bottom{
+			position: relative;
+			display: flex; justify-content: center;
+			width: 100%; height: 15.254237%;
+
+			.phone-micro{
+				$phone_micro_width: 18%;
+				position: relative;
+				width: $phone_micro_width; /* 50px/280px */
+				padding-bottom: $phone_micro_width; 
+
+				background-color: $color_secondary;
+				border-radius: 50%;
+
+				position: absolute; 
+				top: 50%;
+				transform: translate(0, -50%);
+
+				&:after{
+					content: "";
+					position: absolute;
+					left: 50%; top : 50%; 
+					transform: translate(-50%, -50%);					
+					width: 40%; 
+					height: 40%; 
+					background-color: $color_secondary;
+					border: 1px solid $color_phone_bg;
+					border-radius: 6px;
+				}
+
+			}
+		}
+
+}

@@ -1,3 +1,9 @@
++ Add normalize.css
+Update gulp path (in all tasks)
++ Update _libs
+Update .. _layout.html
+18.05 - 28.05
+
 + js/libs - собрать все свои скрипты (далее перевести на метаязык)
 1.05
 
