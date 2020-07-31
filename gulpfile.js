@@ -73,6 +73,8 @@ const pngquant = require('imagemin-pngquant');
 
 // const pug = require('gulp-pug');
 
+const beautify = require('gulp-beautify');
+
 
 // 2. Config 
 
@@ -92,7 +94,8 @@ let path = {
     watch: {
         html:    'app/view/**/*.html',
         js:      'app/js/**/*.js',
-        css:     'app/sass/**/*.scss',
+        // css:     'app/sass/**/*.scss',
+        css:     path_base + 'sass/**/*.scss',
         img:     'app/images/**/*.*',
         uploads: 'app/uploads/**/*.*',
         fonts:   'app/fonts/**/*.*'
@@ -110,7 +113,7 @@ let path = {
         html:    'dist/',
         js:      'dist/js/min',
         css:     'dist/css/',
-        images:   'dist/images/',
+        images:  'dist/images/',
         uploads: 'dist/uploads/',        
         fonts:   'dist/fonts/'
     },
@@ -292,6 +295,7 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
                 return JSON.parse(fs.readFileSync('./app/data/data.json'));
             }))            
             .pipe(nunjucksRender(nunjucksOptions))
+            .pipe(beautify.html({ indent_size: 4 }))
 
             .pipe(gulp.dest('app/'))
             .pipe(bs.stream());
@@ -314,6 +318,7 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
             // Your options in here.
 
             }))
+            .pipe(beautify.html({ indent_size: 4 }))
             .pipe(gulp.dest('app/'))
             .pipe(bs.stream());
     });      

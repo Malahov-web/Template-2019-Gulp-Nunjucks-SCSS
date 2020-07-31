@@ -1,3 +1,7 @@
+28.05
+  Update _libs, 
+  Add normalize.css (1)
+
 05.05
   Update plugins/_plugins.scss, 
   Update components/pagination - add wp_pagination (1)

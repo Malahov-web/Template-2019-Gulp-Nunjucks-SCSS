@@ -158,7 +158,9 @@
     background-size: cover;
 
     // temp
-    padding-bottom: 5 * $l_h;
+    // padding-bottom: 5 * $l_h;
+    // display: none;
+    display: block;
 }
 
 .features{

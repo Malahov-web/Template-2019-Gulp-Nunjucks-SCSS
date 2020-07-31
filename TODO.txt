@@ -1,3 +1,9 @@
+Add Gulp HTML Formatter
+25.07
+
+Update Readme - file structure
+18.06
+
 + Add normalize.css
 Update gulp path (in all tasks)
 + Update _libs
