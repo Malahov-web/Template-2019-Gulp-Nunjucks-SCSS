@@ -1,3 +1,9 @@
+13.08
+  Add: Deploy FTP - vinyl-ftp, task ftp-deploy (1)
+
+31.07
+  Add: HTML Formatter - gulp-beautify (0.5)
+
 28.05
   Update _libs, 
   Add normalize.css (1)

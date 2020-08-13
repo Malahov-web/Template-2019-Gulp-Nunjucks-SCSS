@@ -1,4 +1,10 @@
-Add Gulp HTML Formatter
+Add gulp deploy on server, 
+12.08
+
+Check view/blocks - add blocks from old template (CAR Audio 2 ?)
+31.07
+
++ Add Gulp HTML Formatter
 25.07
 
 Update Readme - file structure
