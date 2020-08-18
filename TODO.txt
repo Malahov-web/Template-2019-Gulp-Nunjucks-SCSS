@@ -1,4 +1,7 @@
-Add gulp deploy on server, 
++ Update screw.scss - add mixins width(), height()
+15.08
+
++ Add gulp deploy ftp on server, 
 12.08
 
 Check view/blocks - add blocks from old template (CAR Audio 2 ?)

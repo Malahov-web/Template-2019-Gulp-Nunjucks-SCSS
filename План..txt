@@ -1,3 +1,6 @@
+18.08
+  Update screw.scss - add width(), hegiht() (1)
+
 13.08
   Add: Deploy FTP - vinyl-ftp, task ftp-deploy (1)
 

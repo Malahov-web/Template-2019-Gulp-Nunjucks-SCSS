@@ -162,7 +162,8 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
      * 3.8 html  // HTML - компиляция 
      *   3.8.1  Mustache/Handlebars - компиляция в HTML 
      *   3.8.2  nunjucksRender - компиляция в HTML
-     *   3.8.3  pugRender - компиляция в HTML      
+     *   3.8.3  pugRender - компиляция в HTML
+     * 3.9  ftpDeploy  // Deploy FTP   
     */
 
 
@@ -324,36 +325,53 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
             .pipe(beautify.html({ indent_size: 4 }))
             .pipe(gulp.dest('app/'))
             .pipe(bs.stream());
-    });      
+    });
 
-    // 3.9 Deploy FTP
 
-    // gulp.task('deployFtp', function () {
+    // 3.9  Deploy FTP
+    let gutil = require('gulp-util');
+    let ftp = require('vinyl-ftp');            
 
-    //     // return gulp.src(path.build.html) // 1
-    //     // return gulp.src('dist') // 1.1
-    //     return gulp.src('dist/*.html')
-    //         .pipe(gulpDeployFtp(
-    //             { 
-    //                 remotePath: '/demo/agrosy/',
-    //                 host: '5.101.152.6',
-    //                 port: 21, // 2
-    //                 user: 'malahov_webcom',
-    //                 pass: 'transcendbeget2020'
-    //             }
-    //         ))
-    //         .pipe(gulp.dest('dest'));  
-    // });
+    // Configuration 
+    var user = 'malahov_webcom';  // process.env.FTP_USER
+    var password = ''; // process.env.FTP_PWD
+    var host = '5.101.152.6';
+    var port = 21;
+    // var localFilesGlob = ['./**/*'];
+    var localFilesGlob = ['./dist/*'];
+    var remoteFolder = '/demo/floristry/' ;// '/myApp';
 
-// gulp.src('path/to/file')
-//   .pipe(gulpDeployFtp({
-//     remotePath: '/tmp',
-//     host: 'localhost',
-//     port: 21,
-//     user: 'foo',
-//     pass: 'bar'
-//   })
-//   .pipe(gulp.dest('dest'));   
+
+    // helper function to build an FTP connection based on our configuration
+    function getFtpConnection() {
+        return ftp.create({
+            host: host,
+            port: port,
+            user: user,
+            password: password,
+            parallel: 5,
+            log: gutil.log,
+        })
+    }
+
+
+    /**
+     * Deploy task.
+     * Copies the new files to the server
+     *
+     * Usage: `FTP_USER=someuser FTP_PWD=somepwd gulp ftp-deploy`
+     */
+    gulp.task('ftpDeploy', function() {
+      var conn = getFtpConnection()
+
+      return gulp
+        .src(localFilesGlob, { base: '.', buffer: false })
+        .pipe(conn.newer(remoteFolder)) // only upload newer files
+        .pipe(conn.dest(remoteFolder))
+    })
+
+
+
 
 // 4. Calls
 gulp.task('watch',  function() {
@@ -559,51 +577,3 @@ let rename_target_folder ='./app/view/blocks/products/view';
 
 
 
-let gutil = require('gulp-util');
-let ftp = require('vinyl-ftp');
-
-
-                    // remotePath: '/demo/agrosy/',
-                    // host: '5.101.152.6',
-                    // port: 21, // 2
-                    // user: 'malahov_webcom',
-                    // pass: 'transcendbeget2020'                   
-
-
-/** Configuration **/
-var user = 'malahov_webcom';
-var password = 'transcendbeget2020';
-var host = '5.101.152.6';
-var port = 21;
-// var localFilesGlob = ['./**/*'];
-var localFilesGlob = ['./dist/*'];
-var remoteFolder = '/demo/floristry/' ;// '/myApp';
-
-
-// helper function to build an FTP connection based on our configuration
-function getFtpConnection() {
-  return ftp.create({
-    host: host,
-    port: port,
-    user: user,
-    password: password,
-    parallel: 5,
-    log: gutil.log,
-  })
-}
-
-
-/**
- * Deploy task.
- * Copies the new files to the server
- *
- * Usage: `FTP_USER=someuser FTP_PWD=somepwd gulp ftp-deploy`
- */
-gulp.task('ftpDeploy', function() {
-  var conn = getFtpConnection()
-
-  return gulp
-    .src(localFilesGlob, { base: '.', buffer: false })
-    .pipe(conn.newer(remoteFolder)) // only upload newer files
-    .pipe(conn.dest(remoteFolder))
-})

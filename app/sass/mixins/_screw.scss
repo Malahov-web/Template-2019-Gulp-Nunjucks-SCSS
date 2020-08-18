@@ -2,11 +2,13 @@
  * 1. pseudoelement_left_top()
  * 2. pseudoelement_right_top()
  * 3. flex()
- * 4. image_center_cover
- * 5. image_center_contain
- * 6. text_overflow
- * 7. bg_clip_text
- * 8. set_bg_adaptive
+ * 4. width()
+ * 5. height()
+ * 6. image_center_cover
+ * 7. image_center_contain
+ * 8. text_overflow
+ * 9. bg_clip_text
+ * 10. set_bg_adaptive
  * 0.
  */
 
@@ -24,7 +26,7 @@
 
 /*
  * Display 'flex' - set justify and aligment,
- * add set flex-direction and flex-wrap
+ * add set optionaly flex-direction and flex-wrap 
  * Call: // flex(space-between, center);
 */
 @mixin flex($justify, $align, $direction: row, $wrap: nowrap ) {
@@ -35,6 +37,39 @@
 
     flex-direction: $direction; 
     flex-wrap: $wrap; 
+}
+
+
+/*
+ * Set width properties - set width, min-width and max-width
+ * Call: // width(auto, 200px, 100%);
+*/
+
+@mixin width ($width, $min_width: auto, $max_width: auto) {
+    width: $width;
+
+    @if ( $min_width != auto ) {
+        min-width: $min_width;
+    }
+    @if ( $max_width != auto ) {
+        max-width: $max_width;
+    }
+}
+
+/*
+ * Set height properties - set height, min-height adn max-height
+ * Call: // height(auto, 200px, 100%);
+*/
+
+@mixin height ($height, $min_height: auto, $max_height: auto) {
+    height: $height;
+
+    @if ( $min_height != auto ) {
+        min-height: $min_height;
+    }
+    @if ( $max_height != auto ) {
+        max-height: $max_height;
+    } 
 }
 
 

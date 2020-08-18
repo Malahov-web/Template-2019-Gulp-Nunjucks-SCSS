@@ -1,3 +1,9 @@
+18.08
+  Update screw.scss - add width(), hegiht()
+
+13.08
+  Add: Deploy FTP - vinyl-ftp, task ftp-deploy 
+
 31.07
 Add: HTML Formatter - gulp-beautify
 

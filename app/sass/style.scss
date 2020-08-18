@@ -142,7 +142,21 @@
     @include flex(center, center, column, wrap);
 
 }
+.news__item {
+    background-color: transparentize($black, 0.75);
+}
+.news__item-content {
+    height: 200px;
 
+}
+.news__item-text {
+    // display: inline-block;
+    background-color: #fff;
+    // @include width(auto, 100px, 90% );
+    @include width(50%, 250px, auto );
+
+    @include height(100%, auto, 100px);
+}   
 
 
 
