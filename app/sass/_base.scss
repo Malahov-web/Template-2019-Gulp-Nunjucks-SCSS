@@ -75,6 +75,10 @@ img{
     max-width: 100%; width: 100%; height: auto;
 }
 
+code {
+    background-color: transparentize($black, 1-0.1);
+}
+
 .themify:before,
 .themify:after{
     vertical-align: middle;
@@ -88,5 +92,4 @@ img{
 
 .section-component {
     margin: 2 * $l_h 0;
-    width: 100%;
 }

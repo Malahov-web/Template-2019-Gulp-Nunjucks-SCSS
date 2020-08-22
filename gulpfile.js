@@ -261,7 +261,7 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
     gulp.task('js', function() {
       return  gulp.src(
         [
-            // js_jquery,
+            js_jquery,
             // js_owl,
             // js_fancybox,
             // js_selectric,

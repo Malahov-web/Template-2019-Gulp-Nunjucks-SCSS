@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
 
     // accordeonMobile(); // +
 
-
+    // copyToBuffer('code, .label', { showTooltip: 1 }); // +
 
 
     // Закрытие menu-top по клику по документу вне элемента    
