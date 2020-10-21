@@ -78,6 +78,10 @@ const beautify = require('gulp-beautify');
 // const gulpDeployFtp = require('gulp-deploy-ftp');
 const gulpDeployFtp = require('gulp-deploy-ftp');
 
+const cache = require('gulp-cached');
+
+const remember = require('gulp-remember');
+
 
 // 2. Config 
 
@@ -287,6 +291,7 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
     // Nunjucks.js
     let nunjucksOptions = {
         path: ['app/view/'],
+        // path: ['app/view/**.html'], // попробуем взять все файлы дял правильного кэширования
         // data: infoData
     };
 
@@ -294,12 +299,17 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
 
         // return gulp.src('src/templates/*.html')
         return gulp.src('app/view/*.html')
+        // return gulp.src('app/view/**.html')
+
+            .pipe(cache('njk'))
+            // .pipe(remember('njk'))            
 
             .pipe(data(function(file) {
                 return JSON.parse(fs.readFileSync('./app/data/data.json'));
             }))            
             .pipe(nunjucksRender(nunjucksOptions))
             .pipe(beautify.html({ indent_size: 4 }))
+
 
             .pipe(gulp.dest('app/'))
             .pipe(bs.stream());

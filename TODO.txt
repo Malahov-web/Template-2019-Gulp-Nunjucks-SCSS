@@ -1,4 +1,7 @@
-Update js mw-libs - add copy_to_buffer
+Round values of font-size in mixin font_size_pro()
+19.10
+
++ Update js mw-libs - add copy_to_buffer
 20.08
 
 + Update screw.scss - add mixins width(), height()
