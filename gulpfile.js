@@ -290,19 +290,69 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
     // 3.8.2  NunjucksRender - 
     // Nunjucks.js
     let nunjucksOptions = {
-        path: ['app/view/'],
+        path: ['app/view/'], // +
+        // path: ['app/view/**/'], //
         // path: ['app/view/**.html'], // попробуем взять все файлы дял правильного кэширования
+        // path: ['app/view/**/*.html'], // попробуем взять все файлы во всех подпапках
         // data: infoData
     };
 
     gulp.task('nunjucksRender', function () {
 
         // return gulp.src('src/templates/*.html')
-        return gulp.src('app/view/*.html')
+        return gulp.src('app/view/*.html') // +
         // return gulp.src('app/view/**.html')
+        // return gulp.src('app/view/**/*.html')
+        // return gulp.src('app/view/*.html')
 
-            .pipe(cache('njk'))
-            // .pipe(remember('njk'))            
+
+            // .pipe(gulpif(condition, uglify()) ) // condition block-when-true, block-when-false
+
+            // .pipe(gulpif( file.path === style.scss, console.log('Это style.scss') , console.log('Это не css')  ) )
+
+            // .pipe(
+            //     gulpif(
+            //         function (file) {
+            //             // return (file.relative === 'style.scss')   
+            //             // console.dir(file);  
+            //             console.log(file.path);  
+            //             console.log(file.relative );  
+            //             console.log(file.basename  );  
+            //             console.log(file.basename[0]  );  
+            //             console.log(file.extname );  
+            //             // console.log('ЭТО НАШ ФАЙЛ! ' +  file.path); 
+            //             // 
+            //             return 0;
+
+            //         } ,
+            //         // console.log('Это style.scss')
+            //         cache('njk')
+            //     )  
+            // )  
+
+            // Вариант C
+            .pipe(
+                gulpif(
+                    function (file) {
+                        // return (file.relative === 'style.scss')   
+                        // console.dir(file);  
+                        console.log(file.path);  
+                        console.log(file.relative );  
+                        console.log(file.basename  );  
+                        console.log(file.basename[0]  );  
+                        console.log(file.extname );  
+                        // console.log('ЭТО НАШ ФАЙЛ! ' +  file.path); 
+                        // 
+                        return 0;
+
+                    } ,
+                    // console.log('Это style.scss')
+                    cache('njk')
+                )  
+            ) 
+
+            // .pipe(cache('njk'))
+            
 
             .pipe(data(function(file) {
                 return JSON.parse(fs.readFileSync('./app/data/data.json'));
@@ -310,7 +360,7 @@ const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.
             .pipe(nunjucksRender(nunjucksOptions))
             .pipe(beautify.html({ indent_size: 4 }))
 
-
+// .pipe(remember('njk'))
             .pipe(gulp.dest('app/'))
             .pipe(bs.stream());
     });

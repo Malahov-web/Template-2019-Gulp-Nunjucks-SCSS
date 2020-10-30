@@ -4,7 +4,6 @@
   "description": "Project description",
   "main": "gulpfile.js",
   "dependencies": {
-    "bourbon": "^7.0.0",
     "del": "^4.0.0",
     "fs": "0.0.1-security",
     "gulp-clean-css": "^4.3.0",
@@ -17,6 +16,7 @@
   },
   "devDependencies": {
     "async": "^2.6.2",
+    "bourbon": "^7.0.0",
     "browser-sync": "^2.26.3",
     "glob": "^7.1.3",
     "gulp": "^4.0.2",

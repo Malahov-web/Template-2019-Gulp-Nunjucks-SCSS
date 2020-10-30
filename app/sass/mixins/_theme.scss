@@ -120,7 +120,15 @@
 // }
 
 
+                    
 // Set font-size for each device from $fonts to @media selectors
+//
+// settings:
+$settings_font_size_pro: (
+    round_values: 1, // [0, 1], boolean
+);
+//
+
 @mixin font_size_pro ($type) {
 
     $curr_font_size : 0;
@@ -139,7 +147,19 @@
 
             // @media (min-width: #{map-get($devices, $fonts_device)}px) {                
             @media (min-width: #{  bp($fonts_device) }px) {                
-                font-size: map-get($fonts_obj, $type);
+                // font-size: map-get($fonts_obj, $type);
+
+
+                $font_size: map-get($fonts_obj, $type);
+                // font-size: $font_size;
+                // font-size:   round($font_size) ;
+
+                @if  map-get($settings_font_size_pro, round_values) == 1  {
+                    font-size:   round($font_size) ;
+                } @else {
+                    font-size: $font_size;
+                }
+
             }
 
         } // @if
@@ -148,7 +168,6 @@
     } // @each
 
 }
-
 
 
 

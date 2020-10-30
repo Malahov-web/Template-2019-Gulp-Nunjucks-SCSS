@@ -1,3 +1,9 @@
+30.10
+  Update _theme.scss - mixin font_size_pro(): round values (1)
+
+21.10
+  Update gulpfile.js - task nunjucksRender, cache, remember, Кэширование Gulp.txt (3)
+
 21.08
   Update js mw-libs - add copy_to_buffer (1)
 

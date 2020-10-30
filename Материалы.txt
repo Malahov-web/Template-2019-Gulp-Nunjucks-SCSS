@@ -1,0 +1,3 @@
+Gulp - фильтрация для nunjucks-render
+https://github.com/waynebloss/gulp-nunjucks-api/issues/2
+https://github.com/carlitoplatanito/gulp-nunjucks-render/issues/24
