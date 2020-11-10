@@ -8,7 +8,8 @@
  * 7. image_center_contain
  * 8. text_overflow
  * 9. bg_clip_text
- * 10. set_bg_adaptive
+ * 10. text_vertical()
+ * 11. set_bg_adaptive
  * 0.
  */
 
@@ -123,6 +124,51 @@
     background-clip: text;
     color: transparent; 
     text-fill-color: transparent;
+}
+
+
+/*
+ * Set text wrigthing mode vertical, and align text
+ * Call: // text_vertical(center, '', ttb);
+*/
+
+// TODO: переделать через flex, чтобы добавить вертикальное позиционирование
+
+@mixin text_vertical ($position_x, $position_y: center, $direction: ttb) {
+
+    @if $position_x == left {
+        text-align: left;
+    }
+    @if $position_x == right {
+        text-align: right;
+    }
+    @if $position_x == center  {
+        text-align: center;
+    }
+
+    // @if position_y == true/false {
+        
+    // } @else if {
+        
+    // } @else {
+        
+    // }
+
+    vertical-align: middle;
+
+    .text-vertical {
+        vertical-align: bottom;
+
+        @if $direction == ttb {  // top to bottom
+            writing-mode: vertical-rl;
+            // transform: rotate(180deg);
+        }
+        @if $direction == btt {  // bottom to top
+            writing-mode: vertical-rl;
+            transform: rotate(180deg)
+        }        
+    }
+
 }
 
 

@@ -239,3 +239,98 @@
 }
 
 } /* media end*/
+
+
+
+
+
+
+/*
+writing-mode: 
+    writing-mode: vertical-rl;  //
+    writing-mode: vertical-lr;  // 
+ */
+.mb-md {
+    margin-bottom: 1*$l_h;
+
+}
+
+.text-vertical-outer {
+    margin-bottom: $l_h;
+}
+.text-vertical {
+
+    background-color: $grey_super_dark;
+    color: $grey_super_light;
+
+}
+.text-vertical-1 {
+    // writing-mode: horizontal-tb; // horiz by x, and direction is lfet to right
+    // direction: ltr; // ltr;
+    // direction: rtl; // ltr;
+    
+    writing-mode: vertical-rl;
+    // writing-mode: vertical-lr;
+}
+
+.text-vertical-2 {
+    width: 400px;
+    height: 300px;    
+    writing-mode: vertical-rl;
+}
+
+.text-vertical-3 {
+    display: inline-block;
+    writing-mode: vertical-lr;
+}
+
+
+.text-vertical-outer--fixed {
+    position: relative;
+    background-color: #493;
+    width: 50%;
+    height: 200px;
+
+    text-align: center;
+    text-align: left;
+    // text-align: right;    
+
+
+    @include flex(center, center);
+    .text-vertical {
+
+        // writing-mode: vertical-lr;
+        writing-mode: vertical-rl;
+    }
+}
+
+.text-vertical-outer--fixed-column {
+    position: relative;
+    background-color: #493;
+    width: 100px;
+    height: 300px;
+
+    @include text_vertical(left, '', ttb);
+
+
+
+    // text-align: center;
+    // // text-align: left;
+    // // text-align: right;
+
+    // .text-vertical {
+    //     // height: 200px; 
+    //     // float:right;
+    //     // writing-mode: vertical-lr;
+    //     writing-mode: vertical-rl;
+    //     text-align: right;
+    //     // transform: rotate(180deg)
+    // }    
+}
+
+/*
+text-align для контейнера перемещает текст в контейнере
+text-align для текстового элемента задает выравнивание
+*/
+
+

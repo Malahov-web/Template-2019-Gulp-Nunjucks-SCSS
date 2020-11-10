@@ -1,3 +1,6 @@
+09.11
+  Update screw.scss - add mixin text_vertical()  (1)
+
 30.10
   Update _theme.scss - mixin font_size_pro(): round values (1)
 
