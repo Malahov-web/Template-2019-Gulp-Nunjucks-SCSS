@@ -54,6 +54,8 @@ jQuery(document).ready(function($) {
 
     // dropdownList(); // +
 
+    // stickyElement(); // +
+
     // addAnimate(); // +
 
     // accordeonMobile(); // +

@@ -1,3 +1,6 @@
+3.12
+  Update js mw-libs - sticky-elements.js (0.5)
+
 09.11
   Update screw.scss - add mixin text_vertical()  (1)
 
